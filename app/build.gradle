@@ -1,0 +1,55 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "26.0.1"
+    configurations.all {
+        resolutionStrategy.force 'com.google.code.findbugs:jsr305:3.0.2'
+    }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+    defaultConfig {
+        applicationId "com.hodzi.stackviewer"
+        minSdkVersion 15
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
+}
+
+kotlin {
+    experimental {
+        coroutines 'enable'
+    }
+}
+
+apply from: 'deps.gradle'
+
+dependencies {
+    compile supportLibs
+    compile kotlinLibs
+    compile rxJavaLibs
+    compile retrofitLibs
+    compile okHttpLibs
+    compile stethoLibs
+    compile daggerLibs
+
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    testCompile testsLibs
+    testCompile kotlinTestLibs
+    androidTestCompile androidTestsLibs
+}
+
