@@ -11,7 +11,7 @@ class App : Application() {
         super.onCreate()
         initializeModules()
         Injector.inject(this)
-//        NetUtils.init(this)
+        NetUtils.init(this)
     }
 
 

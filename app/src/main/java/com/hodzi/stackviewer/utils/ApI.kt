@@ -5,6 +5,6 @@ import rx.Observable
 
 
 interface Api{
-    @GET("test")
-    fun signIn(): Observable<String>
+    @GET("/2.2/questions?order=desc&sort=activity&site=stackoverflow")
+    fun getQuestions(): Observable<String>
 }

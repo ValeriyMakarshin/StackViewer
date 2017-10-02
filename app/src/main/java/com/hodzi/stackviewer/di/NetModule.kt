@@ -1,17 +1,16 @@
 package com.hodzi.stackviewer.di
 
+import com.hodzi.stackviewer.NetUtils
 import com.stackviewer.medium.utils.Api
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
-import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 @Module
-public class NetModule(val  baseUrl: String) {
-
-    private val baseUrl1 = "12345"
+class NetModule {
+    private val baseUrl = "https://api.stackexchange.com/2.2"
 
     @Provides
     @Singleton
@@ -27,10 +26,7 @@ public class NetModule(val  baseUrl: String) {
     @Singleton
     fun provideClient(): OkHttpClient {
         return OkHttpClient.Builder()
-//                .addNetworkInterceptor(NetUtils.getInterceptor())
-                .connectTimeout(30, TimeUnit.SECONDS)
-                .readTimeout(30, TimeUnit.SECONDS)
-                .writeTimeout(30, TimeUnit.SECONDS)
+                .addNetworkInterceptor(NetUtils.interceptor)
                 .build()
     }
 }
