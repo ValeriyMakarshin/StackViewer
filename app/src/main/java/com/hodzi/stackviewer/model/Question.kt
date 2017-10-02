@@ -22,7 +22,6 @@ data class Question(
     @SerializedName("body") @Expose val body: String)
 
 
-
 //{
 //    "tags": [
 //    "windows",
