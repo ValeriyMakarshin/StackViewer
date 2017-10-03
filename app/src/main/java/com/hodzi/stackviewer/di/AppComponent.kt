@@ -9,6 +9,4 @@ import javax.inject.Singleton
 @Component(modules = arrayOf(AppModule::class, NetModule::class))
 interface AppComponent {
     fun plus(questionsModule: QuestionsModule): QuestionsComponent
-    fun plus(): QuestionsComponent
-
 }

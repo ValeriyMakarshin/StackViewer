@@ -6,6 +6,10 @@ import com.hodzi.stackviewer.questions.di.QuestionsComponent
 
 class Injector {
     companion object {
+        fun inject(app: App) {
+            app.getQuestionsComponent()?.inject(app)
+        }
+
         fun inject(questionsActivity: QuestionsActivity) {
             getQuestionsComponent(questionsActivity)?.inject(questionsActivity)
         }

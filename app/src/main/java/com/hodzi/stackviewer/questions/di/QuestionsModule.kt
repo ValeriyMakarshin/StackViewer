@@ -10,12 +10,9 @@ import javax.inject.Singleton
 @Module
 class QuestionsModule {
     @Provides @Singleton
-    fun provideQuestionsPresenter(questionsInteractor: QuestionsInteractor): QuestionsPresenter {
-        return QuestionsPresenter(questionsInteractor)
-    }
+    fun provideQuestionsPresenter(questionsInteractor: QuestionsInteractor): QuestionsPresenter =
+        QuestionsPresenter(questionsInteractor)
 
     @Provides @Singleton
-    fun provideQuestionsInteractor(api : Api): QuestionsInteractor {
-        return QuestionsInteractor(api)
-    }
+    fun provideQuestionsInteractor(api : Api): QuestionsInteractor = QuestionsInteractor(api)
 }

@@ -51,7 +51,7 @@ dependencies {
     compile retrofitLibs
     compile okHttpLibs
     compile stethoLibs
-    compile daggerLibs
+//    compile daggerLibs
 
     compile fileTree(dir: 'libs', include: ['*.jar'])
 

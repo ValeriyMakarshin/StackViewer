@@ -5,9 +5,9 @@ import android.support.v7.app.AppCompatActivity
 import com.hodzi.stackviewer.utils.ui.ActivityInfo
 import javax.inject.Inject
 
-abstract class BaseActivity<V : BaseView, P : BasePresenter<V>> : AppCompatActivity(), BaseView {
+public abstract class BaseActivity<V : BaseView, P : BasePresenter<V>> : AppCompatActivity(), BaseView {
 
-    @Inject public var presenter: P? = null
+    @Inject protected lateinit var presenter: P
 
     protected abstract fun getActivityInfo(): ActivityInfo
 
