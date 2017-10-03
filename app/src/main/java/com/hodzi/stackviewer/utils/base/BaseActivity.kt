@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 abstract class BaseActivity<V : BaseView, P : BasePresenter<V>> : AppCompatActivity(), BaseView {
 
-    @Inject protected var presenter: P? = null
+    @Inject public var presenter: P? = null
 
     protected abstract fun getActivityInfo(): ActivityInfo
 
