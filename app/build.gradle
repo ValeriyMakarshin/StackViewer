@@ -43,20 +43,17 @@ kapt {
 apply from: 'deps.gradle'
 
 dependencies {
-    compile "com.google.dagger:dagger:2.11"
-    compile "com.google.dagger:dagger-android:2.11"
-    compile "com.google.dagger:dagger-android-support:2.11"
-    kapt "com.google.dagger:dagger-compiler:2.11"
-    kapt "com.google.dagger:dagger-android-processor:2.11"
     compile supportLibs
     compile kotlinLibs
     compile rxJavaLibs
     compile retrofitLibs
     compile okHttpLibs
     compile stethoLibs
-//    compile daggerLibs
+    compile daggerLibs
 
     compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    kapt kaptLibs
 
     testCompile testsLibs
     testCompile kotlinTestLibs
