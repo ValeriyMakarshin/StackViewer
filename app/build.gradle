@@ -36,6 +36,9 @@ kotlin {
     }
 }
 
+kapt {
+    generateStubs = true
+}
 
 apply from: 'deps.gradle'
 

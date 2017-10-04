@@ -7,7 +7,7 @@ import com.hodzi.stackviewer.questions.di.QuestionsComponent
 class Injector {
     companion object {
         fun inject(app: App) {
-            app.getQuestionsComponent()?.inject(app)
+            app.appComponent.inject(app)
         }
 
         fun inject(questionsActivity: QuestionsActivity) {
@@ -15,7 +15,7 @@ class Injector {
         }
 
         private fun getQuestionsComponent(activity: QuestionsActivity): QuestionsComponent? {
-            return (activity.applicationContext as App).getQuestionsComponent()
+            return (activity.applicationContext as App).questionsComponent
         }
     }
 }
