@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity
 import com.hodzi.stackviewer.utils.ui.ActivityInfo
 import javax.inject.Inject
 
-public abstract class BaseActivity<V : BaseView, P : BasePresenter<V>> : AppCompatActivity(), BaseView {
+abstract class BaseActivity<V : BaseView, P : BasePresenter<V>> : AppCompatActivity(), BaseView {
 
     @Inject protected lateinit var presenter: P
 
@@ -20,8 +20,7 @@ public abstract class BaseActivity<V : BaseView, P : BasePresenter<V>> : AppComp
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeButtonEnabled(true)
 
-        presenter?.attach(this as V, intent.extras)
-        presenter?.p1()
+        presenter.attach(this as V, intent.extras)
     }
 
     protected abstract fun parseArguments(extras: Bundle)

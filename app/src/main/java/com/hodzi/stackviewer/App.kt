@@ -8,15 +8,15 @@ import com.hodzi.stackviewer.questions.di.QuestionsModule
 class App : Application() {
     val appComponent: AppComponent by lazy {
         DaggerAppComponent.builder()
-                .build()
-                .netModule(NetModule())
-                .appModule(AppModule(this))
+            .netModule(NetModule())
+            .appModule(AppModule(this))
+            .appModule(AppModule(this))
+            .build()
     }
 
     val questionsComponent: QuestionsComponent by lazy {
         appComponent.plus(QuestionsModule())
     }
-
 
     override fun onCreate() {
         super.onCreate()
