@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 abstract class BaseActivity<V : BaseView, P : BasePresenter<V>> : AppCompatActivity(), BaseView {
 
-    @Inject protected var presenter: P? = null
+    @Inject protected lateinit var presenter: P
 
     protected abstract fun getActivityInfo(): ActivityInfo
 
@@ -20,8 +20,7 @@ abstract class BaseActivity<V : BaseView, P : BasePresenter<V>> : AppCompatActiv
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeButtonEnabled(true)
 
-        presenter?.attach(this as V, intent.extras)
-        presenter?.p1()
+        presenter.attach(this as V, intent.extras)
     }
 
     protected abstract fun parseArguments(extras: Bundle)

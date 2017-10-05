@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 26
@@ -35,6 +36,10 @@ kotlin {
     }
 }
 
+kapt {
+    generateStubs = true
+}
+
 apply from: 'deps.gradle'
 
 dependencies {
@@ -48,8 +53,14 @@ dependencies {
 
     compile fileTree(dir: 'libs', include: ['*.jar'])
 
+    kapt kaptLibs
+
     testCompile testsLibs
     testCompile kotlinTestLibs
     androidTestCompile androidTestsLibs
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
 }
 

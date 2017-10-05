@@ -2,7 +2,7 @@ ext {
     versions = [
             support   : '26.1.0',
             constraint: '1.0.2',
-            kotlin    : '1.1.50',
+            kotlin    : '1.1.51',
             rxjava    : '2.1.4',
             rxandroid : '2.0.1',
             retrofit  : '2.3.0',
@@ -43,12 +43,18 @@ ext {
             urlconnection: "com.facebook.stetho:stetho-urlconnection:$versions.stetho"
     ]
     dagger = [
-            dagger: "com.google.dagger:dagger:$versions.dagger"
+            dagger          : "com.google.dagger:dagger:$versions.dagger",
+            daggerAndroid   : "com.google.dagger:dagger-android:$versions.dagger",
+            daggerAndroidSup: "com.google.dagger:dagger-android-support:$versions.dagger"
+    ]
+    kapt = [
+            compiler : "com.google.dagger:dagger-compiler:$versions.dagger",
+            processor: "com.google.dagger:dagger-android-processor:$versions.dagger"
     ]
     tests = [
 //            testRunner: "com.android.support.test:runner:$versions.test",
 //            rules     : "com.android.support.test:rules:$versions.test",
-dagger: "com.google.dagger:dagger-compiler:$versions.dagger",
+            dagger: "com.google.dagger:dagger-compiler:$versions.dagger",
     ]
     kotlinTest = [
             test     : "org.jetbrains.kotlin:kotlin-test:$versions.kotlin",
@@ -67,6 +73,7 @@ dagger: "com.google.dagger:dagger-compiler:$versions.dagger",
     okHttpLibs = okHttp.values()
     stethoLibs = stetho.values()
     daggerLibs = dagger.values()
+    kaptLibs = kapt.values()
     testsLibs = tests.values()
     kotlinTestLibs = kotlinTest.values() + kotlinLibs
     androidTestsLibs = androidTests.values() + supportLibs + testsLibs + kotlinTestLibs
