@@ -1,6 +1,8 @@
 package com.hodzi.stackviewer.di
 
 import com.hodzi.stackviewer.App
+import com.hodzi.stackviewer.main.MainActivity
+import com.hodzi.stackviewer.main.di.MainComponent
 import com.hodzi.stackviewer.questions.QuestionsActivity
 import com.hodzi.stackviewer.questions.di.QuestionsComponent
 
@@ -10,12 +12,18 @@ class Injector {
             app.appComponent.inject(app)
         }
 
-        fun inject(questionsActivity: QuestionsActivity) {
-            getQuestionsComponent(questionsActivity)?.inject(questionsActivity)
+        fun inject(mainActivity: MainActivity) {
+            getMainComponent(mainActivity).inject(mainActivity)
         }
 
-        private fun getQuestionsComponent(activity: QuestionsActivity): QuestionsComponent? {
-            return (activity.applicationContext as App).questionsComponent
+        fun inject(questionsActivity: QuestionsActivity) {
+            getQuestionsComponent(questionsActivity).inject(questionsActivity)
         }
+
+        private fun getMainComponent(mainActivity: MainActivity): MainComponent =
+            (mainActivity.applicationContext as App).mainComponent
+
+        private fun getQuestionsComponent(activity: QuestionsActivity): QuestionsComponent =
+            (activity.applicationContext as App).questionsComponent
     }
 }

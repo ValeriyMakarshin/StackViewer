@@ -4,11 +4,18 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import com.hodzi.stackviewer.R
+import com.hodzi.stackviewer.di.Injector
 import com.hodzi.stackviewer.utils.base.BaseActivity
 import com.hodzi.stackviewer.utils.ui.ActivityInfo
 
 class MainActivity : BaseActivity<MainView, MainPresenter>(), MainView {
     override fun getActivityInfo(): ActivityInfo = ActivityInfo(R.layout.activity_main)
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        Injector.inject(this)
+        super.onCreate(savedInstanceState)
+    }
 
     override fun parseArguments(extras: Bundle) {
 
