@@ -16,4 +16,8 @@ class QuestionsFragment: BaseFragment<QuestionsView, QuestionsPresenter>(), Ques
         Injector.inject(this)
         return super.onCreateView(inflater, container, savedInstanceState)
     }
+
+    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+    }
 }

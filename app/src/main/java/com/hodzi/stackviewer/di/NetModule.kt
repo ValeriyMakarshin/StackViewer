@@ -10,7 +10,7 @@ import javax.inject.Singleton
 
 @Module
 class NetModule {
-    private val baseUrl = "https://api.stackexchange.com/2.2"
+    private val baseUrl = "https://api.stackexchange.com/2.2/"
 
     @Provides
     @Singleton

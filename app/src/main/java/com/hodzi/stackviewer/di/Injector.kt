@@ -1,6 +1,7 @@
 package com.hodzi.stackviewer.di
 
 import android.app.Activity
+import android.content.Context
 import com.hodzi.stackviewer.App
 import com.hodzi.stackviewer.main.MainActivity
 import com.hodzi.stackviewer.main.di.MainComponent
@@ -18,13 +19,13 @@ class Injector {
         }
 
         fun inject(questionsFragment: QuestionsFragment) {
-            getQuestionsComponent(questionsFragment.activity).inject(questionsFragment.activity)
+            getQuestionsComponent(questionsFragment.context).inject(questionsFragment)
         }
 
         private fun getMainComponent(activity: Activity): MainComponent =
             (activity.applicationContext as App).mainComponent
 
-        private fun getQuestionsComponent(activity: Activity): QuestionsComponent =
-            (activity.applicationContext as App).questionsComponent
+        private fun getQuestionsComponent(context: Context): QuestionsComponent =
+            (context.applicationContext as App).questionsComponent
     }
 }
