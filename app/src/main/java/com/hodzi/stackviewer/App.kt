@@ -2,6 +2,8 @@ package com.hodzi.stackviewer
 
 import android.app.Application
 import com.hodzi.stackviewer.di.*
+import com.hodzi.stackviewer.main.di.MainComponent
+import com.hodzi.stackviewer.main.di.MainModule
 import com.hodzi.stackviewer.questions.di.QuestionsComponent
 import com.hodzi.stackviewer.questions.di.QuestionsModule
 
@@ -10,8 +12,11 @@ class App : Application() {
         DaggerAppComponent.builder()
             .netModule(NetModule())
             .appModule(AppModule(this))
-            .appModule(AppModule(this))
             .build()
+    }
+
+    val mainComponent: MainComponent by lazy {
+        appComponent.plus(MainModule())
     }
 
     val questionsComponent: QuestionsComponent by lazy {
