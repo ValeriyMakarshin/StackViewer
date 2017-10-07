@@ -60,23 +60,23 @@ class MainActivity : BaseActivity<MainView, MainPresenter>(),
     }
 
 
-
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         // Handle navigation view item clicks here.
         val id = item.itemId
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        when (id) {
+            R.id.nav_questions -> {
 
-        } else if (id == R.id.nav_slideshow) {
+            }
+            R.id.nav_tags -> {
 
-        } else if (id == R.id.nav_manage) {
+            }
+            R.id.nav_users -> {
 
-        } else if (id == R.id.nav_share) {
+            }
+            R.id.nav_settings -> {
 
-        } else if (id == R.id.nav_send) {
-
+            }
         }
 
         uiMainDl.closeDrawer(GravityCompat.START)
