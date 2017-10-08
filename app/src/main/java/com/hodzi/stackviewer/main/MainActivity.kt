@@ -3,6 +3,7 @@ package com.hodzi.stackviewer.main
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentManager
 import android.support.v4.view.GravityCompat
 import android.support.v7.app.ActionBarDrawerToggle
 import android.view.Menu
@@ -16,12 +17,12 @@ import com.hodzi.stackviewer.utils.ui.ActivityInfo
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.view_toolbar.*
 
+private const val SCREEN_KEY = "screenKey"
+
 class MainActivity : BaseActivity<MainView, MainPresenter>(),
     MainView, NavigationView.OnNavigationItemSelectedListener {
-    private val INDEX_QUSETIONS= 0
-    private val INDEX_TAGS = 1
-    private val INDEX_USERS = 2
-    private val INDEX_SETTINGS = 3
+
+    private var lastScreen: Int = 0
 
 
     override fun getActivityInfo(): ActivityInfo =
@@ -69,10 +70,16 @@ class MainActivity : BaseActivity<MainView, MainPresenter>(),
 
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
-        // Handle navigation view item clicks here.
+        uiMainDl.closeDrawer(GravityCompat.START)
+
         val id = item.itemId
 
         var fragment: Fragment? = null
+
+        if (id != lastScreen)
+            lastScreen = id
+        else
+            return true
 
         when (id) {
             R.id.nav_questions -> {
@@ -90,18 +97,28 @@ class MainActivity : BaseActivity<MainView, MainPresenter>(),
         }
 
         if (fragment != null)
-            goToFragment(fragment)
+            openFragment(fragment)
 
-        uiMainDl.closeDrawer(GravityCompat.START)
         return true
     }
 
-    private fun goToFragment(fragment: Fragment){
-        supportFragmentManager.beginTransaction()
+    private fun openFragment(fragment: Fragment = QuestionsFragment()) {
+        supportFragmentManager
+            .popBackStack(fragment.tag, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+        supportFragmentManager
+            .beginTransaction()
             .setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out)
             .replace(R.id.uiContentFl, fragment)
-            .addToBackStack(fragment.toString())
             .commit()
+    }
 
+    override fun onSaveInstanceState(outState: Bundle?) {
+        outState?.putInt(SCREEN_KEY, lastScreen)
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        lastScreen = savedInstanceState?.getInt(SCREEN_KEY, 0)!!
+        super.onRestoreInstanceState(savedInstanceState)
     }
 }
