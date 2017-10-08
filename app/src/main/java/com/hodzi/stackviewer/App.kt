@@ -6,6 +6,8 @@ import com.hodzi.stackviewer.main.di.MainComponent
 import com.hodzi.stackviewer.main.di.MainModule
 import com.hodzi.stackviewer.questions.di.QuestionsComponent
 import com.hodzi.stackviewer.questions.di.QuestionsModule
+import com.hodzi.stackviewer.tags.di.TagsComponent
+import com.hodzi.stackviewer.tags.di.TagsModule
 
 class App : Application() {
     val appComponent: AppComponent by lazy {
@@ -21,6 +23,10 @@ class App : Application() {
 
     val questionsComponent: QuestionsComponent by lazy {
         appComponent.plus(QuestionsModule())
+    }
+
+    val tagsComponent: TagsComponent by lazy {
+        appComponent.plus(TagsModule())
     }
 
     override fun onCreate() {

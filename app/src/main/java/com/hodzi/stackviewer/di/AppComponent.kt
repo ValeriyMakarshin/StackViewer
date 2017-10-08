@@ -5,6 +5,8 @@ import com.hodzi.stackviewer.main.di.MainComponent
 import com.hodzi.stackviewer.main.di.MainModule
 import com.hodzi.stackviewer.questions.di.QuestionsComponent
 import com.hodzi.stackviewer.questions.di.QuestionsModule
+import com.hodzi.stackviewer.tags.di.TagsComponent
+import com.hodzi.stackviewer.tags.di.TagsModule
 import dagger.Component
 import javax.inject.Singleton
 
@@ -17,4 +19,6 @@ interface AppComponent {
     fun plus(mainModule: MainModule): MainComponent
 
     fun plus(questionsModule: QuestionsModule): QuestionsComponent
+
+    fun plus(tagsModule: TagsModule): TagsComponent
 }

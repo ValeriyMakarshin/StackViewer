@@ -10,6 +10,7 @@ import android.view.MenuItem
 import com.hodzi.stackviewer.R
 import com.hodzi.stackviewer.di.Injector
 import com.hodzi.stackviewer.questions.QuestionsFragment
+import com.hodzi.stackviewer.tags.TagsFragment
 import com.hodzi.stackviewer.utils.base.BaseActivity
 import com.hodzi.stackviewer.utils.ui.ActivityInfo
 import kotlinx.android.synthetic.main.activity_main.*
@@ -78,7 +79,7 @@ class MainActivity : BaseActivity<MainView, MainPresenter>(),
                 fragment = QuestionsFragment()
             }
             R.id.nav_tags -> {
-
+                fragment = TagsFragment()
             }
             R.id.nav_users -> {
 
