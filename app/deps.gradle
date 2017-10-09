@@ -30,7 +30,7 @@ ext {
     ]
     retrofit = [
             retrofit     : "com.squareup.retrofit2:retrofit:$versions.retrofit",
-            rxAdapter    : "com.squareup.retrofit2:adapter-rxjava:$versions.retrofit",
+            rxAdapter    : "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit",
             gsonConverter: "com.squareup.retrofit2:converter-gson:$versions.retrofit"
     ]
     okHttp = [

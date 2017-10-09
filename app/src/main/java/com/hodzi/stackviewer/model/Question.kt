@@ -19,7 +19,7 @@ data class Question(
     @SerializedName("question_id") @Expose val questionId: Int,
     @SerializedName("link") @Expose val link: String,
     @SerializedName("title") @Expose val title: String,
-    @SerializedName("body") @Expose val body: String)
+    @SerializedName("body") @Expose val body: String) : Data
 
 
 //{

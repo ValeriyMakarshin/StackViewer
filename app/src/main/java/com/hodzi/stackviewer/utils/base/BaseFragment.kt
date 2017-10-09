@@ -34,4 +34,9 @@ abstract class BaseFragment<V : BaseView, P : BasePresenter<V>> : Fragment(), Ba
             setHasOptionsMenu(true)
         }
     }
+
+    override fun onStop() {
+        presenter.detach();
+        super.onStop()
+    }
 }

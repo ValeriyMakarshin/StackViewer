@@ -1,10 +1,10 @@
 package com.stackviewer.medium.utils
 
+import com.hodzi.stackviewer.model.Block
+import io.reactivex.Observable
 import retrofit2.http.GET
-import rx.Observable
 
-
-interface Api{
+interface Api {
     @GET("/2.2/questions?order=desc&sort=activity&site=stackoverflow")
-    fun getQuestions(): Observable<String>
+    fun getQuestions(): Observable<Block>
 }
