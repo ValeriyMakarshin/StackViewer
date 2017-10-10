@@ -2,8 +2,8 @@ package com.hodzi.stackviewer.utils.base
 
 import android.os.Bundle
 import android.support.annotation.CallSuper
-import android.util.Log
 import com.hodzi.stackviewer.model.Block
+import com.hodzi.stackviewer.model.Data
 import com.hodzi.stackviewer.model.Question
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -22,7 +22,8 @@ abstract class BasePresenter<V : BaseView> {
         this.bundle = bundle
     }
 
-    fun baseObservableListDefaultError(observable: Observable<Block<Question>>) {
+    fun baseObservableListDefaultError(observable: Observable<Block<Question>>,
+                                       function: (Block<Data>) -> Unit) {
         if (disposable != null) return
         disposable = observable
             .subscribeOn(Schedulers.io())
@@ -41,8 +42,8 @@ abstract class BasePresenter<V : BaseView> {
                 }
                 null
             })
-            .subscribe({
-                Log.e("132", "1")
+            .subscribe({ block ->
+                function(block)
             })
 
     }

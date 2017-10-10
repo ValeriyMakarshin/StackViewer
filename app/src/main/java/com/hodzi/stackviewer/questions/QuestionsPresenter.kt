@@ -8,6 +8,7 @@ class QuestionsPresenter(val questionsInteractor: QuestionsInteractor)
     override fun attach(v: QuestionsView, bundle: Bundle?) {
         super.attach(v, bundle)
 
-        baseObservableListDefaultError(questionsInteractor.getAllQuestions())
+        baseObservableListDefaultError(questionsInteractor.getAllQuestions(), {block ->
+            view?.showArray(block.items.toTypedArray())})
     }
 }

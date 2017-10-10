@@ -12,7 +12,7 @@ class QuestionHolder(itemView: View) : BaseHolder<Question>(itemView) {
         fun creator(): (ViewGroup?) -> QuestionHolder =
             { viewGroup ->
                 QuestionHolder(LayoutInflater.from(viewGroup?.context)
-                    .inflate(R.layout.item_question_preview, viewGroup))
+                    .inflate(R.layout.item_question_preview, viewGroup, false))
             }
     }
 
