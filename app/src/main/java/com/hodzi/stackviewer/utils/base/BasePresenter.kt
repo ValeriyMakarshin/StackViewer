@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.annotation.CallSuper
 import android.util.Log
 import com.hodzi.stackviewer.model.Block
+import com.hodzi.stackviewer.model.Question
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
@@ -21,7 +22,7 @@ abstract class BasePresenter<V : BaseView> {
         this.bundle = bundle
     }
 
-    fun baseObservableListDefaultError(observable: Observable<Block>) {
+    fun baseObservableListDefaultError(observable: Observable<Block<Question>>) {
         if (disposable != null) return
         disposable = observable
             .subscribeOn(Schedulers.io())
