@@ -17,10 +17,12 @@ import com.hodzi.stackviewer.utils.ui.ActivityInfo
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.view_toolbar.*
 
-private const val SCREEN_KEY = "screenKey"
 
 class MainActivity : BaseActivity<MainView, MainPresenter>(),
     MainView, NavigationView.OnNavigationItemSelectedListener {
+    companion object {
+        private const val SCREEN_KEY = "screenKey"
+    }
 
     private var lastScreen: Int = 0
 
@@ -74,32 +76,31 @@ class MainActivity : BaseActivity<MainView, MainPresenter>(),
 
         val id = item.itemId
 
-        var fragment: Fragment? = null
-
         if (id != lastScreen)
             lastScreen = id
         else
             return true
 
-        when (id) {
-            R.id.nav_questions -> {
-                fragment = QuestionsFragment()
-            }
-            R.id.nav_tags -> {
-                fragment = TagsFragment()
-            }
-            R.id.nav_users -> {
-
-            }
-            R.id.nav_settings -> {
-
-            }
-        }
-
-        if (fragment != null)
-            openFragment(fragment)
-
+        startFragment(id)
         return true
+    }
+
+    private fun startFragment(id: Int){
+        val fragment: Fragment? =
+            when (id) {
+                R.id.nav_questions -> {
+                    QuestionsFragment()
+                }
+                R.id.nav_tags -> {
+                    TagsFragment()
+                }
+                else -> {
+                    QuestionsFragment()
+                }
+            }
+
+        if (fragment != null )
+            openFragment(fragment)
     }
 
     private fun openFragment(fragment: Fragment = QuestionsFragment()) {
@@ -118,7 +119,12 @@ class MainActivity : BaseActivity<MainView, MainPresenter>(),
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
-        lastScreen = savedInstanceState?.getInt(SCREEN_KEY, 0)!!
+        lastScreen = savedInstanceState?.getInt(SCREEN_KEY, R.id.nav_questions)!!
         super.onRestoreInstanceState(savedInstanceState)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        startFragment(lastScreen)
     }
 }
