@@ -19,10 +19,15 @@ abstract class BasePresenter<V : BaseView> {
     open fun attach(v: V, bundle: Bundle? = null) {
         this.view = v
         this.bundle = bundle
+        loadData()
+    }
+
+    protected open fun loadData() {
+
     }
 
     fun <T : Data> baseObservableListDefaultError(observable: Observable<Block<T>>,
-                                           function: (Block<T>) -> Unit) {
+                                                  function: (Block<T>) -> Unit) {
         if (disposable != null) return
         disposable = observable
             .subscribeOn(Schedulers.io())
