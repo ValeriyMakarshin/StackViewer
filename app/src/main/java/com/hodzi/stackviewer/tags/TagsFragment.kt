@@ -11,24 +11,22 @@ import com.hodzi.stackviewer.di.Injector
 import com.hodzi.stackviewer.model.Tag
 import com.hodzi.stackviewer.utils.base.BaseFragment
 import com.hodzi.stackviewer.utils.ui.ActivityInfo
+import com.hodzi.stackviewer.utils.ui.ActivityListInfo
 import kotlinx.android.synthetic.main.fragment_tags.*
+import kotlinx.android.synthetic.main.view_progress_bar.*
 
 class TagsFragment : BaseFragment<TagsView, TagsPresenter>(), TagsView {
     override fun showArray(array: Array<Tag>) {
         uiTagsRv.adapter = TagsRRAdapter(array)
     }
 
-    override fun getActivityInfo(): ActivityInfo = ActivityInfo(R.layout.fragment_tags)
+    override fun getActivityInfo(): ActivityInfo = ActivityInfo(R.layout.fragment_tags,
+        activityListInfo = ActivityListInfo(uiTagsRv, uiProgressBar))
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         Injector.inject(this)
         return super.onCreateView(inflater, container, savedInstanceState)
-    }
-
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        uiTagsRv.layoutManager = LinearLayoutManager(context)
     }
 
 }
