@@ -1,6 +1,7 @@
 package com.hodzi.stackviewer.users
 
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,5 +28,6 @@ class UsersFragment : BaseFragment<UsersView, UsersPresenter>(), UsersView {
 
     override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        uiUsersRv.layoutManager = LinearLayoutManager(context)
     }
 }
