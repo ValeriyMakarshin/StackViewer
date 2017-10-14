@@ -12,6 +12,7 @@ import com.hodzi.stackviewer.R
 import com.hodzi.stackviewer.di.Injector
 import com.hodzi.stackviewer.questions.QuestionsFragment
 import com.hodzi.stackviewer.tags.TagsFragment
+import com.hodzi.stackviewer.users.UsersFragment
 import com.hodzi.stackviewer.utils.base.BaseActivity
 import com.hodzi.stackviewer.utils.ui.ActivityInfo
 import kotlinx.android.synthetic.main.activity_main.*
@@ -85,7 +86,7 @@ class MainActivity : BaseActivity<MainView, MainPresenter>(),
         return true
     }
 
-    private fun startFragment(id: Int){
+    private fun startFragment(id: Int) {
         val fragment: Fragment? =
             when (id) {
                 R.id.nav_questions -> {
@@ -94,12 +95,15 @@ class MainActivity : BaseActivity<MainView, MainPresenter>(),
                 R.id.nav_tags -> {
                     TagsFragment()
                 }
+                R.id.nav_users -> {
+                    UsersFragment()
+                }
                 else -> {
                     QuestionsFragment()
                 }
             }
 
-        if (fragment != null )
+        if (fragment != null)
             openFragment(fragment)
     }
 
