@@ -17,4 +17,20 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="BasePointerTextView">
+        <item name="android:ems">3</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+    <style name="ActivePointerTextView" parent="BasePointerTextView">
+        <item name="android:background">@drawable/border_green</item>
+        <item name="android:textColor">@color/colorPaleSky</item>
+    </style>
+
+    <style name="FinishPointerTextView" parent="BasePointerTextView">
+        <item name="android:background">@drawable/border_green_finished</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
 </resources>
