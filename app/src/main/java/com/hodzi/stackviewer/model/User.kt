@@ -25,4 +25,4 @@ class User(
     @SerializedName("link") @Expose val link: String? = null,
     @SerializedName("profile_image") @Expose val profileImage: String? = null,
     @SerializedName("display_name") @Expose val displayName: String? = null
-)
+) : Data()

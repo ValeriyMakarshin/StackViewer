@@ -1,4 +1,4 @@
-package com.hodzi.stackviewer.tags
+package com.hodzi.stackviewer.adapters.holders
 
 import android.view.LayoutInflater
 import android.view.View

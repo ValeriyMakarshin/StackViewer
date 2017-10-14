@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.hodzi.stackviewer.R
+import com.hodzi.stackviewer.adapters.QuestionsRRAdapter
 import com.hodzi.stackviewer.di.Injector
 import com.hodzi.stackviewer.model.Question
 import com.hodzi.stackviewer.utils.base.BaseFragment
@@ -14,7 +15,7 @@ import kotlinx.android.synthetic.main.fragment_questions.*
 
 class QuestionsFragment : BaseFragment<QuestionsView, QuestionsPresenter>(), QuestionsView {
     override fun showArray(array: Array<Question>) {
-        uiQuestionsRv.adapter = QuestionsAdapter(array)
+        uiQuestionsRv.adapter = QuestionsRRAdapter(array)
     }
 
     override fun getActivityInfo(): ActivityInfo = ActivityInfo(R.layout.fragment_questions)

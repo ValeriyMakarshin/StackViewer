@@ -1,4 +1,4 @@
-package com.hodzi.stackviewer.questions
+package com.hodzi.stackviewer.adapters.holders
 
 import android.annotation.TargetApi
 import android.graphics.Color
