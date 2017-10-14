@@ -9,15 +9,10 @@ import android.view.ViewGroup
 import com.hodzi.stackviewer.utils.ui.ActivityInfo
 import javax.inject.Inject
 
-
-
-
-
 abstract class BaseFragment<V : BaseView, P : BasePresenter<V>> : Fragment(), BaseView {
     @Inject protected lateinit var presenter: P
 
     protected abstract fun getActivityInfo(): ActivityInfo
-
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? =
@@ -34,6 +29,7 @@ abstract class BaseFragment<V : BaseView, P : BasePresenter<V>> : Fragment(), Ba
             setHasOptionsMenu(true)
         }
     }
+
 
     override fun onStop() {
         presenter.detach();

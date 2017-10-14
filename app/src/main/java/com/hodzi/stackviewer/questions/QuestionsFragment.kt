@@ -7,15 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import com.hodzi.stackviewer.R
 import com.hodzi.stackviewer.di.Injector
-import com.hodzi.stackviewer.model.Data
 import com.hodzi.stackviewer.model.Question
 import com.hodzi.stackviewer.utils.base.BaseFragment
 import com.hodzi.stackviewer.utils.ui.ActivityInfo
 import kotlinx.android.synthetic.main.fragment_questions.*
 
-class QuestionsFragment: BaseFragment<QuestionsView, QuestionsPresenter>(), QuestionsView {
-    override fun showArray(array: Array<Data>) {
-        uiQuestionsRv.adapter = QuestionAdapter(array.map { data -> data as Question }.toTypedArray() )
+class QuestionsFragment : BaseFragment<QuestionsView, QuestionsPresenter>(), QuestionsView {
+    override fun showArray(array: Array<Question>) {
+        uiQuestionsRv.adapter = QuestionsAdapter(array)
     }
 
     override fun getActivityInfo(): ActivityInfo = ActivityInfo(R.layout.fragment_questions)

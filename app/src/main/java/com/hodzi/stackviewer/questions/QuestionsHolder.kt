@@ -13,11 +13,11 @@ import com.hodzi.stackviewer.utils.setBackgroundEx
 import kotlinx.android.synthetic.main.item_question_preview.view.*
 
 
-class QuestionHolder(itemView: View) : BaseHolder<Question>(itemView) {
+class QuestionsHolder(itemView: View) : BaseHolder<Question>(itemView) {
     companion object {
-        fun creator(): (ViewGroup?) -> QuestionHolder =
+        fun creator(): (ViewGroup?) -> QuestionsHolder =
             { viewGroup ->
-                QuestionHolder(LayoutInflater.from(viewGroup?.context)
+                QuestionsHolder(LayoutInflater.from(viewGroup?.context)
                     .inflate(R.layout.item_question_preview, viewGroup, false))
             }
     }
