@@ -25,5 +25,10 @@ abstract class BaseActivity<V : BaseView, P : BasePresenter<V>> : AppCompatActiv
         presenter.attach(this as V, intent.extras)
     }
 
+    override fun onStop() {
+        presenter.detach();
+        super.onStop()
+    }
+
     protected abstract fun parseArguments(extras: Bundle)
 }

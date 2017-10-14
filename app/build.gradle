@@ -37,6 +37,10 @@ kotlin {
     }
 }
 
+androidExtensions {
+    experimental = true
+}
+
 kapt {
     generateStubs = true
 }
