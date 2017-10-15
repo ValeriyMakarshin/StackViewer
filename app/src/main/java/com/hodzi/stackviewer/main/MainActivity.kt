@@ -1,5 +1,6 @@
 package com.hodzi.stackviewer.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v4.app.Fragment
@@ -10,6 +11,7 @@ import android.view.Menu
 import android.view.MenuItem
 import com.hodzi.stackviewer.R
 import com.hodzi.stackviewer.di.Injector
+import com.hodzi.stackviewer.login.LoginActivity
 import com.hodzi.stackviewer.questions.QuestionsFragment
 import com.hodzi.stackviewer.tags.TagsFragment
 import com.hodzi.stackviewer.users.UsersFragment
@@ -54,7 +56,8 @@ class MainActivity : BaseActivity<MainView, MainPresenter>(),
 
 
         return if (id == R.id.action_settings) {
-            true
+            startActivity(Intent(this, LoginActivity::class.java))
+            return true
         } else super.onOptionsItemSelected(item)
 
     }
