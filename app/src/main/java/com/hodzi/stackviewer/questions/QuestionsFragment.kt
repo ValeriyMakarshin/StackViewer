@@ -20,9 +20,10 @@ class QuestionsFragment : BaseFragment<QuestionsView, QuestionsPresenter>(), Que
     }
 
     override fun getActivityInfo(): ActivityInfo = ActivityInfo(R.layout.fragment_questions,
-        activityListInfo = ActivityListInfo(uiQuestionsRv, uiProgressBar))
+        activityListInfo = ActivityListInfo(uiProgressBar, uiQuestionsRv))
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
         Injector.inject(this)
         return super.onCreateView(inflater, container, savedInstanceState)
     }

@@ -5,5 +5,5 @@ import android.support.v7.widget.RecyclerView
 import android.widget.Button
 import android.widget.ProgressBar
 
-class ActivityListInfo(val recyclerView: RecyclerView? = null, val processbar: ProgressBar? = null,
+class ActivityListInfo(val processbar: ProgressBar? = null, val recyclerView: RecyclerView? = null,
                        val swipeLayout: SwipeRefreshLayout? = null, val updateList: Button? = null)

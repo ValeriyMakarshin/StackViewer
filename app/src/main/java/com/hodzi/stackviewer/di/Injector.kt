@@ -10,6 +10,7 @@ import com.hodzi.stackviewer.questions.di.QuestionsComponent
 import com.hodzi.stackviewer.tags.TagsFragment
 import com.hodzi.stackviewer.tags.di.TagsComponent
 import com.hodzi.stackviewer.users.UsersFragment
+import com.hodzi.stackviewer.users.detail.UserDetailActivity
 import com.hodzi.stackviewer.users.di.UsersComponent
 
 class Injector {
@@ -33,6 +34,11 @@ class Injector {
         fun inject(usersFragment: UsersFragment) {
             getUsersComponent(usersFragment.context).inject(usersFragment)
         }
+
+        fun inject(userDetailActivity: UserDetailActivity) {
+            getUsersComponent(userDetailActivity).inject(userDetailActivity)
+        }
+
 
         private fun getMainComponent(activity: Activity): MainComponent =
             (activity.applicationContext as App).mainComponent

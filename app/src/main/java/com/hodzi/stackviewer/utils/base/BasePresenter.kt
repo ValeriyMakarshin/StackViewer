@@ -19,6 +19,9 @@ abstract class BasePresenter<V : BaseView> {
     open fun attach(v: V, bundle: Bundle? = null) {
         this.view = v
         this.bundle = bundle
+        if (bundle != null) {
+            parseArguments(bundle)
+        }
         loadData()
     }
 
@@ -50,6 +53,9 @@ abstract class BasePresenter<V : BaseView> {
 
     }
 
+    protected fun parseArguments(extras: Bundle){
+
+    }
 
     fun detach() {
         unsubscribeSubscription()

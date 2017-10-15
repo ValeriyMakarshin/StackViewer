@@ -50,8 +50,6 @@ abstract class BaseActivity<V : BaseView, P : BasePresenter<V>> : AppCompatActiv
         activityListInfo?.processbar?.visibility = View.GONE
     }
 
-    protected abstract fun parseArguments(extras: Bundle)
-
     override fun hideKeyboard() {
         KeyboardUtil.hide(this)
     }

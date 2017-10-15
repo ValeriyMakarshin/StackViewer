@@ -20,11 +20,13 @@ class UsersFragment : BaseFragment<UsersView, UsersPresenter>(), UsersView {
     }
 
     override fun getActivityInfo(): ActivityInfo = ActivityInfo(R.layout.fragment_users,
-        activityListInfo = ActivityListInfo(uiUsersRv, uiProgressBar))
+        activityListInfo = ActivityListInfo(uiProgressBar, uiUsersRv))
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         Injector.inject(this)
         return super.onCreateView(inflater, container, savedInstanceState)
     }
+
+
 }

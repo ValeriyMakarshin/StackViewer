@@ -1,7 +1,6 @@
 package com.hodzi.stackviewer.tags
 
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,7 +20,7 @@ class TagsFragment : BaseFragment<TagsView, TagsPresenter>(), TagsView {
     }
 
     override fun getActivityInfo(): ActivityInfo = ActivityInfo(R.layout.fragment_tags,
-        activityListInfo = ActivityListInfo(uiTagsRv, uiProgressBar))
+        activityListInfo = ActivityListInfo(uiProgressBar, uiTagsRv))
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {

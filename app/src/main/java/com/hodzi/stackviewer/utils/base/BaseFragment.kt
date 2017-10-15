@@ -39,7 +39,6 @@ abstract class BaseFragment<V : BaseView, P : BasePresenter<V>> : Fragment(), Ba
         }
     }
 
-
     override fun onStop() {
         presenter.detach()
         super.onStop()
@@ -59,4 +58,5 @@ abstract class BaseFragment<V : BaseView, P : BasePresenter<V>> : Fragment(), Ba
     override fun hideKeyboard() {
         KeyboardUtil.hide(activity)
     }
+
 }
