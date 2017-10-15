@@ -4,7 +4,7 @@ import com.hodzi.stackviewer.StackScope
 import com.hodzi.stackviewer.users.UsersInteractor
 import com.hodzi.stackviewer.users.UsersPresenter
 import com.hodzi.stackviewer.users.detail.UserDetailPresenter
-import com.stackviewer.medium.utils.Api
+import com.hodzi.stackviewer.utils.Api
 import dagger.Module
 import dagger.Provides
 

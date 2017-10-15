@@ -1,4 +1,4 @@
-package com.stackviewer.medium.utils
+package com.hodzi.stackviewer.utils
 
 import com.hodzi.stackviewer.model.Block
 import com.hodzi.stackviewer.model.Question

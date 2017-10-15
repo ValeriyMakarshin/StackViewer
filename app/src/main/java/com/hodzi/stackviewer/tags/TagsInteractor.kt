@@ -2,7 +2,7 @@ package com.hodzi.stackviewer.tags
 
 import com.hodzi.stackviewer.model.Block
 import com.hodzi.stackviewer.model.Tag
-import com.stackviewer.medium.utils.Api
+import com.hodzi.stackviewer.utils.Api
 import io.reactivex.Observable
 
 class TagsInteractor(val api: Api) {

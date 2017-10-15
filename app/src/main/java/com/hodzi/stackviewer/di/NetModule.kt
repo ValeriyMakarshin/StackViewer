@@ -1,7 +1,7 @@
 package com.hodzi.stackviewer.di
 
 import com.hodzi.stackviewer.NetUtils
-import com.stackviewer.medium.utils.Api
+import com.hodzi.stackviewer.utils.Api
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient

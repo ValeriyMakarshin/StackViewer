@@ -3,7 +3,7 @@ package com.hodzi.stackviewer.questions.di
 import com.hodzi.stackviewer.StackScope
 import com.hodzi.stackviewer.questions.QuestionsInteractor
 import com.hodzi.stackviewer.questions.QuestionsPresenter
-import com.stackviewer.medium.utils.Api
+import com.hodzi.stackviewer.utils.Api
 import dagger.Module
 import dagger.Provides
 

@@ -3,7 +3,7 @@ package com.hodzi.stackviewer.tags.di
 import com.hodzi.stackviewer.StackScope
 import com.hodzi.stackviewer.tags.TagsInteractor
 import com.hodzi.stackviewer.tags.TagsPresenter
-import com.stackviewer.medium.utils.Api
+import com.hodzi.stackviewer.utils.Api
 import dagger.Module
 import dagger.Provides
 
