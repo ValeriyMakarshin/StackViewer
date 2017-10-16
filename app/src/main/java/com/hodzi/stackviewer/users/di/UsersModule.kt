@@ -2,6 +2,7 @@ package com.hodzi.stackviewer.users.di
 
 import com.hodzi.stackviewer.StackScope
 import com.hodzi.stackviewer.users.UsersInteractor
+import com.hodzi.stackviewer.users.UsersInteractorImp
 import com.hodzi.stackviewer.users.UsersPresenter
 import com.hodzi.stackviewer.users.detail.UserDetailPresenter
 import com.hodzi.stackviewer.utils.Api
@@ -19,5 +20,5 @@ class UsersModule {
         UserDetailPresenter(usersInteractor)
 
     @Provides @StackScope
-    fun provideUsersInteractor(api: Api): UsersInteractor = UsersInteractor(api)
+    fun provideUsersInteractor(api: Api): UsersInteractor = UsersInteractorImp(api)
 }

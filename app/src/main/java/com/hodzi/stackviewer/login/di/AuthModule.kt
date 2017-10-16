@@ -3,6 +3,7 @@ package com.hodzi.stackviewer.login.di
 import com.hodzi.stackviewer.StackScope
 import com.hodzi.stackviewer.login.LoginPresenter
 import com.hodzi.stackviewer.users.UsersInteractor
+import com.hodzi.stackviewer.users.UsersInteractorImp
 import com.hodzi.stackviewer.utils.Api
 import com.hodzi.stackviewer.utils.Shared
 import dagger.Module
@@ -17,6 +18,5 @@ class AuthModule{
         LoginPresenter(usersInteractor, shared)
 
     @Provides @StackScope fun providesUserInteractor(api: Api): UsersInteractor =
-        UsersInteractor(api)
-
+        UsersInteractorImp(api)
 }
