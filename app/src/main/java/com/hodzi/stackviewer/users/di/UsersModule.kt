@@ -20,6 +20,4 @@ class UsersModule {
 
     @Provides @StackScope
     fun provideUsersInteractor(api: Api): UsersInteractor = UsersInteractor(api)
-
-
 }

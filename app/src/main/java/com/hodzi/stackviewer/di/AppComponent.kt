@@ -1,6 +1,8 @@
 package com.hodzi.stackviewer.di
 
 import com.hodzi.stackviewer.App
+import com.hodzi.stackviewer.login.di.AuthComponent
+import com.hodzi.stackviewer.login.di.AuthModule
 import com.hodzi.stackviewer.main.di.MainComponent
 import com.hodzi.stackviewer.main.di.MainModule
 import com.hodzi.stackviewer.questions.di.QuestionsComponent
@@ -17,6 +19,8 @@ import javax.inject.Singleton
 interface AppComponent {
 
     fun inject(app: App)
+
+    fun plus(authModule: AuthModule): AuthComponent
 
     fun plus(mainModule: MainModule): MainComponent
 

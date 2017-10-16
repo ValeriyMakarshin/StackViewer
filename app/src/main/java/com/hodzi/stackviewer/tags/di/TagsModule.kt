@@ -8,11 +8,11 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class TagsModule() {
+class TagsModule {
     @Provides @StackScope
-    fun provideTagsPresenter(tagsInteractor: TagsInteractor) : TagsPresenter =
+    fun provideTagsPresenter(tagsInteractor: TagsInteractor): TagsPresenter =
         TagsPresenter(tagsInteractor)
 
     @Provides @StackScope
-    fun provideTagsInteractor(api: Api) : TagsInteractor = TagsInteractor(api)
+    fun provideTagsInteractor(api: Api): TagsInteractor = TagsInteractor(api)
 }

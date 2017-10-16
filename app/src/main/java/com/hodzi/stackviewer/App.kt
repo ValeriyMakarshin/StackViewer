@@ -2,6 +2,8 @@ package com.hodzi.stackviewer
 
 import android.app.Application
 import com.hodzi.stackviewer.di.*
+import com.hodzi.stackviewer.login.di.AuthComponent
+import com.hodzi.stackviewer.login.di.AuthModule
 import com.hodzi.stackviewer.main.di.MainComponent
 import com.hodzi.stackviewer.main.di.MainModule
 import com.hodzi.stackviewer.questions.di.QuestionsComponent
@@ -21,6 +23,10 @@ class App : Application() {
 
     val mainComponent: MainComponent by lazy {
         appComponent.plus(MainModule())
+    }
+
+    val authComponent: AuthComponent by lazy {
+        appComponent.plus(AuthModule())
     }
 
     val questionsComponent: QuestionsComponent by lazy {
