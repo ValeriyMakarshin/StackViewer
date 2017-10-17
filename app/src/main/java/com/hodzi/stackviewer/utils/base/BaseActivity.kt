@@ -42,6 +42,10 @@ abstract class BaseActivity<V : BaseView, P : BasePresenter<V>> : AppCompatActiv
     protected open fun getLayoutManager(): RecyclerView.LayoutManager? =
         LinearLayoutManager(this)
 
+    override fun setTitle(title : String) {
+        getActivityInfo().toolbar?.title
+    }
+
     override fun showProgress() {
         activityListInfo?.processbar?.visibility = View.VISIBLE
     }
