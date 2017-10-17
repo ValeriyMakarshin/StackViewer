@@ -39,8 +39,8 @@
                     />
             </intent-filter>
         </activity>
-        <activity android:name=".questions.detail.QuestionDetailActivity"/>
-        <activity android:name=".users.detail.UserDetailActivity"/>
+        <activity android:name=".questions.detail.QuestionDetailActivity" android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".users.detail.UserDetailActivity" android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

@@ -15,7 +15,7 @@ interface Api {
         @Query("filter") filter: String = Filters.WITHBODY.value
     ): Observable<Block<Question>>
 
-    @GET("/2.2/questions/questionId/answers")
+    @GET("/2.2/questions/{questionId}/answers")
     fun getAnswers(
         @Path("questionId") questionId : Int,
         @Query("order") order: String = Orders.DESC.value,

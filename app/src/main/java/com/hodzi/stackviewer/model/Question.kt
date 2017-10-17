@@ -2,7 +2,6 @@ package com.hodzi.stackviewer.model
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
-import java.io.Serializable
 
 data class Question(
     @SerializedName("tags") @Expose val tags: List<String>,
@@ -20,7 +19,7 @@ data class Question(
     @SerializedName("question_id") @Expose val questionId: Int,
     @SerializedName("link") @Expose val link: String,
     @SerializedName("title") @Expose val title: String,
-    @SerializedName("body") @Expose val body: String) : Data(), Serializable
+    @SerializedName("body") @Expose val body: String) : Data()
 
 
 //{

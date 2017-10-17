@@ -7,7 +7,7 @@ import com.hodzi.stackviewer.questions.detail.QuestionDetailActivity.Companion.E
 import com.hodzi.stackviewer.utils.base.BasePresenter
 
 class QuestionDetailPresenter(val questionsInteractor: QuestionsInteractor) :
-    BasePresenter<QuestionDetailView>(){
+    BasePresenter<QuestionDetailView>() {
     lateinit var question: Question
 
     override fun parseArguments(extras: Bundle) {
@@ -15,6 +15,9 @@ class QuestionDetailPresenter(val questionsInteractor: QuestionsInteractor) :
     }
 
     override fun loadData() {
-        baseObservableListDefaultError(questionsInteractor.getQuestionAnswers(question.questionId), {})
+        baseObservableListDefaultError(questionsInteractor.getQuestionAnswers(question.questionId),
+            { block ->
+                view?.showArray(block.items.toTypedArray())
+            })
     }
 }
