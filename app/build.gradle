@@ -3,6 +3,12 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
+def versionMajor = 0
+def versionMinor = 0
+def versionPatch = 0
+def versionBuild = 1
+def maxStep = 10
+
 android {
     compileSdkVersion 26
     buildToolsVersion "26.0.1"
@@ -16,8 +22,9 @@ android {
         applicationId "com.hodzi.stackviewer"
         minSdkVersion 15
         targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        versionCode versionMajor * maxStep ^ 3 + versionMinor * maxStep ^ 2 +
+                versionPatch * maxStep + versionBuild
+        versionName "${versionMajor}.${versionMinor}.${versionPatch}.${versionBuild}"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
