@@ -39,6 +39,8 @@
                     />
             </intent-filter>
         </activity>
+        <activity android:name=".questions.detail.QuestionDetailActivity"/>
+        <activity android:name=".users.detail.UserDetailActivity"/>
     </application>
 
 </manifest>

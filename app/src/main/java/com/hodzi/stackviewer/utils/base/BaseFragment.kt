@@ -47,7 +47,7 @@ abstract class BaseFragment<V : BaseView, P : BasePresenter<V>> : Fragment(), Ba
     protected open fun getLayoutManager(): RecyclerView.LayoutManager? =
         LinearLayoutManager(context)
 
-    override fun setTitle(title : String) {
+    override fun setTitle(title: String) {
         getActivityInfo().toolbar?.title
     }
 

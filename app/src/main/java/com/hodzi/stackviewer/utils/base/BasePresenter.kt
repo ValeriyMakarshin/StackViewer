@@ -47,14 +47,15 @@ abstract class BasePresenter<V : BaseView> {
                 null
             })
             .subscribe({ block ->
-                view?.hideProgress()
-                function(block)
+                if (block?.items != null) {
+                    view?.hideProgress()
+                    function(block)
+                }
             })
 
     }
 
-    protected fun parseArguments(extras: Bundle){
-
+    protected open fun parseArguments(extras: Bundle) {
     }
 
     fun detach() {

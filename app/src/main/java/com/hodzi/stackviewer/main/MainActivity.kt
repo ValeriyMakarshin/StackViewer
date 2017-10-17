@@ -98,6 +98,7 @@ class MainActivity : BaseActivity<MainView, MainPresenter>(),
                     UsersFragment()
                 }
                 else -> {
+                    lastScreen = R.id.nav_questions
                     QuestionsFragment()
                 }
             }
