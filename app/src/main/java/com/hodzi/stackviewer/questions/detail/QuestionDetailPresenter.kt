@@ -14,6 +14,11 @@ class QuestionDetailPresenter(val questionsInteractor: QuestionsInteractor) :
         question = bundle?.getSerializable(EXTRA_QUESTION) as Question
     }
 
+    override fun attach(v: QuestionDetailView, bundle: Bundle?) {
+        super.attach(v, bundle)
+        view?.showQuestion(question)
+    }
+
     override fun loadData() {
         baseObservableListDefaultError(questionsInteractor.getQuestionAnswers(question.questionId),
             { block ->
