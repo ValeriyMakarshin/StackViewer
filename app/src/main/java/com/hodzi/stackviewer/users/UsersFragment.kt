@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.hodzi.stackviewer.R
-import com.hodzi.stackviewer.adapters.UsersRRAdapter
+import com.hodzi.stackviewer.adapters.UsersRAdapter
 import com.hodzi.stackviewer.di.Injector
 import com.hodzi.stackviewer.model.User
 import com.hodzi.stackviewer.utils.base.BaseFragment
@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.view_progress_bar.*
 
 class UsersFragment : BaseFragment<UsersView, UsersPresenter>(), UsersView {
     override fun showArray(array: Array<User>) {
-        uiUsersRv.adapter = UsersRRAdapter(array)
+        uiUsersRv.adapter = UsersRAdapter(array)
     }
 
     override fun getActivityInfo(): ActivityInfo = ActivityInfo(R.layout.fragment_users,
