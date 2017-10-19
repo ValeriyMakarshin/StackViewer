@@ -3,7 +3,7 @@ package com.hodzi.stackviewer.di
 import android.app.Application
 import android.content.Context
 import com.hodzi.stackviewer.utils.Shared
-import com.hodzi.stackviewer.utils.SharedImp
+import com.hodzi.stackviewer.utils.SharedImpl
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -16,6 +16,6 @@ class AppModule(private val application: Application) {
 
     @Provides @Singleton
     fun provideShared(context: Context): Shared =
-            SharedImp(context.getSharedPreferences(context.packageName, Context.MODE_PRIVATE))
+            SharedImpl(context.getSharedPreferences(context.packageName, Context.MODE_PRIVATE))
 
 }

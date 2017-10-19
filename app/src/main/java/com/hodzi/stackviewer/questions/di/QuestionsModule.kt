@@ -2,7 +2,7 @@ package com.hodzi.stackviewer.questions.di
 
 import com.hodzi.stackviewer.StackScope
 import com.hodzi.stackviewer.questions.QuestionsInteractor
-import com.hodzi.stackviewer.questions.QuestionsInteractorImp
+import com.hodzi.stackviewer.questions.QuestionsInteractorImpl
 import com.hodzi.stackviewer.questions.QuestionsPresenter
 import com.hodzi.stackviewer.questions.detail.QuestionDetailPresenter
 import com.hodzi.stackviewer.utils.Api
@@ -20,5 +20,5 @@ class QuestionsModule {
         QuestionDetailPresenter = QuestionDetailPresenter(questionsInteractor)
 
     @Provides @StackScope
-    fun provideQuestionsInteractor(api: Api): QuestionsInteractor = QuestionsInteractorImp(api)
+    fun provideQuestionsInteractor(api: Api): QuestionsInteractor = QuestionsInteractorImpl(api)
 }

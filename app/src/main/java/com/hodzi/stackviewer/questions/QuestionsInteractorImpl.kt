@@ -6,7 +6,7 @@ import com.hodzi.stackviewer.model.Question
 import com.hodzi.stackviewer.utils.Api
 import io.reactivex.Observable
 
-class QuestionsInteractorImp(val api: Api) : QuestionsInteractor {
+class QuestionsInteractorImpl(val api: Api) : QuestionsInteractor {
     override fun getQuestionAnswers(questionId: Int): Observable<Block<Answer>> =
         api.getAnswers(questionId)
 

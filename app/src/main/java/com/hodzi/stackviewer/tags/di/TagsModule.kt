@@ -2,7 +2,7 @@ package com.hodzi.stackviewer.tags.di
 
 import com.hodzi.stackviewer.StackScope
 import com.hodzi.stackviewer.tags.TagsInteractor
-import com.hodzi.stackviewer.tags.TagsInteractorImp
+import com.hodzi.stackviewer.tags.TagsInteractorImpl
 import com.hodzi.stackviewer.tags.TagsPresenter
 import com.hodzi.stackviewer.utils.Api
 import dagger.Module
@@ -15,5 +15,5 @@ class TagsModule {
         TagsPresenter(tagsInteractor)
 
     @Provides @StackScope
-    fun provideTagsInteractor(api: Api): TagsInteractor = TagsInteractorImp(api)
+    fun provideTagsInteractor(api: Api): TagsInteractor = TagsInteractorImpl(api)
 }
