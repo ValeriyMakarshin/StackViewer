@@ -4,9 +4,10 @@ import android.os.Bundle
 import com.hodzi.stackviewer.model.Question
 import com.hodzi.stackviewer.questions.QuestionsInteractor
 import com.hodzi.stackviewer.questions.detail.QuestionDetailActivity.Companion.EXTRA_QUESTION
+import com.hodzi.stackviewer.utils.Shared
 import com.hodzi.stackviewer.utils.base.BasePresenter
 
-class QuestionDetailPresenter(val questionsInteractor: QuestionsInteractor) :
+class QuestionDetailPresenter(val questionsInteractor: QuestionsInteractor, val shared: Shared) :
     BasePresenter<QuestionDetailView>() {
     lateinit var question: Question
 
@@ -24,5 +25,10 @@ class QuestionDetailPresenter(val questionsInteractor: QuestionsInteractor) :
             { block ->
                 view?.showArray(block.items.toTypedArray())
             })
+    }
+
+    fun vote(answerId : Int, up: Boolean){
+        shared.getToken()
+        shared.getToken()
     }
 }

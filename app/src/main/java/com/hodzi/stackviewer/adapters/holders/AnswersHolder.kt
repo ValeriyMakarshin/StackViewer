@@ -5,8 +5,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.hodzi.stackviewer.R
 import com.hodzi.stackviewer.model.Answer
+import com.hodzi.stackviewer.questions.detail.AnswerClickListener
+import com.hodzi.stackviewer.utils.OnClickListener
 import com.hodzi.stackviewer.utils.base.BaseHolder
-import kotlinx.android.synthetic.main.item_answer_preview.view.*
 
 class AnswersHolder(itemView: View) : BaseHolder<Answer>(itemView) {
     companion object {
@@ -17,7 +18,14 @@ class AnswersHolder(itemView: View) : BaseHolder<Answer>(itemView) {
             }
     }
 
+    override fun setClickListener(onClickListener: OnClickListener<Answer>?) {
+        if (onClickListener is AnswerClickListener) {
+//            itemView.uiArrowUpIv.setOnClickListener { onClickListener.voteUp(item.answerId) }
+//            itemView.uiArrowDownIv.setOnClickListener { onClickListener.voteDown(item.answerId) }
+        }
+
+    }
+
     override fun onDraw(item: Answer) {
-        itemView.uiBodyTv.text = item.body
     }
 }

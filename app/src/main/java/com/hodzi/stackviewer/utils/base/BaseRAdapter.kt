@@ -14,7 +14,7 @@ abstract class BaseRAdapter<T : Any, VH : BaseHolder<T>>(val array: Array<T>,
 
     override fun onBindViewHolder(holder: VH, position: Int) {
         holder.setData(array[position])
-        holder.itemView.setOnClickListener { view -> onClickListener?.onClick(array[position]) }
+        holder.setClickListener(onClickListener)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): VH = creator(parent)

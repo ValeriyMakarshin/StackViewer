@@ -16,7 +16,9 @@ import kotlinx.android.synthetic.main.view_progress_bar.*
 import kotlinx.android.synthetic.main.view_toolbar.*
 
 class QuestionDetailActivity : BaseActivity<QuestionDetailView, QuestionDetailPresenter>(),
-    QuestionDetailView {
+    QuestionDetailView, AnswerClickListener {
+    override fun onClick(item: Answer) {
+    }
 
     companion object {
         const val EXTRA_QUESTION = "extraQuestion"
@@ -37,16 +39,23 @@ class QuestionDetailActivity : BaseActivity<QuestionDetailView, QuestionDetailPr
         uiPointsTv.text = "${question.score}"
         uiTagsTv.text = question.tags.joinToString { s: String -> s + ", " }
         uiBodyTv.text = question.body
+        uiArrowUpIv.setOnClickListener { presenter.vote(question.questionId, true) }
     }
 
     override fun showArray(array: Array<Answer>) {
-        uiAnswersRv.adapter = AnswersRAdapter(array)
+        uiAnswersRv.adapter = AnswersRAdapter(array, this)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         Injector.inject(this)
         super.onCreate(savedInstanceState)
-
     }
 
+    override fun voteUp(answerId: Int) {
+        presenter.vote(answerId, true)
+    }
+
+    override fun voteDown(answerId: Int) {
+        presenter.vote(answerId, false)
+    }
 }
