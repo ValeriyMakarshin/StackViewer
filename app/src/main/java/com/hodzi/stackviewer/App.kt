@@ -1,6 +1,7 @@
 package com.hodzi.stackviewer
 
 import android.app.Application
+import com.facebook.stetho.Stetho
 import com.hodzi.stackviewer.di.*
 import com.hodzi.stackviewer.login.di.AuthComponent
 import com.hodzi.stackviewer.login.di.AuthModule
@@ -45,6 +46,13 @@ class App : Application() {
         super.onCreate()
         Injector.inject(this)
         NetUtils.init(this)
+
+
+        Stetho.initialize(
+            Stetho.newInitializerBuilder(this)
+                .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(this))
+                .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
+                .build())
     }
 
 }
