@@ -2,12 +2,14 @@ package com.hodzi.stackviewer.utils.base
 
 import android.os.Bundle
 import android.support.annotation.CallSuper
+import android.support.annotation.StringRes
 import android.support.v4.app.Fragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.hodzi.stackviewer.utils.KeyboardUtil
 import com.hodzi.stackviewer.utils.ui.ActivityInfo
 import com.hodzi.stackviewer.utils.ui.ActivityListInfo
@@ -51,6 +53,10 @@ abstract class BaseFragment<V : BaseView, P : BasePresenter<V>> : Fragment(), Ba
         getActivityInfo().toolbar?.title
     }
 
+    override fun showError(@StringRes id: Int) {
+        Toast.makeText(context, id, Toast.LENGTH_SHORT).show()
+    }
+
     override fun showProgress() {
         activityListInfo?.processbar?.visibility = View.VISIBLE
     }
@@ -63,4 +69,7 @@ abstract class BaseFragment<V : BaseView, P : BasePresenter<V>> : Fragment(), Ba
         KeyboardUtil.hide(activity)
     }
 
+    override fun finish() {
+        activity.onBackPressed()
+    }
 }

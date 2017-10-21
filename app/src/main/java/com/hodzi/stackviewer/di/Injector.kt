@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Context
 import com.hodzi.stackviewer.App
 import com.hodzi.stackviewer.login.LoginActivity
+import com.hodzi.stackviewer.login.di.AuthComponent
 import com.hodzi.stackviewer.main.MainActivity
 import com.hodzi.stackviewer.main.di.MainComponent
 import com.hodzi.stackviewer.questions.QuestionsFragment
@@ -22,7 +23,7 @@ class Injector {
         }
 
         fun inject(loginActivity: LoginActivity) {
-
+            getAuthComponent(loginActivity).inject(loginActivity)
         }
 
         fun inject(mainActivity: MainActivity) {
@@ -49,6 +50,8 @@ class Injector {
             getUsersComponent(userDetailActivity).inject(userDetailActivity)
         }
 
+        private fun getAuthComponent(activity: Activity): AuthComponent =
+            (activity.applicationContext as App).authComponent
 
         private fun getMainComponent(activity: Activity): MainComponent =
             (activity.applicationContext as App).mainComponent

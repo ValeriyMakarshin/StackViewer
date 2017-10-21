@@ -24,6 +24,34 @@ interface Api {
         @Query("filter") filter: String = Filters.WITHBODY.value
     ): Observable<Block<Answer>>
 
+    @GET("/2.2/questions/{questionId}/upvote")
+    fun questionUpVote(
+        @Path("questionId") questionId : Int,
+        @Query("key") key: String,
+        @Query("access_token") token: String
+    ): Observable<Block<Answer>>
+
+    @GET("/2.2/questions/{questionId}/downvote")
+    fun questionDownVote(
+        @Path("questionId") questionId : Int,
+        @Query("key") key: String,
+        @Query("access_token") token: String
+    ): Observable<Block<Answer>>
+
+    @GET("/2.2/answers/{answerId}/upvote")
+    fun answersUpVote(
+        @Path("answerId") answerId : Int,
+        @Query("key") key: String,
+        @Query("access_token") token: String
+    ): Observable<Block<Answer>>
+
+    @GET("/2.2/answers/{answerId}/downvote")
+    fun answersDownVote(
+        @Path("answerId") answerId : Int,
+        @Query("key") key: String,
+        @Query("access_token") token: String
+    ): Observable<Block<Answer>>
+
     @GET("/2.2/tags")
     fun getTags(
         @Query("order") order: String = Orders.DESC.value,

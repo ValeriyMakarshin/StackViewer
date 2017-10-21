@@ -2,10 +2,12 @@ package com.hodzi.stackviewer.utils.base
 
 import android.os.Bundle
 import android.support.annotation.CallSuper
+import android.support.annotation.StringRes
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
+import android.widget.Toast
 import com.hodzi.stackviewer.utils.KeyboardUtil
 import com.hodzi.stackviewer.utils.ui.ActivityInfo
 import com.hodzi.stackviewer.utils.ui.ActivityListInfo
@@ -27,7 +29,9 @@ abstract class BaseActivity<V : BaseView, P : BasePresenter<V>> : AppCompatActiv
 
         activityListInfo?.recyclerView?.layoutManager = getLayoutManager()
 
-        setSupportActionBar(getActivityInfo().toolbar)
+        if (getActivityInfo().toolbar != null) {
+            setSupportActionBar(getActivityInfo().toolbar)
+        }
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeButtonEnabled(true)
 
@@ -44,6 +48,10 @@ abstract class BaseActivity<V : BaseView, P : BasePresenter<V>> : AppCompatActiv
 
     override fun setTitle(title: String) {
         getActivityInfo().toolbar?.title
+    }
+
+    override fun showError(@StringRes id: Int) {
+        Toast.makeText(this, id, Toast.LENGTH_SHORT).show()
     }
 
     override fun showProgress() {

@@ -9,4 +9,13 @@ interface QuestionsInteractor {
     fun getAllQuestions(): Observable<Block<Question>>
 
     fun getQuestionAnswers(questionId: Int): Observable<Block<Answer>>
+
+//    fun answerUpVote()
+//
+//    fun answerDownVote()
+//
+//    fun questionUpVote()
+//
+//    fun questionDownVote()
+
 }

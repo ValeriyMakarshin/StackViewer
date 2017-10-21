@@ -7,5 +7,5 @@ interface Shared {
 
     fun getToken(): String
 
-    fun setToken(token: String)
+    fun saveToken(token: String?)
 }
