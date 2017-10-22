@@ -51,14 +51,19 @@ class MainActivity : BaseActivity<MainView, MainPresenter>(),
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val id = item.itemId
-
-
-        return if (id == R.id.action_settings) {
-            Navigator.auth(this)
-//            startActivity(Intent(this, LoginActivity::class.java))
-            return true
-        } else super.onOptionsItemSelected(item)
+        return when (item.itemId) {
+            R.id.action_settings -> {
+                Navigator.auth(this)
+                return true
+            }
+            R.id.action_database_example -> {
+                Navigator.databaseExample(this)
+                return true
+            }
+            else -> {
+                super.onOptionsItemSelected(item)
+            }
+        }
 
     }
 

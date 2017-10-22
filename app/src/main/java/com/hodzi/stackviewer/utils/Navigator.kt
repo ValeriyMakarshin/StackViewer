@@ -3,6 +3,7 @@ package com.hodzi.stackviewer.utils
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import com.hodzi.stackviewer.database.DatabaseActivity
 import com.hodzi.stackviewer.login.LoginPresenter
 import com.hodzi.stackviewer.model.Question
 import com.hodzi.stackviewer.model.User
@@ -33,6 +34,10 @@ class Navigator{
 
         fun userDetail(context: Context, user: User) {
             context.startActivity(UserDetailActivity.intent(context, user))
+        }
+
+        fun databaseExample(context: Context) {
+            context.startActivity(DatabaseActivity.intent(context))
         }
     }
 }

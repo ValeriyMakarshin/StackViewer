@@ -2,6 +2,8 @@ package com.hodzi.stackviewer
 
 import android.app.Application
 import com.facebook.stetho.Stetho
+import com.hodzi.stackviewer.database.di.DatabaseComponent
+import com.hodzi.stackviewer.database.di.DatabaseModule
 import com.hodzi.stackviewer.di.*
 import com.hodzi.stackviewer.login.di.AuthComponent
 import com.hodzi.stackviewer.login.di.AuthModule
@@ -40,6 +42,10 @@ class App : Application() {
 
     val usersComponent: UsersComponent by lazy {
         appComponent.plus(UsersModule())
+    }
+
+    val databaseComponent: DatabaseComponent by lazy {
+        appComponent.plus(DatabaseModule())
     }
 
     override fun onCreate() {
