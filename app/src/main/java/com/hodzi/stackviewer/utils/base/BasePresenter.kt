@@ -19,34 +19,44 @@ abstract class BasePresenter<V : BaseView> {
     open fun attach(v: V, bundle: Bundle? = null) {
         this.view = v
         this.bundle = bundle
+        if (bundle != null) {
+            parseArguments(bundle)
+        }
+        loadData()
+    }
+
+    protected open fun loadData() {
+
     }
 
     fun <T : Data> baseObservableListDefaultError(observable: Observable<Block<T>>,
-                                           function: (Block<T>) -> Unit) {
+                                                  function: (Block<T>) -> Unit) {
         if (disposable != null) return
         disposable = observable
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe({
-                if (view != null) {
-                }
+                view?.showProgress()
             })
             .doOnTerminate({
                 unsubscribeSubscription()
-                if (view != null) {
-                }
+                view?.hideProgress()
             })
             .onErrorReturn({ throwable ->
-                if (view != null) {
-                }
+                view?.hideProgress()
                 null
             })
             .subscribe({ block ->
-                function(block)
+                if (block?.items != null) {
+                    view?.hideProgress()
+                    function(block)
+                }
             })
 
     }
 
+    protected open fun parseArguments(extras: Bundle) {
+    }
 
     fun detach() {
         unsubscribeSubscription()

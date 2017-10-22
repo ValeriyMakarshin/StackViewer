@@ -1,3 +1,5 @@
 package com.hodzi.stackviewer.model
 
-open class Data
+import java.io.Serializable
+
+open class Data : Serializable

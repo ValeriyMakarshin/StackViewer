@@ -12,6 +12,8 @@ import com.hodzi.stackviewer.R
 import com.hodzi.stackviewer.di.Injector
 import com.hodzi.stackviewer.questions.QuestionsFragment
 import com.hodzi.stackviewer.tags.TagsFragment
+import com.hodzi.stackviewer.users.UsersFragment
+import com.hodzi.stackviewer.utils.Navigator
 import com.hodzi.stackviewer.utils.base.BaseActivity
 import com.hodzi.stackviewer.utils.ui.ActivityInfo
 import kotlinx.android.synthetic.main.activity_main.*
@@ -42,10 +44,6 @@ class MainActivity : BaseActivity<MainView, MainPresenter>(),
         uiMainNv.setNavigationItemSelectedListener(this)
     }
 
-    override fun parseArguments(extras: Bundle) {
-
-    }
-
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
@@ -57,7 +55,9 @@ class MainActivity : BaseActivity<MainView, MainPresenter>(),
 
 
         return if (id == R.id.action_settings) {
-            true
+            Navigator.auth(this)
+//            startActivity(Intent(this, LoginActivity::class.java))
+            return true
         } else super.onOptionsItemSelected(item)
 
     }
@@ -85,7 +85,7 @@ class MainActivity : BaseActivity<MainView, MainPresenter>(),
         return true
     }
 
-    private fun startFragment(id: Int){
+    private fun startFragment(id: Int) {
         val fragment: Fragment? =
             when (id) {
                 R.id.nav_questions -> {
@@ -94,12 +94,16 @@ class MainActivity : BaseActivity<MainView, MainPresenter>(),
                 R.id.nav_tags -> {
                     TagsFragment()
                 }
+                R.id.nav_users -> {
+                    UsersFragment()
+                }
                 else -> {
+                    lastScreen = R.id.nav_questions
                     QuestionsFragment()
                 }
             }
 
-        if (fragment != null )
+        if (fragment != null)
             openFragment(fragment)
     }
 
