@@ -1,3 +1,9 @@
 package com.hodzi.stackviewer.database
 
-interface DatabaseWorker
+import com.hodzi.stackviewer.database.entities.Message
+
+interface DatabaseWorker {
+    fun addMessage(message: Message)
+
+    fun readMessages(): List<Message>
+}
