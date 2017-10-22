@@ -15,6 +15,7 @@ import com.hodzi.stackviewer.tags.di.TagsComponent
 import com.hodzi.stackviewer.tags.di.TagsModule
 import com.hodzi.stackviewer.users.di.UsersComponent
 import com.hodzi.stackviewer.users.di.UsersModule
+import io.realm.Realm
 
 class App : Application() {
     val appComponent: AppComponent by lazy {
@@ -45,7 +46,7 @@ class App : Application() {
     }
 
     val databaseComponent: DatabaseComponent by lazy {
-        appComponent.plus(DatabaseModule())
+        appComponent.plus(DatabaseModule(this))
     }
 
     override fun onCreate() {
@@ -53,6 +54,7 @@ class App : Application() {
         Injector.inject(this)
         NetUtils.init(this)
 
+        Realm.init(this)
 
         Stetho.initialize(
             Stetho.newInitializerBuilder(this)
@@ -60,6 +62,5 @@ class App : Application() {
                 .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
                 .build())
     }
-
 }
 
