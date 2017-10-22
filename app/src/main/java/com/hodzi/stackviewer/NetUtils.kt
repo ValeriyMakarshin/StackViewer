@@ -1,10 +1,7 @@
 package com.hodzi.stackviewer
 
 import android.content.Context
-
-import com.facebook.stetho.Stetho
 import com.facebook.stetho.okhttp3.StethoInterceptor
-
 import okhttp3.Interceptor
 
 object NetUtils {
@@ -13,7 +10,7 @@ object NetUtils {
         get() = StethoInterceptor()
 
     fun init(context: Context) {
-        Stetho.initializeWithDefaults(context)
+//        Stetho.initializeWithDefaults(context)
     }
 
 }

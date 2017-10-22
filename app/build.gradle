@@ -79,8 +79,13 @@ dependencies {
 
     compile "com.github.bumptech.glide:glide:$glideVersion"
     annotationProcessor "com.github.bumptech.glide:compiler:$glideVersion"
+
+    compile 'com.uphyca:stetho_realm:2.1.0'
 }
 repositories {
     mavenCentral()
+    maven {
+        url 'https://github.com/uPhyca/stetho-realm/raw/master/maven-repo'
+    }
 }
 

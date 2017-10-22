@@ -15,6 +15,7 @@ import com.hodzi.stackviewer.tags.di.TagsComponent
 import com.hodzi.stackviewer.tags.di.TagsModule
 import com.hodzi.stackviewer.users.di.UsersComponent
 import com.hodzi.stackviewer.users.di.UsersModule
+import com.uphyca.stetho_realm.RealmInspectorModulesProvider
 import io.realm.Realm
 
 class App : Application() {
@@ -58,8 +59,17 @@ class App : Application() {
 
         Stetho.initialize(
             Stetho.newInitializerBuilder(this)
-                .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(this))
                 .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
+
+//                .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(this))
+                .enableWebKitInspector(RealmInspectorModulesProvider.builder(this).build())
+//                .enableWebKitInspector(RealmInspectorModulesProvider.builder(this)
+//                    .withFolder(getCacheDir())
+//                    .withMetaTables()
+//                    .withDescendingOrder()
+//                    .withLimit(1000)
+//                    .databaseNamePattern(Pattern.compile(".+\\.realm"))
+//                    .build())
                 .build())
     }
 }
