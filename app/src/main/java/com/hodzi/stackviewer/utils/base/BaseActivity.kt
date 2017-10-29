@@ -6,6 +6,7 @@ import android.support.annotation.StringRes
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import com.hodzi.stackviewer.utils.KeyboardUtil
@@ -41,6 +42,15 @@ abstract class BaseActivity<V : BaseView, P : BasePresenter<V>> : AppCompatActiv
     override fun onStop() {
         presenter.detach()
         super.onStop()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                finish()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     protected open fun getLayoutManager(): RecyclerView.LayoutManager? =
