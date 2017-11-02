@@ -38,7 +38,9 @@ class QuestionDetailActivity : BaseActivity<QuestionDetailView, QuestionDetailPr
         uiTitleTv.text = question.title
         uiPointsTv.text = "${question.score}"
         uiTagsTv.text = question.tags.joinToString { s: String -> s + ", " }
-        uiBodyTv.text = question.body
+        uiBodyWv.loadDataWithBaseURL(null, question.body, "text/html",
+            "utf-8", null)
+
         uiArrowUpIv.setOnClickListener { presenter.vote(question.questionId, true) }
     }
 

@@ -1,12 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@color/cardview_shadow_start_color"
+    android:minHeight="400dp"
+    tools:ignore="WebViewLayout"
+    tools:layout_editor_absoluteY="81dp"
     >
-    <TextView
-        android:id="@+id/uiBodyTv"
-        android:layout_width="match_parent"
+
+    <ImageView
+        android:id="@+id/uiArrowUpIv"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:contentDescription="TODO"
+        android:src="@drawable/ic_arrow_up_24dp"
+        app:layout_constraintBottom_toTopOf="@+id/uiPointsTv"
+        app:layout_constraintEnd_toEndOf="@+id/uiPointsTv"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/uiPointsTv"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        />
+
+    <ImageView
+        android:id="@+id/uiArrowDownIv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_arrow_down_24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/uiBodyWv"
+        app:layout_constraintEnd_toEndOf="@+id/uiPointsTv"
+        app:layout_constraintStart_toStartOf="@+id/uiPointsTv"
+        app:layout_constraintTop_toBottomOf="@+id/uiPointsTv"
+        />
+
+    <TextView
+        android:id="@+id/uiPointsTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:minEms="5"
+        app:layout_constraintBottom_toTopOf="@+id/uiArrowDownIv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/uiArrowUpIv"
+        tools:text="342"
+        />
+
+
+    <WebView
+        android:id="@+id/uiBodyWv"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:scrollbarAlwaysDrawHorizontalTrack="false"
+        android:scrollbarAlwaysDrawVerticalTrack="false"
+        app:layout_constraintStart_toEndOf="@+id/uiPointsTv"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Body"
+        />
+
+    <android.support.constraint.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        app:constraint_referenced_ids="uiArrowDownIv,uiBodyWv"
+        tools:layout_editor_absoluteY="218dp"
         />
 
 </android.support.constraint.ConstraintLayout>

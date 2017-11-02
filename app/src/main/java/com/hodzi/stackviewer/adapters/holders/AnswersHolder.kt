@@ -8,6 +8,7 @@ import com.hodzi.stackviewer.model.Answer
 import com.hodzi.stackviewer.questions.detail.AnswerClickListener
 import com.hodzi.stackviewer.utils.OnClickListener
 import com.hodzi.stackviewer.utils.base.BaseHolder
+import kotlinx.android.synthetic.main.item_answer_preview.view.*
 
 class AnswersHolder(itemView: View) : BaseHolder<Answer>(itemView) {
     companion object {
@@ -27,5 +28,9 @@ class AnswersHolder(itemView: View) : BaseHolder<Answer>(itemView) {
     }
 
     override fun onDraw(item: Answer) {
+        itemView.uiBodyWv.loadDataWithBaseURL(null, item.body, "text/html",
+            "utf-8", null)
+
+//        itemView.uiBodyTv.text = Html.fromHtml(item.body)
     }
 }
