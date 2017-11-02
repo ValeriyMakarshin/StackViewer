@@ -51,6 +51,7 @@ class QuestionDetailActivity : BaseActivity<QuestionDetailView, QuestionDetailPr
     override fun onCreate(savedInstanceState: Bundle?) {
         Injector.inject(this)
         super.onCreate(savedInstanceState)
+        uiAnswersRv.isNestedScrollingEnabled = false
     }
 
     override fun voteUp(answerId: Int) {

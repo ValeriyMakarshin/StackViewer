@@ -16,7 +16,7 @@
 
         <include layout="@layout/view_progress_bar" />
 
-        <ScrollView
+        <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fillViewport="true"
@@ -124,7 +124,7 @@
                     android:layout_height="wrap_content"
                     />
             </LinearLayout>
-        </ScrollView>
+        </android.support.v4.widget.NestedScrollView>
     </RelativeLayout>
 
 

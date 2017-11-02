@@ -4,9 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/cardview_shadow_start_color"
-    android:minHeight="400dp"
-    tools:ignore="WebViewLayout"
     tools:layout_editor_absoluteY="81dp"
     >
 
@@ -32,12 +29,10 @@
         android:id="@+id/uiArrowDownIv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:src="@drawable/ic_arrow_down_24dp"
-        app:layout_constraintBottom_toBottomOf="@+id/uiBodyWv"
         app:layout_constraintEnd_toEndOf="@+id/uiPointsTv"
         app:layout_constraintStart_toStartOf="@+id/uiPointsTv"
         app:layout_constraintTop_toBottomOf="@+id/uiPointsTv"
@@ -48,6 +43,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:gravity="center"
@@ -58,27 +54,38 @@
         tools:text="342"
         />
 
-
-    <WebView
-        android:id="@+id/uiBodyWv"
+    <LinearLayout
+        android:id="@+id/group"
         android:layout_width="0dp"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:scrollbarAlwaysDrawHorizontalTrack="false"
-        android:scrollbarAlwaysDrawVerticalTrack="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/uiPointsTv"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Body"
-        />
+        >
+
+        <include layout="@layout/view_web_content" />
+    </LinearLayout>
 
     <android.support.constraint.Barrier
         android:id="@+id/barrier"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="uiArrowDownIv,uiBodyWv"
-        tools:layout_editor_absoluteY="218dp"
+        app:constraint_referenced_ids="group,uiArrowDownIv"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="447dp"
+        />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/colorPaleSky"
+        app:layout_constraintTop_toTopOf="@+id/barrier"
         />
 
 </android.support.constraint.ConstraintLayout>
