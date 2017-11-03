@@ -8,6 +8,7 @@ import com.hodzi.stackviewer.adapters.AnswersRAdapter
 import com.hodzi.stackviewer.di.Injector
 import com.hodzi.stackviewer.model.Answer
 import com.hodzi.stackviewer.model.Question
+import com.hodzi.stackviewer.utils.Vote
 import com.hodzi.stackviewer.utils.base.BaseActivity
 import com.hodzi.stackviewer.utils.ui.ActivityInfo
 import com.hodzi.stackviewer.utils.ui.ActivityListInfo
@@ -41,7 +42,8 @@ class QuestionDetailActivity : BaseActivity<QuestionDetailView, QuestionDetailPr
         uiBodyWv.loadDataWithBaseURL(null, question.body, "text/html",
             "utf-8", null)
 
-        uiArrowUpIv.setOnClickListener { presenter.vote(question.questionId, true) }
+        uiArrowUpIv.setOnClickListener { vote(question.questionId, Vote.QUESTION_UP) }
+        uiArrowDownIv.setOnClickListener { vote(question.questionId, Vote.QUESTION_DOWN) }
     }
 
     override fun showArray(array: Array<Answer>) {
@@ -54,11 +56,7 @@ class QuestionDetailActivity : BaseActivity<QuestionDetailView, QuestionDetailPr
         uiAnswersRv.isNestedScrollingEnabled = false
     }
 
-    override fun voteUp(answerId: Int) {
-        presenter.vote(answerId, true)
-    }
-
-    override fun voteDown(answerId: Int) {
-        presenter.vote(answerId, false)
+    override fun vote(id: Int, vote: Vote) {
+        presenter.vote(id, vote)
     }
 }

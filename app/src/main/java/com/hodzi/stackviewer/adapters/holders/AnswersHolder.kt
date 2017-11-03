@@ -23,8 +23,8 @@ class AnswersHolder(itemView: View) : BaseHolder<Answer>(itemView) {
 
     override fun setClickListener(onClickListener: OnClickListener<Answer>?) {
         if (onClickListener is AnswerClickListener) {
-//            itemView.uiArrowUpIv.setOnClickListener { onClickListener.voteUp(item.answerId) }
-//            itemView.uiArrowDownIv.setOnClickListener { onClickListener.voteDown(item.answerId) }
+//            itemView.uiArrowUpIv.setOnClickListener { onClickListener.voteAnswerUp(item.answerId) }
+//            itemView.uiArrowDownIv.setOnClickListener { onClickListener.voteAnswerDown(item.answerId) }
         }
 
     }

@@ -10,12 +10,12 @@ interface QuestionsInteractor {
 
     fun getQuestionAnswers(questionId: Int): Observable<Block<Answer>>
 
-//    fun answerUpVote()
-//
-//    fun answerDownVote()
-//
-//    fun questionUpVote()
-//
-//    fun questionDownVote()
+    fun answerUpVote(answerId: Int, token: String): Observable<Answer>
+
+    fun answerDownVote(answerId: Int, token: String): Observable<Answer>
+
+    fun questionUpVote(questionId: Int, token: String): Observable<Question>
+
+    fun questionDownVote(questionId: Int, token: String): Observable<Question>
 
 }

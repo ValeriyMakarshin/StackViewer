@@ -13,7 +13,8 @@ abstract class BasePresenter<V : BaseView> {
     protected var view: V? = null
     protected var bundle: Bundle? = null
 
-    private var disposable: Disposable? = null
+    private var disposableList: Disposable? = null
+    private var disposableData: Disposable? = null
 
     @CallSuper
     open fun attach(v: V, bundle: Bundle? = null) {
@@ -31,8 +32,8 @@ abstract class BasePresenter<V : BaseView> {
 
     fun <T : Data> baseObservableListDefaultError(observable: Observable<Block<T>>,
                                                   function: (Block<T>) -> Unit) {
-        if (disposable != null) return
-        disposable = observable
+        if (disposableList != null) return
+        disposableList = observable
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe({
@@ -52,8 +53,35 @@ abstract class BasePresenter<V : BaseView> {
                     function(block)
                 }
             })
-
     }
+
+    fun <T : Data> baseObservableData(observable: Observable<T>,
+                                      functionSuccess: (T) -> Unit = {},
+                                      functionError: (Throwable) -> Unit = {}) {
+        if (disposableData != null) return
+        disposableData = observable
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe({
+                view?.showProgress()
+            })
+            .doOnTerminate({
+                unsubscribeSubscription()
+                view?.hideProgress()
+            })
+            .onErrorReturn({ throwable ->
+                view?.hideProgress()
+                functionError(throwable)
+                null
+            })
+            .subscribe({ data ->
+                if (data != null) {
+                    view?.hideProgress()
+                    functionSuccess(data)
+                }
+            })
+    }
+
 
     protected open fun parseArguments(extras: Bundle) {
     }
@@ -63,9 +91,13 @@ abstract class BasePresenter<V : BaseView> {
     }
 
     private fun unsubscribeSubscription() {
-        if (disposable?.isDisposed == false) {
-            disposable?.dispose()
-            disposable = null
+        if (disposableList?.isDisposed == false) {
+            disposableList?.dispose()
+            disposableList = null
+        }
+        if (disposableData?.isDisposed == false) {
+            disposableData?.dispose()
+            disposableData = null
         }
     }
 }
