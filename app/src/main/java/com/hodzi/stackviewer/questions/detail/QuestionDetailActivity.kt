@@ -8,6 +8,7 @@ import com.hodzi.stackviewer.adapters.AnswersRAdapter
 import com.hodzi.stackviewer.di.Injector
 import com.hodzi.stackviewer.model.Answer
 import com.hodzi.stackviewer.model.Question
+import com.hodzi.stackviewer.utils.Navigator
 import com.hodzi.stackviewer.utils.Vote
 import com.hodzi.stackviewer.utils.base.BaseActivity
 import com.hodzi.stackviewer.utils.ui.ActivityInfo
@@ -18,6 +19,7 @@ import kotlinx.android.synthetic.main.view_toolbar.*
 
 class QuestionDetailActivity : BaseActivity<QuestionDetailView, QuestionDetailPresenter>(),
     QuestionDetailView, AnswerClickListener {
+
     override fun onClick(item: Answer) {
     }
 
@@ -58,5 +60,9 @@ class QuestionDetailActivity : BaseActivity<QuestionDetailView, QuestionDetailPr
 
     override fun vote(id: Int, vote: Vote) {
         presenter.vote(id, vote)
+    }
+
+    override fun goToAuth() {
+        Navigator.auth(this)
     }
 }

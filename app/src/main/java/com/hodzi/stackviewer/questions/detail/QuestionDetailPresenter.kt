@@ -8,6 +8,7 @@ import com.hodzi.stackviewer.model.Question
 import com.hodzi.stackviewer.questions.QuestionsInteractor
 import com.hodzi.stackviewer.questions.detail.QuestionDetailActivity.Companion.EXTRA_QUESTION
 import com.hodzi.stackviewer.utils.Shared
+import com.hodzi.stackviewer.utils.Strings
 import com.hodzi.stackviewer.utils.Vote
 import com.hodzi.stackviewer.utils.base.BasePresenter
 import io.reactivex.Observable
@@ -33,7 +34,12 @@ class QuestionDetailPresenter(val questionsInteractor: QuestionsInteractor, val 
     }
 
     fun vote(id: Int, vote: Vote) {
-        var observable: Observable<out Data> = when (vote) {
+        if (shared.getToken().equals(Strings.EMPTY_STRING)) {
+            view?.goToAuth()
+            return
+        }
+
+        val observable: Observable<out Data> = when (vote) {
             Vote.ANSWER_UP     -> {
                 questionsInteractor.answerUpVote(id, shared.getToken())
             }

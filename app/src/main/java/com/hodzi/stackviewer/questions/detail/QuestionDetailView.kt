@@ -8,4 +8,6 @@ interface QuestionDetailView : BaseView {
     fun showQuestion(question: Question)
 
     fun showArray(array: Array<Answer>)
+
+    fun goToAuth()
 }
