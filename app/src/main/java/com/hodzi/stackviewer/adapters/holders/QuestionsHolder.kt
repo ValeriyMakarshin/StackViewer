@@ -3,6 +3,7 @@ package com.hodzi.stackviewer.adapters.holders
 import android.annotation.TargetApi
 import android.graphics.Color
 import android.os.Build
+import android.support.v4.content.ContextCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,7 +33,7 @@ class QuestionsHolder(itemView: View) : BaseHolder<Question>(itemView) {
             if (item.isAnswered)
                 Color.WHITE
             else
-                R.color.colorPrimaryDark)
+                ContextCompat.getColor(itemView.context, R.color.colorPrimaryDark))
 
         itemView.uiPointsTv.setBackgroundEx(
             if (item.isAnswered)

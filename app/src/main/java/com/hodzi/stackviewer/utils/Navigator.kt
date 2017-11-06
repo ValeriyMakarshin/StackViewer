@@ -17,8 +17,6 @@ class Navigator{
             val state = System.currentTimeMillis().toString(16)
             LoginPresenter.state = state
 
-//            context.startActivity(Intent(context, LoginActivity::class.java))
-
             context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(
                 "https://stackexchange.com/oauth/dialog?" +
                 "client_id=11030&" +

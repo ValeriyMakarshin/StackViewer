@@ -54,9 +54,9 @@ ext {
             processor: "com.google.dagger:dagger-android-processor:$versions.dagger"
     ]
     tests = [
-//            testRunner: "com.android.support.test:runner:$versions.test",
-//            rules     : "com.android.support.test:rules:$versions.test",
-dagger: "com.google.dagger:dagger-compiler:$versions.dagger",
+            testRunner: "com.android.support.test:runner:$versions.test",
+            rules     : "com.android.support.test:rules:$versions.test",
+            dagger    : "com.google.dagger:dagger-compiler:$versions.dagger",
     ]
     kotlinTest = [
             test     : "org.jetbrains.kotlin:kotlin-test:$versions.kotlin",
