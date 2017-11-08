@@ -34,7 +34,8 @@ class QuestionDetailPresenter(val questionsInteractor: QuestionsInteractor, val 
     }
 
     fun vote(id: Int, vote: Vote) {
-        if (shared.getToken().equals(Strings.EMPTY_STRING)) {
+        print(shared.getToken())
+        if (Strings.isEmptyString(shared.getToken())) {
             view?.goToAuth()
             return
         }

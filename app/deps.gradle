@@ -10,7 +10,8 @@ ext {
             espresso  : '3.0.1',
             dagger    : '2.11',
             stetho    : '1.5.0',
-            test      : '1.0.1'
+            test      : '1.0.1',
+            mockito   : '2.11.0'
     ]
     supportDeps = [
 
@@ -56,6 +57,7 @@ ext {
     tests = [
             testRunner: "com.android.support.test:runner:$versions.test",
             rules     : "com.android.support.test:rules:$versions.test",
+            mockito   : "org.mockito:mockito-core:$versions.mockito",
             dagger    : "com.google.dagger:dagger-compiler:$versions.dagger",
     ]
     kotlinTest = [
