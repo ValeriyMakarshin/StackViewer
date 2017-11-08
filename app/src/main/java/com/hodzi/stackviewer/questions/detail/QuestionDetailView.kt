@@ -10,4 +10,6 @@ interface QuestionDetailView : BaseView {
     fun showArray(array: Array<Answer>)
 
     fun goToAuth()
+
+    fun voiceAccepted()
 }

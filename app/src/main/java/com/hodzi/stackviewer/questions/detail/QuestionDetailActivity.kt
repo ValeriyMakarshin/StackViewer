@@ -19,7 +19,6 @@ import kotlinx.android.synthetic.main.view_toolbar.*
 
 class QuestionDetailActivity : BaseActivity<QuestionDetailView, QuestionDetailPresenter>(),
     QuestionDetailView, AnswerClickListener {
-
     override fun onClick(item: Answer) {
     }
 
@@ -64,5 +63,8 @@ class QuestionDetailActivity : BaseActivity<QuestionDetailView, QuestionDetailPr
 
     override fun goToAuth() {
         Navigator.auth(this)
+    }
+
+    override fun voiceAccepted() {
     }
 }

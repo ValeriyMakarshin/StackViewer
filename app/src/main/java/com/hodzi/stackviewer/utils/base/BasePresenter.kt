@@ -10,7 +10,7 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
 abstract class BasePresenter<V : BaseView> {
-    protected var view: V? = null
+    var view: V? = null
     protected var bundle: Bundle? = null
 
     private var disposableList: Disposable? = null
