@@ -27,6 +27,8 @@ android {
                 versionPatch * maxStep + versionBuild
         versionName "${versionMajor}.${versionMinor}.${versionPatch}.${versionBuild}"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        flavorDimensions "default"
     }
     buildTypes {
         release {
@@ -38,6 +40,23 @@ android {
         exclude 'META-INF/app_debug.kotlin_module'
         exclude 'META-INF/rxjava.properties'
     }
+
+
+    productFlavors {
+        staging {
+            applicationIdSuffix '.staging'
+            versionName android.defaultConfig.versionName + "-STAGING"
+        }
+
+        mock {
+            applicationIdSuffix '.mock'
+            versionName android.defaultConfig.versionName + "-MOCK"
+        }
+
+        prod {
+        }
+    }
+
 }
 
 kotlin {
