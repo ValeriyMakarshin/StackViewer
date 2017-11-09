@@ -1,8 +1,7 @@
 package com.hodzi.stackviewer.questions.detail
 
 import android.os.Bundle
-import android.util.Log
-import com.hodzi.stackviewer.Const
+import com.hodzi.stackviewer.R
 import com.hodzi.stackviewer.model.Data
 import com.hodzi.stackviewer.model.Question
 import com.hodzi.stackviewer.questions.QuestionsInteractor
@@ -34,7 +33,6 @@ class QuestionDetailPresenter(val questionsInteractor: QuestionsInteractor, val 
     }
 
     fun vote(id: Int, vote: Vote) {
-        print(shared.getToken())
         if (Strings.isEmptyString(shared.getToken())) {
             view?.goToAuth()
             return
@@ -57,12 +55,12 @@ class QuestionDetailPresenter(val questionsInteractor: QuestionsInteractor, val 
         baseObservableData(observable,
             { data ->
                 run {
-                    Log.d(Const.LOG_TAG, "success")
+                    view?.voiceAccepted()
                 }
             },
             { throwable ->
                 run {
-                    Log.d(Const.LOG_TAG, "error")
+                    view?.showError(R.string.error_obsolete)
                 }
             }
         )

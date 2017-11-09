@@ -2,70 +2,83 @@ package com.hodzi.stackviewer.questions.detail
 
 import com.hodzi.stackviewer.model.Answer
 import com.hodzi.stackviewer.model.Block
+import com.hodzi.stackviewer.model.Question
 import com.hodzi.stackviewer.questions.QuestionsInteractor
+import com.hodzi.stackviewer.utils.Generator
 import com.hodzi.stackviewer.utils.Shared
 import com.hodzi.stackviewer.utils.Vote
 import io.reactivex.Observable
+import io.reactivex.android.plugins.RxAndroidPlugins
+import io.reactivex.plugins.RxJavaPlugins
+import io.reactivex.schedulers.Schedulers
 import org.junit.BeforeClass
 import org.junit.Test
+import org.mockito.ArgumentMatchers
 import org.mockito.Mockito
 
 
 internal class QuestionDetailPresenterTest {
     companion object {
-        lateinit var presenter: QuestionDetailPresenter
+        lateinit var presenterEmpty: QuestionDetailPresenter
+        lateinit var presenterAuth: QuestionDetailPresenter
         lateinit var view: QuestionDetailView
+        lateinit var sharedEmpty: Shared
+        lateinit var sharedAuth: Shared
+        lateinit var observableQ: Observable<Question>
 
-        @BeforeClass @JvmStatic
+        @BeforeClass
+        @JvmStatic
         fun setUp() {
+            val immediate = Schedulers.trampoline()
+            RxJavaPlugins.setInitIoSchedulerHandler { immediate }
+            RxJavaPlugins.setInitComputationSchedulerHandler { immediate }
+            RxJavaPlugins.setInitNewThreadSchedulerHandler { immediate }
+            RxJavaPlugins.setInitSingleSchedulerHandler { immediate }
+            RxAndroidPlugins.setInitMainThreadSchedulerHandler { immediate }
+
+            RxJavaPlugins.reset()
+
             view = Mockito.mock(QuestionDetailView::class.java)
 
             val questionsInteractor: QuestionsInteractor =
-                Mockito.mock(QuestionsInteractor::class.java)
+                    Mockito.mock(QuestionsInteractor::class.java)
 
             Mockito.`when`(questionsInteractor.getQuestionAnswers(0))
-                .thenReturn(Observable.create<Block<Answer>> { s ->
-                    run {
-                        s.onNext(Block(ArrayList(),
-                            false,
-                            0,
-                            0))
-                        s.onComplete()
-                    }
-                })
+                    .thenReturn(Observable.create<Block<Answer>> { s ->
+                        run {
+                            s.onNext(Generator.create(Block::class.java) as Block<Answer>)
+                            s.onComplete()
+                        }
+                    })
+
+            observableQ = Observable.create<Question> { s ->
+                run {
+                    s.onNext(Generator.create(Question::class.java))
+                    s.onComplete()
+                }
+            }
+
+            Mockito.`when`(questionsInteractor.questionDownVote(
+                    ArgumentMatchers.anyInt(),
+                    ArgumentMatchers.anyString()))
+                    .thenReturn(observableQ)
 
 
-            val shared: Shared =
-                Mockito.mock(Shared::class.java)
-            presenter = QuestionDetailPresenter(questionsInteractor, shared)
+            sharedEmpty = Mockito.mock(Shared::class.java)
+            Mockito.`when`(sharedEmpty.getToken()).thenReturn("")
 
+            sharedAuth = Mockito.mock(Shared::class.java)
+            Mockito.`when`(sharedAuth.getToken()).thenReturn("123")
 
-            Mockito.`when`(shared.getToken()).thenReturn("")
+            presenterEmpty = QuestionDetailPresenter(questionsInteractor, sharedEmpty)
+            presenterEmpty.view = view
 
-//            Mockito.`when`(view.goToAuth())
-//            Mockito.doNothing().`when`(view.showQuestion(eq(any<Question>())))
-
-            presenter.attach(view)
-
-
-//            Mockito.doReturn("23").`when`(shared).getToken()
-
-
-//            Mockito.`when`(questionsInteractor.questionDownVote(
-//                ArgumentMatchers.anyInt(),
-//                ArgumentMatchers.anyString()))
-//                .thenReturn(eq(Observable.create<Question> {
-//                    s ->
-//                    run {
-//                        s.onNext(ArgumentMatchers.any(Question::class.java))
-//                        s.onComplete()
-//                    }
-//                }))
+            presenterAuth = QuestionDetailPresenter(questionsInteractor, sharedAuth)
+            presenterAuth.view = view
 
         }
 
     }
-//    lateinit var
 
     @Test
     fun getQuestion() {
@@ -89,10 +102,9 @@ internal class QuestionDetailPresenterTest {
 
     @Test
     fun voteTest() {
-        presenter.vote(1, Vote.QUESTION_DOWN)
-        Mockito.verify(view).goToAuth()
-//        Mockito.verify(presenter).baseObservableData(Observable.just(ArgumentMatchers.any(Question::class.java)))
-
+        presenterAuth.vote(1, Vote.QUESTION_DOWN)
+//        Mockito.verify(view).goToAuth()
+        Mockito.verify(view).voiceAccepted()
     }
 
     @Test
