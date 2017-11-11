@@ -12,7 +12,8 @@ import com.hodzi.stackviewer.utils.Vote
 import com.hodzi.stackviewer.utils.base.BasePresenter
 import io.reactivex.Observable
 
-class QuestionDetailPresenter(val questionsInteractor: QuestionsInteractor, val shared: Shared) :
+class QuestionDetailPresenter(private val questionsInteractor: QuestionsInteractor,
+                              val shared: Shared) :
     BasePresenter<QuestionDetailView>() {
     lateinit var question: Question
 

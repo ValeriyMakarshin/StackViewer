@@ -2,45 +2,16 @@ package com.hodzi.stackviewer.questions.detail.interactor
 
 import com.hodzi.stackviewer.model.Answer
 import com.hodzi.stackviewer.model.Block
-import com.hodzi.stackviewer.model.Owner
 import com.hodzi.stackviewer.model.Question
 import com.hodzi.stackviewer.questions.QuestionsInteractor
+import com.hodzi.stackviewer.utils.Generator
 import io.reactivex.Observable
-import java.util.*
 
-class QuestionsInteractorTest : QuestionsInteractor {
+open class QuestionsInteractorTest : QuestionsInteractor {
     override fun getAllQuestions(): Observable<Block<Question>> {
         return Observable.create { s ->
             run {
-                s.onNext(Block(
-                    Arrays.asList(
-                        Question(
-                            Arrays.asList("Java", "Android"),
-                            Owner(32,
-                                12,
-                                "user",
-                                3,
-                                "",
-                                "John Smith",
-                                ""),
-                            true,
-                            34,
-                            2,
-                            3,
-                            5,
-                            2,
-                            3,
-                            3,
-                            3,
-                            3,
-                            3,
-                            "",
-                            "titleTest",
-                            "bodyTest")),
-                    true,
-                    1,
-                    1)
-                )
+                s.onNext(Generator.create(Block::class.java) as Block<Question>)
                 s.onComplete()
             }
         }
@@ -48,7 +19,12 @@ class QuestionsInteractorTest : QuestionsInteractor {
     }
 
     override fun getQuestionAnswers(questionId: Int): Observable<Block<Answer>> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return Observable.create { s ->
+            run {
+                s.onNext(Generator.create(Block::class.java) as Block<Answer>)
+                s.onComplete()
+            }
+        }
     }
 
     override fun answerUpVote(answerId: Int, token: String): Observable<Answer> {
@@ -64,6 +40,11 @@ class QuestionsInteractorTest : QuestionsInteractor {
     }
 
     override fun questionDownVote(questionId: Int, token: String): Observable<Question> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return Observable.create<Question> { s ->
+            run {
+                s.onNext(Generator.create(Question::class.java))
+                s.onComplete()
+            }
+        }
     }
 }

@@ -1,5 +1,6 @@
 package com.hodzi.stackviewer.questions.detail
 
+import android.os.Bundle
 import com.hodzi.stackviewer.RxHook
 import com.hodzi.stackviewer.model.Answer
 import com.hodzi.stackviewer.model.Block
@@ -10,49 +11,63 @@ import com.hodzi.stackviewer.utils.Shared
 import com.hodzi.stackviewer.utils.Vote
 import io.reactivex.Observable
 import org.junit.BeforeClass
+import org.junit.Rule
 import org.junit.Test
 import org.mockito.ArgumentMatchers
+import org.mockito.ArgumentMatchers.anyInt
 import org.mockito.Mockito
 
 
 internal class QuestionDetailPresenterTest {
+    @Rule
+    @JvmField
+    val schedulers = RxHook()
+
     companion object {
+
         lateinit var presenterEmpty: QuestionDetailPresenter
         lateinit var presenterAuth: QuestionDetailPresenter
         lateinit var view: QuestionDetailView
 
+        lateinit var bundle: Bundle
+        lateinit var questionsInteractor: QuestionsInteractor
+        lateinit var question: Question
+        lateinit var answers: Array<Answer>
+        lateinit var sharedEmpty: Shared
+        lateinit var sharedAuth: Shared
+
         @BeforeClass
         @JvmStatic
-        fun setUp() {
-            RxHook.initSchedulers()
+        fun set() {
 
-            view = Mockito.mock(QuestionDetailView::class.java)
-            val questionsInteractor: QuestionsInteractor =
-                    Mockito.mock(QuestionsInteractor::class.java)
+            question = Generator.create(Question::class.java)
+            bundle = Mockito.mock(Bundle::class.java)
+            Mockito.`when`(bundle.getSerializable(QuestionDetailActivity.EXTRA_QUESTION))
+                .thenReturn(question)
 
-            Mockito.`when`(questionsInteractor.getQuestionAnswers(0))
-                    .thenReturn(Observable.create<Block<Answer>> { s ->
-                        run {
-                            s.onNext(Generator.create(Block::class.java) as Block<Answer>)
-                            s.onComplete()
-                        }
-                    })
+            questionsInteractor = Mockito.mock(QuestionsInteractor::class.java)
 
-            Mockito.`when`(questionsInteractor.questionDownVote(
-                    ArgumentMatchers.anyInt(),
-                    ArgumentMatchers.anyString()))
-                    .thenReturn(Observable.create<Question> { s ->
-                        run {
-                            s.onNext(Generator.create(Question::class.java))
-                            s.onComplete()
-                        }
-                    })
+            val block: Block<Answer> = Generator.create(Block::class.java) as Block<Answer>
+            answers = block.items.toTypedArray()
 
-            val sharedEmpty: Shared = Mockito.mock(Shared::class.java)
+            Mockito.`when`(questionsInteractor.getQuestionAnswers(anyInt()))
+                .thenReturn(Observable.just(block))
+
+            Mockito.`when`(questionsInteractor.questionDownVote(anyInt(), ArgumentMatchers.anyString()))
+                .thenReturn(Observable.create {
+                    run {
+                        it.onNext(Generator.create(Question::class.java))
+                        it.onComplete()
+                    }
+                })
+
+            sharedEmpty = Mockito.mock(Shared::class.java)
             Mockito.`when`(sharedEmpty.getToken()).thenReturn("")
 
-            val sharedAuth: Shared = Mockito.mock(Shared::class.java)
+            sharedAuth = Mockito.mock(Shared::class.java)
             Mockito.`when`(sharedAuth.getToken()).thenReturn("123")
+
+            view = Mockito.mock(QuestionDetailView::class.java)
 
             presenterEmpty = QuestionDetailPresenter(questionsInteractor, sharedEmpty)
             presenterEmpty.view = view
@@ -60,23 +75,14 @@ internal class QuestionDetailPresenterTest {
             presenterAuth = QuestionDetailPresenter(questionsInteractor, sharedAuth)
             presenterAuth.view = view
         }
-
-    }
-
-    @Test
-    fun getQuestion() {
-    }
-
-    @Test
-    fun setQuestion() {
-    }
-
-    @Test
-    fun parseArguments() {
     }
 
     @Test
     fun attach() {
+        presenterEmpty.attach(view, bundle)
+        Mockito.verify(questionsInteractor).getQuestionAnswers(question.questionId)
+        Mockito.verify(view).showQuestion(question)
+        Mockito.verify(view).showArray(answers)
     }
 
     @Test
@@ -94,13 +100,4 @@ internal class QuestionDetailPresenterTest {
         presenterAuth.vote(1, Vote.QUESTION_DOWN)
         Mockito.verify(view).voiceAccepted()
     }
-
-    @Test
-    fun getQuestionsInteractor() {
-    }
-
-    @Test
-    fun getShared() {
-    }
-
 }

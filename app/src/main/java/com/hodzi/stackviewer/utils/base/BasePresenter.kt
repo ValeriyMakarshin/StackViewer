@@ -72,6 +72,7 @@ abstract class BasePresenter<V : BaseView> {
             .onErrorReturn({ throwable ->
                 view?.hideProgress()
                 functionError(throwable)
+                disposableData = null
                 null
             })
             .subscribe({ data ->
@@ -79,6 +80,7 @@ abstract class BasePresenter<V : BaseView> {
                     view?.hideProgress()
                     functionSuccess(data)
                 }
+                disposableData = null
             })
     }
 
