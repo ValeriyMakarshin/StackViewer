@@ -58,7 +58,6 @@ ext {
             testRunner: "com.android.support.test:runner:$versions.test",
             rules     : "com.android.support.test:rules:$versions.test",
             mockito   : "org.mockito:mockito-core:$versions.mockito",
-            dagger    : "com.google.dagger:dagger-compiler:$versions.dagger",
     ]
     kotlinTest = [
             test     : "org.jetbrains.kotlin:kotlin-test:$versions.kotlin",
