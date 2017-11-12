@@ -37,31 +37,31 @@ interface Api {
     @POST("/2.2/questions/{questionId}/downvote")
     fun questionDownVote(
         @Path("questionId") questionId : Int,
-        @Part("access_token") token: String,
-        @Part("preview") preview: Boolean = true,
-        @Part("filter") filter: String = Filters.DEFAULT.value,
-        @Part("site") site: String = Sites.RU_STACKOVERFLOW.value,
-        @Part("key") key: String = Const.API_KEY
+        @Field("access_token") token: String,
+        @Field("preview") preview: Boolean = true,
+        @Field("filter") filter: String = Filters.DEFAULT.value,
+        @Field("site") site: String = Sites.RU_STACKOVERFLOW.value,
+        @Field("key") key: String = Const.API_KEY
     ): Observable<Question>
 
     @POST("/2.2/answers/{answerId}/upvote")
     fun answersUpVote(
         @Path("answerId") answerId : Int,
-        @Part("access_token") token: String,
-        @Part("preview") preview: Boolean = true,
-        @Part("filter") filter: String = Filters.DEFAULT.value,
-        @Part("site") site: String = Sites.RU_STACKOVERFLOW.value,
-        @Part("key") key: String = Const.API_KEY
+        @Field("access_token") token: String,
+        @Field("preview") preview: Boolean = true,
+        @Field("filter") filter: String = Filters.DEFAULT.value,
+        @Field("site") site: String = Sites.RU_STACKOVERFLOW.value,
+        @Field("key") key: String = Const.API_KEY
     ): Observable<Answer>
 
     @POST("/2.2/answers/{answerId}/downvote")
     fun answersDownVote(
         @Path("answerId") answerId : Int,
-        @Part("access_token") token: String,
-        @Part("preview") preview: Boolean = true,
-        @Part("filter") filter: String = Filters.DEFAULT.value,
-        @Part("site") site: String = Sites.RU_STACKOVERFLOW.value,
-        @Part("key") key: String = Const.API_KEY
+        @Field("access_token") token: String,
+        @Field("preview") preview: Boolean = true,
+        @Field("filter") filter: String = Filters.DEFAULT.value,
+        @Field("site") site: String = Sites.RU_STACKOVERFLOW.value,
+        @Field("key") key: String = Const.API_KEY
     ): Observable<Answer>
 
     @GET("/2.2/tags")

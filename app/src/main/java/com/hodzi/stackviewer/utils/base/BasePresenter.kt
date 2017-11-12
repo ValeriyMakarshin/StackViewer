@@ -26,7 +26,7 @@ abstract class BasePresenter<V : BaseView> {
         loadData()
     }
 
-    protected open fun loadData() {
+    open fun loadData() {
 
     }
 

@@ -3,6 +3,7 @@ package com.hodzi.stackviewer.questions.detail
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import com.hodzi.stackviewer.R
 import com.hodzi.stackviewer.adapters.AnswersRAdapter
 import com.hodzi.stackviewer.di.Injector
@@ -66,5 +67,6 @@ class QuestionDetailActivity : BaseActivity<QuestionDetailView, QuestionDetailPr
     }
 
     override fun voiceAccepted() {
+        Toast.makeText(this, "voice accepted", Toast.LENGTH_SHORT).show()
     }
 }

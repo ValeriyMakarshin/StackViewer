@@ -1,12 +1,9 @@
 <resources>
     <string name="app_name">"StackViewer"</string>
     <string name="action_settings">Settings</string>
-    <string name="title_activity_main2">Main2Activity</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="title_activity_main32">Main32Activity</string>
-
 
     <!--navigation drawer-->
     <string name="nav_questions">Questions</string>
@@ -16,4 +13,12 @@
 
     <!--errors-->
     <string name="error_obsolete">Obsolete auth session</string>
+
+    <!--content descriptions-->
+    <string name="best_answer">The question owner accept this as the best answer</string>
+    <string name="vote_up_question">Vote up for a question</string>
+    <string name="vote_down_question">Vote down for a question</string>
+    <string name="vote_up_answer">Vote up for a answer</string>
+    <string name="vote_down_answer">Vote down for a answer</string>
+
 </resources>

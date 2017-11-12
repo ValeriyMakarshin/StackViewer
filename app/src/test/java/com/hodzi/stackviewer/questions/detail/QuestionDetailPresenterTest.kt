@@ -86,10 +86,6 @@ internal class QuestionDetailPresenterTest {
     }
 
     @Test
-    fun loadData() {
-    }
-
-    @Test
     fun voteTestEmpty() {
         presenterEmpty.vote(1, Vote.QUESTION_DOWN)
         Mockito.verify(view).goToAuth()

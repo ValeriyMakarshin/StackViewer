@@ -9,15 +9,14 @@ import java.lang.ref.WeakReference
 class RequestHandler(context: Context) {
     private val contextWeakRef: WeakReference<Context> = WeakReference(context)
 
-    private val responses: HashMap<String, String> = HashMap()
+    private val responses: HashMap<Regex, String> = HashMap()
 
     init {
-        responses.put("/answers?", "answers.json")
-        responses.put("/questions?", "questions.json")
-        responses.put("/tags?", "tags.json")
-        responses.put("/users?", "users.json")
+        responses.put(Regex("/questions/[0-9]{1,14}/answers\$"), "answers.json")
+        responses.put(Regex("/questions\$"), "questions.json")
+        responses.put(Regex("/tags\$"), "tags.json")
+        responses.put(Regex("/users\$"), "users.json")
     }
-
 
     fun intercept(path: String): Boolean = responses.keys.any { path.contains(it) }
 
