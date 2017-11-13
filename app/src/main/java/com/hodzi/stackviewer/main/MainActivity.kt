@@ -89,16 +89,20 @@ class MainActivity : BaseActivity<MainView, MainPresenter>(),
         val fragment: Fragment? =
             when (id) {
                 R.id.nav_questions -> {
+                    uiToolbar.setTitle(R.string.nav_questions)
                     QuestionsFragment()
                 }
                 R.id.nav_tags      -> {
+                    uiToolbar.setTitle(R.string.nav_tags)
                     TagsFragment()
                 }
                 R.id.nav_users     -> {
+                    uiToolbar.setTitle(R.string.nav_users)
                     UsersFragment()
                 }
                 else               -> {
                     lastScreen = R.id.nav_questions
+                    uiToolbar.setTitle(R.string.nav_questions)
                     QuestionsFragment()
                 }
             }
