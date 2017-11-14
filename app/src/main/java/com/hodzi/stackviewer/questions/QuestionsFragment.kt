@@ -15,6 +15,7 @@ import com.hodzi.stackviewer.utils.ui.ActivityInfo
 import com.hodzi.stackviewer.utils.ui.ActivityListInfo
 import kotlinx.android.synthetic.main.fragment_questions.*
 import kotlinx.android.synthetic.main.view_progress_bar.*
+import kotlinx.android.synthetic.main.view_refresh_button.*
 
 class QuestionsFragment : BaseFragment<QuestionsView, QuestionsPresenter>(), QuestionsView,
     OnClickListener<Question>{
@@ -27,7 +28,8 @@ class QuestionsFragment : BaseFragment<QuestionsView, QuestionsPresenter>(), Que
     }
 
     override fun getActivityInfo(): ActivityInfo = ActivityInfo(R.layout.fragment_questions,
-        activityListInfo = ActivityListInfo(uiProgressBar, uiQuestionsRv))
+        activityListInfo = ActivityListInfo(uiProgressBar, uiQuestionsRv,
+            uiQuestionsSrl, uiRefreshBt))
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {

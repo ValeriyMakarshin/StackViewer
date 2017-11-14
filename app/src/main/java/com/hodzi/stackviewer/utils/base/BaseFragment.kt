@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.annotation.CallSuper
 import android.support.annotation.StringRes
 import android.support.v4.app.Fragment
+import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -15,7 +16,9 @@ import com.hodzi.stackviewer.utils.ui.ActivityInfo
 import com.hodzi.stackviewer.utils.ui.ActivityListInfo
 import javax.inject.Inject
 
-abstract class BaseFragment<V : BaseView, P : BasePresenter<V>> : Fragment(), BaseView {
+
+abstract class BaseFragment<V : BaseView, P : BasePresenter<V>> : Fragment(), BaseView,
+    SwipeRefreshLayout.OnRefreshListener {
     @Inject protected lateinit var presenter: P
     protected var activityListInfo: ActivityListInfo? = null
 
@@ -32,6 +35,7 @@ abstract class BaseFragment<V : BaseView, P : BasePresenter<V>> : Fragment(), Ba
 
         activityListInfo = getActivityInfo().activityListInfo
 
+        activityListInfo?.refreshBtn?.setOnClickListener({ presenter.loadData() })
         activityListInfo?.recyclerView?.layoutManager = getLayoutManager()
 
         presenter.attach(this as V, arguments)
@@ -41,9 +45,37 @@ abstract class BaseFragment<V : BaseView, P : BasePresenter<V>> : Fragment(), Ba
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        activityListInfo?.swipeLayout?.setOnRefreshListener(this)
+    }
+
+    override fun onPause() {
+        activityListInfo?.swipeLayout?.setOnRefreshListener(null)
+        super.onPause()
+    }
+
     override fun onStop() {
         presenter.detach()
         super.onStop()
+    }
+
+    override fun onRefresh() {
+        presenter.loadData()
+    }
+
+    override fun showRefresh() {
+        activityListInfo?.refreshBtn?.visibility = View.GONE
+        activityListInfo?.swipeLayout?.visibility = View.VISIBLE
+        activityListInfo?.swipeLayout?.post({ activityListInfo?.swipeLayout?.isRefreshing = true })
+    }
+
+    override fun hideRefresh() {
+        activityListInfo?.swipeLayout?.post({ activityListInfo?.swipeLayout?.isRefreshing = false })
+    }
+
+    override fun showRefreshButton() {
+        activityListInfo?.refreshBtn?.visibility = View.VISIBLE
     }
 
     protected open fun getLayoutManager(): RecyclerView.LayoutManager? =

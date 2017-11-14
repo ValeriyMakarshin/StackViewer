@@ -12,4 +12,10 @@ interface BaseView {
     fun hideKeyboard()
 
     fun finish()
+
+    fun showRefresh()
+
+    fun hideRefresh()
+
+    fun showRefreshButton()
 }

@@ -37,17 +37,19 @@ abstract class BasePresenter<V : BaseView> {
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe({
-                view?.showProgress()
+                view?.showRefresh()
             })
             .doOnTerminate({
                 unsubscribeSubscription()
-                view?.hideProgress()
+                view?.hideRefresh()
             })
             .onErrorReturn({ throwable ->
-                view?.hideProgress()
+                view?.hideRefresh()
+                view?.showRefreshButton()
                 null
             })
             .subscribe({ block ->
+                view?.hideRefresh()
                 if (block?.items != null) {
                     view?.hideProgress()
                     function(block)

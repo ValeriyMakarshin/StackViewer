@@ -13,6 +13,7 @@ import com.hodzi.stackviewer.utils.ui.ActivityInfo
 import com.hodzi.stackviewer.utils.ui.ActivityListInfo
 import kotlinx.android.synthetic.main.fragment_tags.*
 import kotlinx.android.synthetic.main.view_progress_bar.*
+import kotlinx.android.synthetic.main.view_refresh_button.*
 
 class TagsFragment : BaseFragment<TagsView, TagsPresenter>(), TagsView {
     override fun showArray(array: Array<Tag>) {
@@ -20,7 +21,7 @@ class TagsFragment : BaseFragment<TagsView, TagsPresenter>(), TagsView {
     }
 
     override fun getActivityInfo(): ActivityInfo = ActivityInfo(R.layout.fragment_tags,
-        activityListInfo = ActivityListInfo(uiProgressBar, uiTagsRv))
+        activityListInfo = ActivityListInfo(uiProgressBar, uiTagsRv, uiTagsSrl, uiRefreshBt))
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {

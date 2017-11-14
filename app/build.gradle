@@ -93,14 +93,12 @@ dependencies {
 
     androidTestCompile androidTestsLibs
 
-
     testCompile 'junit:junit:4.12'
 
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 
     compile 'com.github.bumptech.glide:glide:4.2.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.2.0'
-
     annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
 }
 repositories {
