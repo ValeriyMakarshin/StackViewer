@@ -16,6 +16,8 @@ class RequestHandler(context: Context) {
         responses.put(Regex("/questions\$"), "questions.json")
         responses.put(Regex("/tags\$"), "tags.json")
         responses.put(Regex("/users\$"), "users.json")
+        responses.put(Regex("/questions/[0-9]{1,14}/(up|down)vote\$"), "questionVote.json")
+        responses.put(Regex("/answers/[0-9]{1,14}/(up|down)vote\$"), "answerVote.json")
     }
 
     fun intercept(path: String): Boolean = responses.keys.any { path.contains(it) }

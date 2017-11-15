@@ -34,6 +34,7 @@ interface Api {
         @Field("key") key: String = Const.API_KEY
     ): Observable<Question>
 
+    @FormUrlEncoded
     @POST("/2.2/questions/{questionId}/downvote")
     fun questionDownVote(
         @Path("questionId") questionId : Int,
@@ -44,6 +45,7 @@ interface Api {
         @Field("key") key: String = Const.API_KEY
     ): Observable<Question>
 
+    @FormUrlEncoded
     @POST("/2.2/answers/{answerId}/upvote")
     fun answersUpVote(
         @Path("answerId") answerId : Int,
@@ -54,6 +56,7 @@ interface Api {
         @Field("key") key: String = Const.API_KEY
     ): Observable<Answer>
 
+    @FormUrlEncoded
     @POST("/2.2/answers/{answerId}/downvote")
     fun answersDownVote(
         @Path("answerId") answerId : Int,

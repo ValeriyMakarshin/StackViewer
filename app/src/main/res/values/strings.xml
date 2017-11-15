@@ -23,4 +23,5 @@
     <string name="vote_up_answer">Vote up for a answer</string>
     <string name="vote_down_answer">Vote down for a answer</string>
 
+    <string name="voice_accepted">Voice accepted</string>
 </resources>
