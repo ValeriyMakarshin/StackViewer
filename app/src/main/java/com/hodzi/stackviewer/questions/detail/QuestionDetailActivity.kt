@@ -67,6 +67,6 @@ class QuestionDetailActivity : BaseActivity<QuestionDetailView, QuestionDetailPr
     }
 
     override fun voiceAccepted() {
-        Toast.makeText(this, "voice accepted", Toast.LENGTH_SHORT).show()
+        Toast.makeText(this, R.string.voice_accepted, Toast.LENGTH_SHORT).show()
     }
 }

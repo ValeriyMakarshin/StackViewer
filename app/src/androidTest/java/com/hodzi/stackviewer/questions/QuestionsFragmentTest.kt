@@ -7,14 +7,17 @@ import android.support.test.espresso.contrib.RecyclerViewActions.actionOnItemAtP
 import android.support.test.espresso.contrib.RecyclerViewActions.scrollToPosition
 import android.support.test.espresso.intent.Intents
 import android.support.test.espresso.intent.matcher.IntentMatchers.hasComponent
+import android.support.test.espresso.intent.matcher.IntentMatchers.hasExtraWithKey
 import android.support.test.espresso.matcher.ViewMatchers.isDisplayed
 import android.support.test.espresso.matcher.ViewMatchers.withId
 import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
+import android.support.v7.widget.RecyclerView
 import com.hodzi.stackviewer.R
 import com.hodzi.stackviewer.adapters.holders.QuestionsHolder
 import com.hodzi.stackviewer.main.MainActivity
 import com.hodzi.stackviewer.questions.detail.QuestionDetailActivity
+import org.hamcrest.CoreMatchers.allOf
 import org.hamcrest.CoreMatchers.not
 import org.junit.After
 import org.junit.Before
@@ -44,20 +47,22 @@ internal class QuestionsFragmentTest {
     @Throws(Exception::class)
     fun testRecyclerViewScroll() {
         onView(withId(R.id.uiQuestionsRv))
-                .perform(scrollToPosition<QuestionsHolder>(20))
-                .perform(scrollToPosition<QuestionsHolder>(2))
-                .perform(scrollToPosition<QuestionsHolder>(4))
-                .perform(scrollToPosition<QuestionsHolder>(1))
-                .perform(scrollToPosition<QuestionsHolder>(15))
-                .perform(scrollToPosition<QuestionsHolder>(190))
+            .perform(scrollToPosition<RecyclerView.ViewHolder>(20))
+            .perform(scrollToPosition<QuestionsHolder>(2))
+            .perform(scrollToPosition<QuestionsHolder>(4))
+            .perform(scrollToPosition<QuestionsHolder>(1))
+            .perform(scrollToPosition<QuestionsHolder>(15))
+            .perform(scrollToPosition<QuestionsHolder>(190))
     }
 
     @Test
     @Throws(Exception::class)
     fun testClickOnItem() {
         onView(withId(R.id.uiQuestionsRv))
-                .perform(actionOnItemAtPosition<QuestionsHolder>(3, click()))
-        Intents.intended(hasComponent(QuestionDetailActivity::class.java.name))
+            .perform(actionOnItemAtPosition<QuestionsHolder>(3, click()))
+        Intents.intended(allOf(
+            hasComponent(QuestionDetailActivity::class.java.name),
+            hasExtraWithKey(QuestionDetailActivity.EXTRA_QUESTION)))
     }
 
     @After

@@ -1,5 +1,6 @@
 package com.hodzi.stackviewer.questions.detail
 
+import android.content.Intent
 import android.support.test.espresso.Espresso.onView
 import android.support.test.espresso.action.ViewActions.click
 import android.support.test.espresso.assertion.ViewAssertions.matches
@@ -10,7 +11,11 @@ import android.support.test.rule.ActivityTestRule
 import android.support.test.runner.AndroidJUnit4
 import com.hodzi.stackviewer.R
 import com.hodzi.stackviewer.adapters.holders.AnswersHolder
-import org.hamcrest.CoreMatchers.*
+import com.hodzi.stackviewer.model.Question
+import com.hodzi.stackviewer.utils.Generator
+import com.hodzi.stackviewer.utils.withIndex
+import org.hamcrest.Matchers.*
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -22,7 +27,17 @@ class QuestionDetailActivityTest {
     @Rule
     @JvmField
     val activityTestRule =
-            ActivityTestRule<QuestionDetailActivity>(QuestionDetailActivity::class.java)
+        ActivityTestRule<QuestionDetailActivity>(QuestionDetailActivity::class.java,
+            false, false)
+
+
+    @Before
+    fun setUp() {
+        val intent = Intent()
+        val question: Question = Generator.create(Question::class.java)
+        intent.putExtra(QuestionDetailActivity.EXTRA_QUESTION, question)
+        activityTestRule.launchActivity(intent)
+    }
 
     @Test
     @Throws(Exception::class)
@@ -45,11 +60,20 @@ class QuestionDetailActivityTest {
     @Test
     @Throws(Exception::class)
     fun testQuestionVote() {
-        onView(anyOf(withId(R.id.uiArrowDownIv), not(withParent(withId(R.id.uiAnswersRv)))))
-                .perform(click())
-
+        onView(allOf(withId(R.id.uiArrowUpIv), not(isDescendantOfA(withId(R.id.uiAnswersRv)))))
+            .perform(click())
         onView(withText(R.string.voice_accepted))
-                .inRoot(withDecorView(not(`is`(activityTestRule.activity.window.decorView))))
-                .check(matches(isDisplayed()))
+            .inRoot(withDecorView(not(`is`(activityTestRule.activity.window.decorView))))
+            .check(matches(isDisplayed()))
     }
+
+    @Test
+    @Throws(Exception::class)
+    fun testAnswerVote() {
+        onView(withId(R.id.uiAnswersRv).withIndex(withId(R.id.uiArrowUpIv), 0)).perform(click())
+        onView(withText(R.string.voice_accepted))
+            .inRoot(withDecorView(not(`is`(activityTestRule.activity.window.decorView))))
+            .check(matches(isDisplayed()))
+    }
+
 }

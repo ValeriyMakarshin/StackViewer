@@ -3,7 +3,7 @@ package com.hodzi.stackviewer.utils
 import android.support.test.espresso.IdlingRegistry
 import android.support.test.espresso.IdlingResource
 
-class IdlingResourceUtils(val waitTimeMs: Long) : IdlingResource {
+class IdlingResourceUtils(private val waitTimeMs: Long) : IdlingResource {
     companion object {
         fun timeout(waitTimeMs: Long): IdlingResource {
             val idlingResource: IdlingResource = IdlingResourceUtils(waitTimeMs)

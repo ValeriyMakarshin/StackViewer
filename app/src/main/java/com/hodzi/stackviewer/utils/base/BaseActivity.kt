@@ -18,7 +18,7 @@ import javax.inject.Inject
 abstract class BaseActivity<V : BaseView, P : BasePresenter<V>> : AppCompatActivity(), BaseView,
     SwipeRefreshLayout.OnRefreshListener {
 
-    @Inject protected lateinit var presenter: P
+    @Inject lateinit var presenter: P
     protected var activityListInfo: ActivityListInfo? = null
 
     protected abstract fun getActivityInfo(): ActivityInfo
