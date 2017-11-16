@@ -31,7 +31,7 @@ abstract class BasePresenter<V : BaseView> {
     }
 
     fun <T : Data> baseObservableListDefaultError(observable: Observable<Block<T>>,
-                                                  function: (Block<T>) -> Unit) {
+                                                  function: (Block<T>) -> Unit = {}) {
         if (disposableList != null) return
         disposableList = observable
             .subscribeOn(Schedulers.io())
@@ -41,13 +41,13 @@ abstract class BasePresenter<V : BaseView> {
             })
             .doOnTerminate({
                 unsubscribeSubscription()
-                view?.hideRefresh()
             })
-            .onErrorReturn({ throwable ->
+            .doOnError { throwable ->
                 view?.hideRefresh()
                 view?.showRefreshButton()
-                null
-            })
+            }
+//            .onErrorReturn({
+//            })
             .subscribe({ block ->
                 view?.hideRefresh()
                 if (block?.items != null) {
