@@ -105,7 +105,7 @@ internal class QuestionDetailPresenterTest {
     @Test
     fun testBaseObservableListDefaultError() {
         presenterEmpty.baseObservableListDefaultError(Observable.create {
-            it.tryOnError(Throwable("Test throwable"))
+            it.onError(Throwable("Test throwable"))
         })
         Mockito.verify(view).showRefresh()
         Mockito.verify(view).hideRefresh()
