@@ -70,36 +70,36 @@ androidExtensions {
 }
 
 kapt {
-    generateStubs = true
+//    generateStubs = true
 }
 
 apply from: 'deps.gradle'
 
 dependencies {
-    compile supportLibs
-    compile kotlinLibs
-    compile rxJavaLibs
-    compile retrofitLibs
-    compile okHttpLibs
-    compile stethoLibs
-    compile daggerLibs
+    implementation supportLibs
+    implementation kotlinLibs
+    implementation rxJavaLibs
+    implementation retrofitLibs
+    implementation okHttpLibs
+    implementation stethoLibs
+    implementation daggerLibs
 
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     kapt kaptLibs
 
-    testCompile testsLibs
-    testCompile kotlinTestLibs
+    testImplementation testsLibs
+    testImplementation kotlinTestLibs
 
-    androidTestCompile androidTestsLibs
+    androidTestImplementation androidTestsLibs
 
-    testCompile 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.12'
 
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 
-    compile 'com.github.bumptech.glide:glide:4.2.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.2.0'
-    annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
+    implementation 'com.github.bumptech.glide:glide:4.2.0'
+    kapt 'com.github.bumptech.glide:compiler:4.2.0'
+    kapt 'com.google.dagger:dagger-compiler:2.11'
 }
 repositories {
     mavenCentral()

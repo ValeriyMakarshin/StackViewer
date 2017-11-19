@@ -1,7 +1,6 @@
 package com.hodzi.stackviewer.di
 
 import android.content.Context
-import com.hodzi.stackviewer.MockInterceptor
 import com.hodzi.stackviewer.NetUtils
 import com.hodzi.stackviewer.utils.Api
 import dagger.Module
@@ -33,7 +32,6 @@ class NetModule(val context: Context) {
     fun provideClient(): OkHttpClient {
         return OkHttpClient.Builder()
             .addNetworkInterceptor(NetUtils.interceptor)
-            .addInterceptor(MockInterceptor(context))
             .build()
     }
 }
