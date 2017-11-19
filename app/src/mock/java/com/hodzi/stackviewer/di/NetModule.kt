@@ -1,5 +1,7 @@
 package com.hodzi.stackviewer.di
 
+import android.content.Context
+import com.hodzi.stackviewer.MockInterceptor
 import com.hodzi.stackviewer.NetUtils
 import com.hodzi.stackviewer.utils.Api
 import dagger.Module
@@ -11,7 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @Module
-class NetModule {
+class NetModule(val context: Context) {
     private val baseUrl = "https://api.stackexchange.com/"
 
     @Provides
@@ -31,6 +33,7 @@ class NetModule {
     fun provideClient(): OkHttpClient {
         return OkHttpClient.Builder()
             .addNetworkInterceptor(NetUtils.interceptor)
+            .addInterceptor(MockInterceptor(context))
             .build()
     }
 }

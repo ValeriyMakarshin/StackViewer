@@ -53,13 +53,13 @@ class MainActivity : BaseActivity<MainView, MainPresenter>(),
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val id = item.itemId
 
-
         return if (id == R.id.action_settings) {
             Navigator.auth(this)
 //            startActivity(Intent(this, LoginActivity::class.java))
             return true
-        } else super.onOptionsItemSelected(item)
-
+        } else {
+            super.onOptionsItemSelected(item)
+        }
     }
 
     override fun onBackPressed() {
@@ -89,16 +89,20 @@ class MainActivity : BaseActivity<MainView, MainPresenter>(),
         val fragment: Fragment? =
             when (id) {
                 R.id.nav_questions -> {
+                    uiToolbar.setTitle(R.string.nav_questions)
                     QuestionsFragment()
                 }
-                R.id.nav_tags -> {
+                R.id.nav_tags      -> {
+                    uiToolbar.setTitle(R.string.nav_tags)
                     TagsFragment()
                 }
-                R.id.nav_users -> {
+                R.id.nav_users     -> {
+                    uiToolbar.setTitle(R.string.nav_users)
                     UsersFragment()
                 }
-                else -> {
+                else               -> {
                     lastScreen = R.id.nav_questions
+                    uiToolbar.setTitle(R.string.nav_questions)
                     QuestionsFragment()
                 }
             }

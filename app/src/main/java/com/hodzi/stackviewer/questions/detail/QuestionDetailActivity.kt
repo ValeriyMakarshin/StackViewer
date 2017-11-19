@@ -3,11 +3,14 @@ package com.hodzi.stackviewer.questions.detail
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import com.hodzi.stackviewer.R
 import com.hodzi.stackviewer.adapters.AnswersRAdapter
 import com.hodzi.stackviewer.di.Injector
 import com.hodzi.stackviewer.model.Answer
 import com.hodzi.stackviewer.model.Question
+import com.hodzi.stackviewer.utils.Navigator
+import com.hodzi.stackviewer.utils.Vote
 import com.hodzi.stackviewer.utils.base.BaseActivity
 import com.hodzi.stackviewer.utils.ui.ActivityInfo
 import com.hodzi.stackviewer.utils.ui.ActivityListInfo
@@ -38,8 +41,11 @@ class QuestionDetailActivity : BaseActivity<QuestionDetailView, QuestionDetailPr
         uiTitleTv.text = question.title
         uiPointsTv.text = "${question.score}"
         uiTagsTv.text = question.tags.joinToString { s: String -> s + ", " }
-        uiBodyTv.text = question.body
-        uiArrowUpIv.setOnClickListener { presenter.vote(question.questionId, true) }
+        uiBodyWv.loadDataWithBaseURL(null, question.body, "text/html",
+            "utf-8", null)
+
+        uiArrowUpIv.setOnClickListener { vote(question.questionId, Vote.QUESTION_UP) }
+        uiArrowDownIv.setOnClickListener { vote(question.questionId, Vote.QUESTION_DOWN) }
     }
 
     override fun showArray(array: Array<Answer>) {
@@ -49,13 +55,18 @@ class QuestionDetailActivity : BaseActivity<QuestionDetailView, QuestionDetailPr
     override fun onCreate(savedInstanceState: Bundle?) {
         Injector.inject(this)
         super.onCreate(savedInstanceState)
+        uiAnswersRv.isNestedScrollingEnabled = false
     }
 
-    override fun voteUp(answerId: Int) {
-        presenter.vote(answerId, true)
+    override fun vote(id: Int, vote: Vote) {
+        presenter.vote(id, vote)
     }
 
-    override fun voteDown(answerId: Int) {
-        presenter.vote(answerId, false)
+    override fun goToAuth() {
+        Navigator.auth(this)
+    }
+
+    override fun voiceAccepted() {
+        Toast.makeText(this, R.string.voice_accepted, Toast.LENGTH_SHORT).show()
     }
 }

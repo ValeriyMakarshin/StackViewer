@@ -7,4 +7,4 @@ import com.hodzi.stackviewer.utils.base.BaseRAdapter
 
 
 class AnswersRAdapter(array: Array<Answer>, answerClickListener: AnswerClickListener) :
-    BaseRAdapter<Answer, AnswersHolder>(array, AnswersHolder.creator())
+    BaseRAdapter<Answer, AnswersHolder>(array, AnswersHolder.creator(), answerClickListener)

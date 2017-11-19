@@ -3,6 +3,7 @@ package com.hodzi.stackviewer.utils.base
 import android.os.Bundle
 import android.support.annotation.CallSuper
 import android.support.annotation.StringRes
+import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -14,8 +15,10 @@ import com.hodzi.stackviewer.utils.ui.ActivityInfo
 import com.hodzi.stackviewer.utils.ui.ActivityListInfo
 import javax.inject.Inject
 
-abstract class BaseActivity<V : BaseView, P : BasePresenter<V>> : AppCompatActivity(), BaseView {
-    @Inject protected lateinit var presenter: P
+abstract class BaseActivity<V : BaseView, P : BasePresenter<V>> : AppCompatActivity(), BaseView,
+    SwipeRefreshLayout.OnRefreshListener {
+
+    @Inject lateinit var presenter: P
     protected var activityListInfo: ActivityListInfo? = null
 
     protected abstract fun getActivityInfo(): ActivityInfo
@@ -39,6 +42,16 @@ abstract class BaseActivity<V : BaseView, P : BasePresenter<V>> : AppCompatActiv
         presenter.attach(this as V, intent.extras)
     }
 
+    override fun onResume() {
+        super.onResume()
+        activityListInfo?.swipeLayout?.setOnRefreshListener(this)
+    }
+
+    override fun onPause() {
+        activityListInfo?.swipeLayout?.setOnRefreshListener(null)
+        super.onPause()
+    }
+
     override fun onStop() {
         presenter.detach()
         super.onStop()
@@ -51,6 +64,24 @@ abstract class BaseActivity<V : BaseView, P : BasePresenter<V>> : AppCompatActiv
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onRefresh() {
+        presenter.loadData()
+    }
+
+    override fun showRefresh() {
+        activityListInfo?.refreshBtn?.visibility = View.GONE
+        activityListInfo?.swipeLayout?.visibility = View.VISIBLE
+        activityListInfo?.swipeLayout?.post({ activityListInfo?.swipeLayout?.isRefreshing = true })
+    }
+
+    override fun hideRefresh() {
+        activityListInfo?.swipeLayout?.post({ activityListInfo?.swipeLayout?.isRefreshing = false })
+    }
+
+    override fun showRefreshButton() {
+        activityListInfo?.refreshBtn?.visibility = View.VISIBLE
     }
 
     protected open fun getLayoutManager(): RecyclerView.LayoutManager? =

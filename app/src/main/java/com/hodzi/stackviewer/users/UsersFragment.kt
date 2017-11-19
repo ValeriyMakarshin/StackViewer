@@ -13,6 +13,7 @@ import com.hodzi.stackviewer.utils.ui.ActivityInfo
 import com.hodzi.stackviewer.utils.ui.ActivityListInfo
 import kotlinx.android.synthetic.main.fragment_users.*
 import kotlinx.android.synthetic.main.view_progress_bar.*
+import kotlinx.android.synthetic.main.view_refresh_button.*
 
 class UsersFragment : BaseFragment<UsersView, UsersPresenter>(), UsersView {
     override fun showArray(array: Array<User>) {
@@ -20,7 +21,7 @@ class UsersFragment : BaseFragment<UsersView, UsersPresenter>(), UsersView {
     }
 
     override fun getActivityInfo(): ActivityInfo = ActivityInfo(R.layout.fragment_users,
-        activityListInfo = ActivityListInfo(uiProgressBar, uiUsersRv))
+        activityListInfo = ActivityListInfo(uiProgressBar, uiUsersRv, uiUsersSrl, uiRefreshBt))
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {

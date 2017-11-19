@@ -9,6 +9,7 @@ def versionPatch = 0
 def versionBuild = 1
 def maxStep = 10
 
+
 android {
     compileSdkVersion 26
     buildToolsVersion '26.0.2'
@@ -26,6 +27,8 @@ android {
                 versionPatch * maxStep + versionBuild
         versionName "${versionMajor}.${versionMinor}.${versionPatch}.${versionBuild}"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        flavorDimensions "default"
     }
     buildTypes {
         release {
@@ -37,6 +40,23 @@ android {
         exclude 'META-INF/app_debug.kotlin_module'
         exclude 'META-INF/rxjava.properties'
     }
+
+
+    productFlavors {
+        staging {
+            applicationIdSuffix '.staging'
+            versionName android.defaultConfig.versionName + "-STAGING"
+        }
+
+        mock {
+            applicationIdSuffix '.mock'
+            versionName android.defaultConfig.versionName + "-MOCK"
+        }
+
+        prod {
+        }
+    }
+
 }
 
 kotlin {
@@ -70,13 +90,21 @@ dependencies {
 
     testCompile testsLibs
     testCompile kotlinTestLibs
+
     androidTestCompile androidTestsLibs
+
+    testCompile 'junit:junit:4.12'
+
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 
     compile 'com.github.bumptech.glide:glide:4.2.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.2.0'
+    annotationProcessor 'com.google.dagger:dagger-compiler:2.11'
 }
 repositories {
     mavenCentral()
+    maven {
+        url 'https://maven.google.com'
+    }
 }
 

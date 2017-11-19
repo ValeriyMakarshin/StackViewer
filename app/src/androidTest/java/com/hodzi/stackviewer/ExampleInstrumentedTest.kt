@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getTargetContext()
 
-        assertEquals("com.hodzi.stackviewer", appContext.packageName)
+        assertEquals("com.hodzi.stackviewer.mock", appContext.packageName)
     }
 }

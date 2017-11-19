@@ -17,7 +17,7 @@ import com.hodzi.stackviewer.users.di.UsersModule
 class App : Application() {
     val appComponent: AppComponent by lazy {
         DaggerAppComponent.builder()
-            .netModule(NetModule())
+            .netModule(NetModule(this))
             .appModule(AppModule(this))
             .build()
     }
@@ -45,8 +45,6 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         Injector.inject(this)
-        NetUtils.init(this)
-
 
         Stetho.initialize(
             Stetho.newInitializerBuilder(this)
@@ -54,6 +52,5 @@ class App : Application() {
                 .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
                 .build())
     }
-
 }
 
