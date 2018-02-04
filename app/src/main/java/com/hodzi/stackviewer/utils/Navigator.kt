@@ -10,22 +10,23 @@ import com.hodzi.stackviewer.questions.detail.QuestionDetailActivity
 import com.hodzi.stackviewer.users.detail.UserDetailActivity
 
 
-class Navigator{
+class Navigator {
     companion object {
+        private const val RADIX = 16
 
-        fun auth(context: Context){
-            val state = System.currentTimeMillis().toString(16)
+        fun auth(context: Context) {
+            val state = System.currentTimeMillis().toString(RADIX)
             LoginPresenter.state = state
 
             context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(
                 "https://stackexchange.com/oauth/dialog?" +
-                "client_id=11030&" +
-                "scope=read_inbox,no_expiry,write_access,private_info&" +
-                "redirect_uri=https://stackexchange.com/oauth/login_success&" +
-                "state=$state")))
+                    "client_id=11030&" +
+                    "scope=read_inbox,no_expiry,write_access,private_info&" +
+                    "redirect_uri=https://stackexchange.com/oauth/login_success&" +
+                    "state=$state")))
         }
 
-        fun questionDetail(context: Context, question: Question){
+        fun questionDetail(context: Context, question: Question) {
             context.startActivity(QuestionDetailActivity.intent(context, question))
         }
 

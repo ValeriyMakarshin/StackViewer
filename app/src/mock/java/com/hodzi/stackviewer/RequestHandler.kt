@@ -7,6 +7,8 @@ import java.io.IOException
 import java.lang.ref.WeakReference
 
 class RequestHandler(context: Context) {
+    const val ERROR_CODE = 200
+
     private val contextWeakRef: WeakReference<Context> = WeakReference(context)
 
     private val responses: HashMap<Regex, String> = HashMap()
@@ -36,11 +38,11 @@ class RequestHandler(context: Context) {
                 if (inputStream != null) {
                     OkHttpResponse.success(request, inputStream)
                 } else {
-                    OkHttpResponse.error(request, 500, "null stream")
+                    OkHttpResponse.error(request, ERROR_CODE, "null stream")
                 }
             }
         } catch (e: IOException) {
-            OkHttpResponse.error(request, 500, e.message!!)
+            OkHttpResponse.error(request, ERROR_CODE, e.message!!)
         }
     }
 }
