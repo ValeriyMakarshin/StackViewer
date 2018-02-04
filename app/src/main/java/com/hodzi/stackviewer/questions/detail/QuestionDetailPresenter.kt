@@ -14,8 +14,10 @@ import io.reactivex.Observable
 
 class QuestionDetailPresenter(private val questionsInteractor: QuestionsInteractor,
                               val shared: Shared) :
+
     BasePresenter<QuestionDetailView>() {
     lateinit var question: Question
+    var index: Int = 0
 
     override fun parseArguments(extras: Bundle) {
         question = bundle?.getSerializable(EXTRA_QUESTION) as Question
@@ -37,6 +39,13 @@ class QuestionDetailPresenter(private val questionsInteractor: QuestionsInteract
         if (Strings.isEmptyString(shared.getToken())) {
             view?.goToAuth()
             return
+        }
+
+
+        if (vote == Vote.QUESTION_UP) {
+            index++
+            if (index > 5)
+                throw RuntimeException("Test error")
         }
 
         val observable: Observable<out Data> = when (vote) {

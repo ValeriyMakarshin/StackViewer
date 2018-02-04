@@ -8,6 +8,10 @@ import com.hodzi.stackviewer.utils.ui.ActivityInfo
 
 
 class LoginActivity : BaseActivity<LoginView, LoginPresenter>(), LoginView {
+    override fun finish() {
+
+    }
+
     override fun getActivityInfo(): ActivityInfo = ActivityInfo(R.layout.activity_login)
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -17,7 +17,7 @@ class User(
     @SerializedName("reputation_change_day") @Expose val reputationChangeDay: Int,
     @SerializedName("reputation") @Expose val reputation: Int,
     @SerializedName("creation_date") @Expose val creationDate: Int,
-    @SerializedName("user_type") @Expose val userType: String,
+    @SerializedName("user_type") @Expose val userType: UserType,
     @SerializedName("user_id") @Expose val userId: Int,
     @SerializedName("accept_rate") @Expose val acceptRate: Int,
     @SerializedName("location") @Expose val location: String,
