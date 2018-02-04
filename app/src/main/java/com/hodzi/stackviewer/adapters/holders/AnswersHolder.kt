@@ -1,5 +1,6 @@
 package com.hodzi.stackviewer.adapters.holders
 
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -44,7 +45,6 @@ class AnswersHolder(itemView: View) : BaseHolder<Answer>(itemView) {
                 View.GONE
             }
 
-        itemView.uiBodyWv.setBackgroundColor(341523)
-
+        itemView.uiBodyWv.setBackgroundColor(Color.WHITE)
     }
 }

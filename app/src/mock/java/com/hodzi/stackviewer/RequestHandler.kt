@@ -7,7 +7,9 @@ import java.io.IOException
 import java.lang.ref.WeakReference
 
 class RequestHandler(context: Context) {
-    const val ERROR_CODE = 200
+    companion object {
+        const val ERROR_CODE = 200
+    }
 
     private val contextWeakRef: WeakReference<Context> = WeakReference(context)
 
