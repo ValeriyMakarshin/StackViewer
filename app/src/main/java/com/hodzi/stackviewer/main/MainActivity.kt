@@ -1,5 +1,6 @@
 package com.hodzi.stackviewer.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.NavigationView
 import android.support.v4.app.Fragment
@@ -10,15 +11,14 @@ import android.view.Menu
 import android.view.MenuItem
 import com.hodzi.stackviewer.R
 import com.hodzi.stackviewer.di.Injector
+import com.hodzi.stackviewer.login.LoginActivity
 import com.hodzi.stackviewer.questions.QuestionsFragment
 import com.hodzi.stackviewer.tags.TagsFragment
 import com.hodzi.stackviewer.users.UsersFragment
-import com.hodzi.stackviewer.utils.Navigator
 import com.hodzi.stackviewer.utils.base.BaseActivity
 import com.hodzi.stackviewer.utils.ui.ActivityInfo
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.view_toolbar.*
-
 
 class MainActivity : BaseActivity<MainView, MainPresenter>(),
     MainView, NavigationView.OnNavigationItemSelectedListener {
@@ -38,14 +38,13 @@ class MainActivity : BaseActivity<MainView, MainPresenter>(),
 
         val toggle = ActionBarDrawerToggle(this, uiMainDl, uiToolbar,
             R.string.navigation_drawer_open, R.string.navigation_drawer_close)
-        uiMainDl.setDrawerListener(toggle)
+        uiMainDl.addDrawerListener(toggle)
         toggle.syncState()
 
         uiMainNv.setNavigationItemSelectedListener(this)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
         return true
     }
@@ -54,8 +53,9 @@ class MainActivity : BaseActivity<MainView, MainPresenter>(),
         val id = item.itemId
 
         return if (id == R.id.action_settings) {
-            Navigator.auth(this)
-//            startActivity(Intent(this, LoginActivity::class.java))
+
+//            Navigator.auth(this)
+            startActivity(Intent(this, LoginActivity::class.java))
             return true
         } else {
             super.onOptionsItemSelected(item)
@@ -101,9 +101,9 @@ class MainActivity : BaseActivity<MainView, MainPresenter>(),
                     UsersFragment()
                 }
                 else               -> {
-                    lastScreen = R.id.nav_questions
-                    uiToolbar.setTitle(R.string.nav_questions)
-                    QuestionsFragment()
+                    lastScreen = R.id.nav_tags
+                    uiToolbar.setTitle(R.string.nav_tags)
+                    TagsFragment()
                 }
             }
 
