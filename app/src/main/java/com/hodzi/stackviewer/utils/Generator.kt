@@ -29,7 +29,10 @@ class Generator {
                 }
                 else                  -> {
                     val constructor: Constructor<*> = clazz.constructors[0]
-                    constructor.newInstance(*constructor.parameterTypes.map { create(it) }.toTypedArray())
+                    constructor.newInstance(
+                        *constructor.parameterTypes
+                            .map { create(it) }
+                            .toTypedArray())
                 }
             }
             return eny as T

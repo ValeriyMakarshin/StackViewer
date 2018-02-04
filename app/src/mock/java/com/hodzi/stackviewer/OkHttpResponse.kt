@@ -6,6 +6,7 @@ import java.io.IOException
 import java.io.InputStream
 
 object OkHttpResponse {
+    const val SUCCESS_CODE = 200
 
     private val EMPTY_BODY = ByteArray(0)
 
@@ -17,7 +18,7 @@ object OkHttpResponse {
         return Response.Builder()
             .request(request)
             .protocol(Protocol.HTTP_1_1)
-            .code(200)
+            .code(SUCCESS_CODE)
             .message("OK")
             .body(ResponseBody.create(APPLICATION_JSON, buffer.size(), buffer))
             .build()
