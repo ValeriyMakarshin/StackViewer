@@ -6,8 +6,8 @@ apply plugin: 'kotlin-kapt'
 def versionMajor = 0
 def versionMinor = 0
 def versionPatch = 0
-def versionBuild = 1
-def maxStep = 10
+def versionBuild = 3
+def versionSuffix = versionBuild > 0 ? "-beta" : ""
 
 
 android {
@@ -23,9 +23,8 @@ android {
         applicationId "com.hodzi.stackviewer"
         minSdkVersion 18
         targetSdkVersion 26
-        versionCode versionMajor * maxStep ^ 3 + versionMinor * maxStep ^ 2 +
-                versionPatch * maxStep + versionBuild
-        versionName "${versionMajor}.${versionMinor}.${versionPatch}.${versionBuild}"
+        versionCode versionMajor * 10000 + versionMinor * 1000 + versionPatch * 100 + versionBuild
+        versionName "${versionMajor}.${versionMinor}.${versionPatch}.${versionBuild}${versionSuffix}"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         flavorDimensions "default"
@@ -49,7 +48,7 @@ android {
         }
 
         mock {
-//            applicationIdSuffix '.mock'
+            applicationIdSuffix '.mock'
             versionName android.defaultConfig.versionName + "-MOCK"
         }
 
