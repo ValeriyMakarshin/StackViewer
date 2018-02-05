@@ -8,8 +8,8 @@ abstract class BaseRAdapter<T : Any, VH : BaseHolder<T>>(val array: Array<T>,
                                                          val creator: (ViewGroup?) -> VH,
                                                          val onClickListener: OnClickListener<T>? =
                                                          null) :
-
     RecyclerView.Adapter<VH>() {
+
     override fun getItemCount(): Int = array.size
 
     override fun onBindViewHolder(holder: VH, position: Int) {

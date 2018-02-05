@@ -4,8 +4,9 @@ import android.support.annotation.LayoutRes
 import android.support.annotation.StringRes
 import android.support.v7.widget.Toolbar
 
-class ActivityInfo(@LayoutRes val layoutId: Int, val toolbar: Toolbar? = null,
-                   @StringRes title: Int? = null, val activityListInfo: ActivityListInfo? = null) {
+data class ActivityInfo(@LayoutRes val layoutId: Int, val toolbar: Toolbar? = null,
+                        @StringRes val title: Int? = null,
+                        val activityListInfo: ActivityListInfo? = null) {
 
     init {
         title?.let { toolbar?.setTitle(it) }
