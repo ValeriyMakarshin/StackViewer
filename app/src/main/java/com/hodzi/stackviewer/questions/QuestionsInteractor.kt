@@ -17,5 +17,4 @@ interface QuestionsInteractor {
     fun questionUpVote(questionId: Int, token: String): Observable<Question>
 
     fun questionDownVote(questionId: Int, token: String): Observable<Question>
-
 }

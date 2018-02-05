@@ -9,12 +9,10 @@ import com.hodzi.stackviewer.utils.Shared
 import dagger.Module
 import dagger.Provides
 
-
-
 @Module
-class AuthModule{
+class AuthModule {
     @Provides @StackScope
-    fun provideLoginPresenter(usersInteractor: UsersInteractor, shared: Shared): LoginPresenter=
+    fun provideLoginPresenter(usersInteractor: UsersInteractor, shared: Shared): LoginPresenter =
         LoginPresenter(usersInteractor, shared)
 
     @Provides @StackScope fun providesUserInteractor(api: Api): UsersInteractor =
