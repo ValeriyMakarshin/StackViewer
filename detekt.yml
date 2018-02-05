@@ -20,13 +20,13 @@ test-pattern: # Configure exclusions for test sources
     - 'TooManyFunctions'
 
 build:
-  warningThreshold: 5
-  failThreshold: 10
+  warningThreshold: 0
+  failThreshold: 0
   weights:
-    complexity: 2
-    formatting: 1
-    LongParameterList: 1
-    comments: 1
+    complexity: 0
+    formatting: 0
+    LongParameterList: 0
+    comments: 0
 
 processors:
   active: true
@@ -228,10 +228,10 @@ naming:
     propertyPattern: '[a-z][A-Za-z\d]*'
     privatePropertyPattern: '(_)?[a-z][A-Za-z0-9]*'
   VariableMaxLength:
-    active: false
+    active: true
     maximumVariableNameLength: 64
   VariableMinLength:
-    active: false
+    active: true
     minimumVariableNameLength: 1
   VariableNaming:
     active: true
@@ -252,7 +252,7 @@ potential-bugs:
   DuplicateCaseInWhenExpression:
     active: true
   EqualsAlwaysReturnsTrueOrFalse:
-    active: false
+    active: true
   EqualsWithHashCodeExist:
     active: true
   ExplicitGarbageCollectionCall:
