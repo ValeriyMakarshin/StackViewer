@@ -47,7 +47,6 @@ android {
         exclude 'META-INF/rxjava.properties'
     }
 
-
     productFlavors {
         staging {
             applicationIdSuffix '.staging'
