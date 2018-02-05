@@ -28,6 +28,4 @@ class UsersFragment : BaseFragment<UsersView, UsersPresenter>(), UsersView {
         Injector.inject(this)
         return super.onCreateView(inflater, container, savedInstanceState)
     }
-
-
 }

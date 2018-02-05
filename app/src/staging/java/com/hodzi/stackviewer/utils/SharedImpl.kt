@@ -11,5 +11,4 @@ class SharedImpl(private val sharedPreferences: SharedPreferences) : Shared {
 
     override fun getToken(): String =
         sharedPreferences.getString(Shared.KEY_TOKEN, Strings.EMPTY_STRING)
-
 }

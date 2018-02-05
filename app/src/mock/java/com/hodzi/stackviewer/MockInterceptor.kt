@@ -18,5 +18,3 @@ class MockInterceptor(context: Context,
         }
     }
 }
-
-

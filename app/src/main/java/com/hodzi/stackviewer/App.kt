@@ -53,4 +53,3 @@ class App : Application() {
                 .build())
     }
 }
-

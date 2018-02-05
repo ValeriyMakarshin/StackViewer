@@ -96,11 +96,11 @@ abstract class BaseActivity<V : BaseView, P : BasePresenter<V>> : AppCompatActiv
     }
 
     override fun showProgress() {
-        activityListInfo?.processbar?.visibility = View.VISIBLE
+        activityListInfo?.processBar?.visibility = View.VISIBLE
     }
 
     override fun hideProgress() {
-        activityListInfo?.processbar?.visibility = View.GONE
+        activityListInfo?.processBar?.visibility = View.GONE
     }
 
     override fun hideKeyboard() {

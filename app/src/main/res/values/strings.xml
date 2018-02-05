@@ -24,4 +24,6 @@
     <string name="vote_down_answer">Vote down for a answer</string>
 
     <string name="voice_accepted">Voice accepted</string>
+    <string name="nav_header_text">Android Studio</string>
+    <string name="email_user_text">android.studio@android.com</string>
 </resources>

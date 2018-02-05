@@ -90,11 +90,11 @@ abstract class BaseFragment<V : BaseView, P : BasePresenter<V>> : Fragment(), Ba
     }
 
     override fun showProgress() {
-        activityListInfo?.processbar?.visibility = View.VISIBLE
+        activityListInfo?.processBar?.visibility = View.VISIBLE
     }
 
     override fun hideProgress() {
-        activityListInfo?.processbar?.visibility = View.GONE
+        activityListInfo?.processBar?.visibility = View.GONE
     }
 
     override fun hideKeyboard() {

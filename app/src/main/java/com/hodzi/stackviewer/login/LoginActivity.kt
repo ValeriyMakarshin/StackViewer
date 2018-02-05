@@ -6,10 +6,8 @@ import com.hodzi.stackviewer.di.Injector
 import com.hodzi.stackviewer.utils.base.BaseActivity
 import com.hodzi.stackviewer.utils.ui.ActivityInfo
 
-
 class LoginActivity : BaseActivity<LoginView, LoginPresenter>(), LoginView {
     override fun finish() {
-
     }
 
     override fun getActivityInfo(): ActivityInfo = ActivityInfo(R.layout.activity_login)

@@ -16,7 +16,6 @@ import org.junit.Test
 import org.mockito.ArgumentMatchers
 import org.mockito.Mockito
 
-
 internal class QuestionDetailPresenterTest {
     @Rule
     @JvmField
