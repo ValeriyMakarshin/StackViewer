@@ -18,4 +18,6 @@ interface BaseView {
     fun hideRefresh()
 
     fun showRefreshButton()
+
+    fun showError(throwable: Throwable)
 }

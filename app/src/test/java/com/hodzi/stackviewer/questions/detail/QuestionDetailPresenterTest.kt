@@ -74,6 +74,7 @@ internal class QuestionDetailPresenterTest {
     @Test
     fun testAttach() {
         presenterEmpty.attach(view, bundle)
+
         Mockito.verify(questionsInteractor).getQuestionAnswers(question.questionId)
         Mockito.verify(view).showQuestion(question)
         Mockito.verify(view).showArray(answers)
@@ -82,19 +83,23 @@ internal class QuestionDetailPresenterTest {
     @Test
     fun testVoteEmpty() {
         presenterEmpty.vote(1, Vote.QUESTION_DOWN)
+
         Mockito.verify(view).goToAuth()
     }
 
     @Test
     fun testVoteAuth() {
         presenterAuth.vote(1, Vote.QUESTION_DOWN)
+
         Mockito.verify(view).voiceAccepted()
     }
 
     @Test
     fun testLoadData() {
         presenterEmpty.question = Generator.create(Question::class.java)
+
         presenterEmpty.loadData()
+
         Mockito.verify(view).showRefresh()
         Mockito.verify(view).hideRefresh()
         Mockito.verify(view).showArray(answers)
@@ -103,9 +108,8 @@ internal class QuestionDetailPresenterTest {
 
     @Test
     fun testBaseObservableListDefaultError() {
-        presenterEmpty.baseObservableListDefaultError(Observable.create {
-            it.onError(Throwable("Test throwable"))
-        })
+        presenterEmpty.baseObservableListDefaultError(Observable.error(Throwable("Test throwable")))
+
         Mockito.verify(view).showRefresh()
         Mockito.verify(view).hideRefresh()
         Mockito.verify(view).showRefreshButton()

@@ -22,9 +22,9 @@ class QuestionDetailPresenter(private val questionsInteractor: QuestionsInteract
         question = bundle?.getSerializable(EXTRA_QUESTION) as Question
     }
 
-    override fun attach(v: QuestionDetailView, bundle: Bundle?) {
-        super.attach(v, bundle)
-        view?.showQuestion(question)
+    override fun attach(view: QuestionDetailView, bundle: Bundle?) {
+        super.attach(view, bundle)
+        this.view?.showQuestion(question)
     }
 
     override fun loadData() {

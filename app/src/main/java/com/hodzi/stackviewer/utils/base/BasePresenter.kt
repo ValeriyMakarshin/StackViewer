@@ -9,6 +9,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
+
 abstract class BasePresenter<V : BaseView> {
     var view: V? = null
     protected var bundle: Bundle? = null
@@ -17,9 +18,8 @@ abstract class BasePresenter<V : BaseView> {
     private var disposableData: Disposable? = null
 
     @CallSuper
-    open fun attach(v: V, bundle: Bundle? = null) {
-        this.view = v
-        this.bundle = bundle
+    open fun attach(view: V, bundle: Bundle? = null) {
+        this.view = view
         if (bundle != null) {
             parseArguments(bundle)
         }
@@ -36,58 +36,50 @@ abstract class BasePresenter<V : BaseView> {
         disposableList = observable
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .doOnSubscribe({
+            .doOnSubscribe {
                 view?.showRefresh()
-            })
-            .doOnTerminate({
-                unsubscribeSubscription()
-            })
-            .doOnError { throwable ->
-                view?.hideRefresh()
-                view?.showRefreshButton()
             }
-//            .onErrorReturn({
-//            })
-            .subscribe({ block ->
+            .doOnTerminate {
+                unsubscribeSubscription()
                 view?.hideRefresh()
-                if (block?.items != null) {
-                    view?.hideProgress()
-                    function(block)
-                }
-            })
+
+            }
+            .doOnError {
+                view?.showRefreshButton()
+                view?.showError(it)
+            }
+            .subscribe { block ->
+                block?.items?.run { function(block) }
+            }
     }
 
     fun <T : Data> baseObservableData(observable: Observable<T>,
                                       functionSuccess: (T) -> Unit = {},
-                                      functionError: (Throwable) -> Unit = {}) {
+                                      functionError: (Throwable) -> Unit = {
+                                          view?.showError(it)
+                                      }) {
         if (disposableData != null) return
         disposableData = observable
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .doOnSubscribe({
+            .doOnSubscribe {
                 view?.showProgress()
-            })
-            .doOnTerminate({
+            }
+            .doOnTerminate {
                 unsubscribeSubscription()
                 view?.hideProgress()
-            })
-            .onErrorReturn({ throwable ->
-                view?.hideProgress()
-                functionError(throwable)
-                disposableData = null
-                null
-            })
-            .subscribe({ data ->
-                if (data != null) {
-                    view?.hideProgress()
-                    functionSuccess(data)
-                }
-                disposableData = null
-            })
+            }
+            .doOnError {
+                functionError(it)
+            }
+            .subscribe {
+                it?.let { functionSuccess(it) }
+            }
     }
 
-
-    protected open fun parseArguments(extras: Bundle) {
+    @CallSuper
+    open fun parseArguments(extras: Bundle) {
+        this.bundle = extras
     }
 
     fun detach() {
