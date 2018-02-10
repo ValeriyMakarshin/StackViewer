@@ -64,7 +64,6 @@ ext {
             test         : "org.jetbrains.kotlin:kotlin-test:$versions.kotlin",
             testJUnit    : "org.jetbrains.kotlin:kotlin-test-junit:$versions.kotlin",
             mockitoKotlin: "com.nhaarman:mockito-kotlin:$versions.mockitoK"
-//            mockitoKotlin: "com.nhaarman:mockito-kotlin-kt1.1:$versions.kotlin"
     ]
     androidTests = [
             espressoCore   : "com.android.support.test.espresso:espresso-core:$versions.espresso",

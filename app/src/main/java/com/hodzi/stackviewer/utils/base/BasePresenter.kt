@@ -26,6 +26,11 @@ abstract class BasePresenter<V : BaseView> {
         loadData()
     }
 
+    @CallSuper
+    open fun parseArguments(extras: Bundle) {
+        this.bundle = extras
+    }
+
     open fun loadData() {
 
     }
@@ -69,24 +74,20 @@ abstract class BasePresenter<V : BaseView> {
                 unsubscribeSubscription()
                 view?.hideProgress()
             }
-            .doOnError {
-                functionError(it)
-            }
-            .subscribe {
-                it?.let { functionSuccess(it) }
-            }
-    }
-
-    @CallSuper
-    open fun parseArguments(extras: Bundle) {
-        this.bundle = extras
+            .subscribe(
+                {
+                    it?.let { functionSuccess(it) }
+                },
+                {
+                    functionError(it)
+                })
     }
 
     fun detach() {
         unsubscribeSubscription()
     }
 
-    private fun unsubscribeSubscription() {
+    open fun unsubscribeSubscription() {
         if (disposableList?.isDisposed == false) {
             disposableList?.dispose()
             disposableList = null
