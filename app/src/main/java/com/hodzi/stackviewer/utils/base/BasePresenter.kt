@@ -43,13 +43,14 @@ abstract class BasePresenter<V : BaseView> {
                 unsubscribeSubscription()
                 view?.hideRefresh()
             }
-            .doOnError {
-                view?.showRefreshButton()
-                view?.showError(it)
-            }
-            .subscribe { block ->
-                block?.items?.run { function(block) }
-            }
+            .subscribe(
+                { block ->
+                    block?.items?.run { function(block) }
+                },
+                {
+                    view?.showRefreshButton()
+                    view?.showError(it)
+                })
     }
 
     fun <T : Data> baseObservableData(observable: Observable<T>,
