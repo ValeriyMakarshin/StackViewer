@@ -14,8 +14,8 @@ abstract class BasePresenter<V : BaseView> {
     var view: V? = null
     protected var bundle: Bundle? = null
 
-    private var disposableList: Disposable? = null
-    private var disposableData: Disposable? = null
+    var disposableList: Disposable? = null
+    var disposableData: Disposable? = null
 
     @CallSuper
     open fun attach(view: V, bundle: Bundle? = null) {
@@ -42,7 +42,6 @@ abstract class BasePresenter<V : BaseView> {
             .doOnTerminate {
                 unsubscribeSubscription()
                 view?.hideRefresh()
-
             }
             .doOnError {
                 view?.showRefreshButton()

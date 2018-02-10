@@ -106,4 +106,8 @@ abstract class BaseActivity<V : BaseView, P : BasePresenter<V>> : AppCompatActiv
     override fun hideKeyboard() {
         KeyboardUtil.hide(this)
     }
+
+    override fun showError(throwable: Throwable) {
+
+    }
 }

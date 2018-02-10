@@ -104,4 +104,8 @@ abstract class BaseFragment<V : BaseView, P : BasePresenter<V>> : Fragment(), Ba
     override fun finish() {
         activity.onBackPressed()
     }
+
+    override fun showError(throwable: Throwable) {
+
+    }
 }
