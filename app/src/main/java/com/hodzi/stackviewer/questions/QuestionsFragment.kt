@@ -11,6 +11,8 @@ import com.hodzi.stackviewer.model.Question
 import com.hodzi.stackviewer.utils.Navigator
 import com.hodzi.stackviewer.utils.OnClickListener
 import com.hodzi.stackviewer.utils.base.BaseFragment
+import com.hodzi.stackviewer.utils.base.BaseHolder
+import com.hodzi.stackviewer.utils.base.BaseRAdapter
 import com.hodzi.stackviewer.utils.ui.ActivityInfo
 import com.hodzi.stackviewer.utils.ui.ActivityListInfo
 import kotlinx.android.synthetic.main.fragment_questions.*
@@ -23,8 +25,8 @@ class QuestionsFragment : BaseFragment<QuestionsView, QuestionsPresenter>(), Que
         Navigator.questionDetail(context, item)
     }
 
-    override fun showArray(array: Array<Question>) {
-        uiQuestionsRv.adapter = QuestionsRAdapter(array, this)
+    override fun getAdapter(array: Array<*>): BaseRAdapter<*, out BaseHolder<*>>? {
+        return QuestionsRAdapter(array as Array<Question>, this)
     }
 
     override fun getActivityInfo(): ActivityInfo = ActivityInfo(R.layout.fragment_questions,

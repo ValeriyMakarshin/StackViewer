@@ -9,6 +9,8 @@ import com.hodzi.stackviewer.adapters.TagsRAdapter
 import com.hodzi.stackviewer.di.Injector
 import com.hodzi.stackviewer.model.Tag
 import com.hodzi.stackviewer.utils.base.BaseFragment
+import com.hodzi.stackviewer.utils.base.BaseHolder
+import com.hodzi.stackviewer.utils.base.BaseRAdapter
 import com.hodzi.stackviewer.utils.ui.ActivityInfo
 import com.hodzi.stackviewer.utils.ui.ActivityListInfo
 import kotlinx.android.synthetic.main.fragment_tags.*
@@ -16,8 +18,8 @@ import kotlinx.android.synthetic.main.view_progress_bar.*
 import kotlinx.android.synthetic.main.view_refresh_button.*
 
 class TagsFragment : BaseFragment<TagsView, TagsPresenter>(), TagsView {
-    override fun showArray(array: Array<Tag>) {
-        uiTagsRv.adapter = TagsRAdapter(array)
+    override fun getAdapter(array: Array<*>): BaseRAdapter<*, out BaseHolder<*>>? {
+        return TagsRAdapter(array as Array<Tag>)
     }
 
     override fun getActivityInfo(): ActivityInfo = ActivityInfo(R.layout.fragment_tags,

@@ -1,5 +1,7 @@
 package com.hodzi.stackviewer.utils.base
 
+import com.hodzi.stackviewer.model.Data
+
 interface BaseView {
     fun setTitle(title: String)
 
@@ -12,6 +14,8 @@ interface BaseView {
     fun hideKeyboard()
 
     fun finish()
+
+    fun <D : Data> showArray(array: Array<D>)
 
     fun showRefresh()
 

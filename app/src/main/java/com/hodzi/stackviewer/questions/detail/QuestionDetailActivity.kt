@@ -12,6 +12,8 @@ import com.hodzi.stackviewer.model.Question
 import com.hodzi.stackviewer.utils.Navigator
 import com.hodzi.stackviewer.utils.Vote
 import com.hodzi.stackviewer.utils.base.BaseActivity
+import com.hodzi.stackviewer.utils.base.BaseHolder
+import com.hodzi.stackviewer.utils.base.BaseRAdapter
 import com.hodzi.stackviewer.utils.ui.ActivityInfo
 import com.hodzi.stackviewer.utils.ui.ActivityListInfo
 import kotlinx.android.synthetic.main.activity_question_detail.*
@@ -48,8 +50,8 @@ class QuestionDetailActivity : BaseActivity<QuestionDetailView, QuestionDetailPr
         uiArrowDownIv.setOnClickListener { vote(question.questionId, Vote.QUESTION_DOWN) }
     }
 
-    override fun showArray(array: Array<Answer>) {
-        uiAnswersRv.adapter = AnswersRAdapter(array, this)
+    override fun getAdapter(array: Array<*>): BaseRAdapter<*, out BaseHolder<*>>? {
+        return AnswersRAdapter(array as Array<Answer>, this)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

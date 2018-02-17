@@ -35,8 +35,12 @@ abstract class BasePresenter<V : BaseView> {
 
     }
 
-    fun <T : Data> baseObservableListDefaultError(observable: Observable<Block<T>>,
-                                                  function: (Block<T>) -> Unit = {}) {
+    inline fun <reified T : Data>
+        baseObservableListDefaultError(observable: Observable<Block<T>>,
+                                       crossinline function: (Block<T>) -> Unit = {
+                                           view?.showArray(
+                                               it.items.toTypedArray())
+                                       }) {
         if (disposableList != null) return
         disposableList = observable
             .subscribeOn(Schedulers.io())
