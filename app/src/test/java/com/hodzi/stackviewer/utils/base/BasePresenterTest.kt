@@ -5,18 +5,16 @@ import com.hodzi.stackviewer.RxHook
 import com.hodzi.stackviewer.model.Block
 import com.hodzi.stackviewer.model.Data
 import com.hodzi.stackviewer.utils.Generator
-import com.nhaarman.mockito_kotlin.any
 import com.nhaarman.mockito_kotlin.doReturn
 import com.nhaarman.mockito_kotlin.mock
+import com.nhaarman.mockito_kotlin.verifyNoMoreInteractions
 import io.reactivex.Observable
 import io.reactivex.disposables.Disposable
 import org.junit.Assert
-import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
-import org.mockito.Mockito.never
 import org.mockito.Mockito.verify
 import org.mockito.Spy
 import org.mockito.junit.MockitoJUnitRunner
@@ -26,142 +24,139 @@ class BasePresenterTest {
     @Rule @JvmField
     val schedulers = RxHook()
 
-    @Spy private lateinit var basePresenter: BasePresenter<BaseView>
-    @Mock private lateinit var baseView: BaseView
-
-    @Before fun setUp() {
-    }
+    @Spy private lateinit var spyBasePresenter: BasePresenter<BaseView>
+    @Mock private lateinit var mockBaseView: BaseView
 
     @Test fun attachTest() {
-        basePresenter.attach(baseView)
+        spyBasePresenter.attach(mockBaseView)
 
-        Assert.assertNotNull(baseView)
-        verify(basePresenter).loadData()
+        Assert.assertNotNull(mockBaseView)
+        verify(spyBasePresenter).loadData()
     }
 
     @Test fun attachTestWithBundle() {
-        val bundle: Bundle = mock()
+        val expectedBundle: Bundle = mock()
 
-        basePresenter.attach(baseView, bundle)
+        spyBasePresenter.attach(mockBaseView, expectedBundle)
 
-        Assert.assertNotNull(baseView)
-        verify(basePresenter).parseArguments(bundle)
-        verify(basePresenter).loadData()
+        Assert.assertNotNull(mockBaseView)
+        verify(spyBasePresenter).parseArguments(expectedBundle)
+        verify(spyBasePresenter).loadData()
     }
 
     @Test fun baseObservableListDefaultErrorTest() {
-        basePresenter.attach(baseView)
-        val block = Generator.create(Block::class.java)
-        val functionSuccess: (Block<*>) -> Unit = mock()
+        spyBasePresenter.attach(mockBaseView)
+        val expectedBlock = Generator.create(Block::class.java)
+        val mockFunctionSuccess: (Block<*>) -> Unit = mock()
 
-        basePresenter.baseObservableListDefaultError(Observable.just(block), functionSuccess)
+        spyBasePresenter.baseObservableListDefaultError(Observable.just(expectedBlock), mockFunctionSuccess)
 
-        verify(baseView).showRefresh()
-        verify(baseView).hideRefresh()
-        verify(functionSuccess).invoke(block)
-        Assert.assertNotNull(basePresenter.disposableList)
+        verify(mockBaseView).showRefresh()
+        verify(mockBaseView).hideRefresh()
+        verify(mockFunctionSuccess).invoke(expectedBlock)
+        Assert.assertNotNull(spyBasePresenter.disposableList)
     }
 
     @Test fun baseObservableListDefaultErrorTestError() {
-        basePresenter.attach(baseView)
-        val throwable = Throwable()
+        spyBasePresenter.attach(mockBaseView)
+        val expectedThrowable = Throwable()
         val functionSuccess: (Block<*>) -> Unit = mock()
 
-        basePresenter.baseObservableListDefaultError(Observable.error(throwable),
+        spyBasePresenter.baseObservableListDefaultError(Observable.error(expectedThrowable),
             functionSuccess)
 
-        verify(baseView).showRefresh()
-        verify(baseView).hideRefresh()
-        verify(baseView).showRefreshButton()
-        verify(baseView).showError(throwable)
-        verify(functionSuccess, never()).invoke(any())
-        Assert.assertNotNull(basePresenter.disposableList)
+        verify(mockBaseView).showRefresh()
+        verify(mockBaseView).hideRefresh()
+        verify(mockBaseView).showRefreshButton()
+        verify(mockBaseView).showError(expectedThrowable)
+        verifyNoMoreInteractions(functionSuccess)
+        Assert.assertNotNull(spyBasePresenter.disposableList)
     }
 
     @Test fun baseObservableDataTest() {
-        basePresenter.attach(baseView)
-        val data = Data()
-        val functionSuccess: (Any) -> Unit = mock()
-        val functionError: (Throwable) -> Unit = mock()
+        spyBasePresenter.attach(mockBaseView)
+        val expectedData = Data()
+        val mockFunctionSuccess: (Any) -> Unit = mock()
+        val mockFunctionError: (Throwable) -> Unit = mock()
 
-        basePresenter.baseObservableData(Observable.just(data),
-            functionSuccess, functionError)
+        spyBasePresenter.baseObservableData(Observable.just(expectedData),
+            mockFunctionSuccess, mockFunctionError)
 
-        verify(baseView).showProgress()
-        verify(baseView).hideProgress()
-        verify(functionSuccess).invoke(data)
-        verify(functionError, never()).invoke(any())
-        Assert.assertNotNull(basePresenter.disposableData)
+        verify(mockBaseView).showProgress()
+        verify(mockBaseView).hideProgress()
+        verify(mockFunctionSuccess).invoke(expectedData)
+        verifyNoMoreInteractions(mockFunctionError)
+        Assert.assertNotNull(spyBasePresenter.disposableData)
     }
 
     @Test fun baseObservableDataTestError() {
-        basePresenter.attach(baseView)
-        val throwable = Throwable()
-        val functionSuccess: (Any) -> Unit = mock()
-        val functionError: (Throwable) -> Unit = mock()
+        spyBasePresenter.attach(mockBaseView)
+        val expectedThrowable = Throwable()
+        val mockFunctionSuccess: (Any) -> Unit = mock()
+        val mockFunctionError: (Throwable) -> Unit = mock()
 
-        basePresenter.baseObservableData(Observable.error(throwable),
-            functionSuccess, functionError)
+        spyBasePresenter.baseObservableData(Observable.error(expectedThrowable),
+            mockFunctionSuccess, mockFunctionError)
 
-        verify(baseView).showProgress()
-        verify(baseView).hideProgress()
-        verify(functionSuccess, never()).invoke(any())
-        verify(functionError).invoke(throwable)
-        Assert.assertNotNull(basePresenter.disposableData)
+        verify(mockBaseView).showProgress()
+        verify(mockBaseView).hideProgress()
+        verifyNoMoreInteractions(mockFunctionSuccess)
+        verify(mockFunctionError).invoke(expectedThrowable)
+        Assert.assertNotNull(spyBasePresenter.disposableData)
     }
 
     @Test fun detachTest() {
-        basePresenter.detach()
+        spyBasePresenter.detach()
 
-        verify(basePresenter).unsubscribeSubscription()
+        verify(spyBasePresenter).unsubscribeSubscription()
     }
 
     @Test fun unsubscribeSubscriptionTestData() {
-        val disposable: Disposable = mock()
+        val mockDisposable: Disposable = mock()
 
-        basePresenter.disposableData = disposable
+        spyBasePresenter.disposableData = mockDisposable
 
-        basePresenter.unsubscribeSubscription()
+        spyBasePresenter.unsubscribeSubscription()
 
-        verify(disposable).isDisposed
-        verify(disposable).dispose()
-        Assert.assertNull(basePresenter.disposableData)
+        verify(mockDisposable).isDisposed
+        verify(mockDisposable).dispose()
+        Assert.assertNull(spyBasePresenter.disposableData)
     }
 
     @Test fun unsubscribeSubscriptionTestDataDisposed() {
-        val disposable: Disposable = mock {
+        val mockDisposable: Disposable = mock {
             on { this.isDisposed }.doReturn(true)
         }
-        basePresenter.disposableData = disposable
+        spyBasePresenter.disposableData = mockDisposable
 
-        basePresenter.unsubscribeSubscription()
+        spyBasePresenter.unsubscribeSubscription()
 
-        verify(disposable).isDisposed
-        verify(disposable, never()).dispose()
-        Assert.assertEquals(basePresenter.disposableData, disposable)
+        verify(mockDisposable).isDisposed
+        verifyNoMoreInteractions(mockDisposable)
+        Assert.assertEquals(spyBasePresenter.disposableData, mockDisposable)
     }
 
     @Test fun unsubscribeSubscriptionTestList() {
-        val disposable: Disposable = mock()
-        basePresenter.disposableList = disposable
+        val mockDisposable: Disposable = mock()
+        spyBasePresenter.disposableList = mockDisposable
 
-        basePresenter.unsubscribeSubscription()
+        spyBasePresenter.unsubscribeSubscription()
 
-        verify(disposable).isDisposed
-        verify(disposable).dispose()
-        Assert.assertNull(basePresenter.disposableList)
+        verify(mockDisposable).isDisposed
+        verify(mockDisposable).dispose()
+        Assert.assertNull(spyBasePresenter.disposableList)
     }
 
     @Test fun unsubscribeSubscriptionTestListDisposed() {
-        val disposable: Disposable = mock {
+        val mockDisposable: Disposable = mock {
             on { this.isDisposed }.doReturn(true)
         }
-        basePresenter.disposableList = disposable
+        spyBasePresenter.disposableList = mockDisposable
 
-        basePresenter.unsubscribeSubscription()
+        spyBasePresenter.unsubscribeSubscription()
 
-        verify(disposable).isDisposed
-        verify(disposable, never()).dispose()
-        Assert.assertEquals(basePresenter.disposableList, disposable)
+        verify(mockDisposable).isDisposed
+        verifyNoMoreInteractions(mockDisposable)
+        Assert.assertEquals(spyBasePresenter.disposableList, mockDisposable)
     }
 }
