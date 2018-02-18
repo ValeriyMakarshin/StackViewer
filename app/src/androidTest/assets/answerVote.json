@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "owner": {
+        "reputation": 15558,
+        "user_id": 15479,
+        "user_type": "registered",
+        "accept_rate": 43,
+        "profile_image": "https://i.stack.imgur.com/3wRJX.jpg?s=128&g=1",
+        "display_name": "Suvitruf",
+        "link": "https://ru.stackoverflow.com/users/15479/suvitruf"
+      },
+      "is_accepted": false,
+      "score": 8,
+      "last_activity_date": 1510188489,
+      "creation_date": 1510188489,
+      "answer_id": 742180,
+      "question_id": 742178
+    }
+  ],
+  "has_more": false,
+  "quota_max": 10000,
+  "quota_remaining": 9997
+}

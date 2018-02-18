@@ -12,8 +12,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @Module
-class NetModule(val context: Context) {
-    private val baseUrl = "https://api.stackexchange.com/"
+class NetModule(val context: Context,
+                val baseUrl: String = "https://api.stackexchange.com/") {
 
     @Provides
     @Singleton

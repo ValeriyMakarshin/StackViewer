@@ -12,8 +12,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @Module
-class NetModule(val context: Context) {
-    private val baseUrl = "https://api.stackexchange.com/"
+open class NetModule(val context: Context,
+                     private val baseUrl: String = "https://api.stackexchange.com/") {
 
     @Provides
     @Singleton
@@ -34,4 +34,5 @@ class NetModule(val context: Context) {
             .addNetworkInterceptor(NetUtils.interceptor)
             .build()
     }
+
 }

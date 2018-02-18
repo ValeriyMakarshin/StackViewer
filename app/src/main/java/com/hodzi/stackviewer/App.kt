@@ -14,12 +14,16 @@ import com.hodzi.stackviewer.tags.di.TagsModule
 import com.hodzi.stackviewer.users.di.UsersComponent
 import com.hodzi.stackviewer.users.di.UsersModule
 
-class App : Application() {
+open class App : Application() {
     val appComponent: AppComponent by lazy {
         DaggerAppComponent.builder()
-            .netModule(NetModule(this))
+            .netModule(getNetModule())
             .appModule(AppModule(this))
             .build()
+    }
+
+    open fun getNetModule(): NetModule {
+        return NetModule(this)
     }
 
     val mainComponent: MainComponent by lazy {

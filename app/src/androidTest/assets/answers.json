@@ -1,0 +1,96 @@
+{
+  "items": [
+    {
+      "owner": {
+        "reputation": 251,
+        "user_id": 213632,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/949612718a54b823634efcd50edad3e0?s=128&d=identicon&r=PG",
+        "display_name": "Eugene Kirin",
+        "link": "https://ru.stackoverflow.com/users/213632/eugene-kirin"
+      },
+      "is_accepted": false,
+      "score": -1,
+      "last_activity_date": 1510231160,
+      "last_edit_date": 1510231160,
+      "creation_date": 1510226292,
+      "answer_id": 742338,
+      "question_id": 742178,
+      "body": "<p>Все просто! Вы создали переменную <code>String s1 = \"slip\";</code> в методе <code>start()</code> и передали ее как параметр в метода <code>fix(String s1)</code> и в этот момент в стеке метода создалась новая переменная <code>s1</code>, таким образом у нас две переменные (одна вне метода <code>fix</code>, другая, локальная в методе <code>fix</code>), которые ссылаются на один объект строки. В методе <code>fix</code> Вы затем локальной переменной <code>s1</code> присвоили ссылку на новый объект строки, в то время как переменная <code>s1</code> метода <code>start()</code> по-прежнему ссылается на объект строки<code>\"slip\"</code>.</p>\n\n<p><strong>P.S.</strong>\nВсем, кто утверждает, что в Java все параметры передаются по значению. Так оно и есть! Важно понимать, что при передаче объекта передается копия ссылки на объект, а не копия объекта. Поэтому можно менять свойство объекта, но ни сам объект. Если бы передача была бы по ссылке, то присвоение переменной метода нового объекта отобразилась бы на всех внешних переменных, которые бы стали бы ссылаться на новый объект.</p>\n"
+    },
+    {
+      "owner": {
+        "reputation": 184,
+        "user_id": 269255,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/4af2a9dc87ef5bf9a1d43d19907b3b47?s=128&d=identicon&r=PG&f=1",
+        "display_name": "Дмитрий Александрович",
+        "link": "https://ru.stackoverflow.com/users/269255/%d0%94%d0%bc%d0%b8%d1%82%d1%80%d0%b8%d0%b9-%d0%90%d0%bb%d0%b5%d0%ba%d1%81%d0%b0%d0%bd%d0%b4%d1%80%d0%be%d0%b2%d0%b8%d1%87"
+      },
+      "is_accepted": false,
+      "score": -2,
+      "last_activity_date": 1510227737,
+      "last_edit_date": 1510227737,
+      "creation_date": 1510215331,
+      "answer_id": 742257,
+      "question_id": 742178,
+      "body": "<p>Вы все правильно понимаете в теории ссылочных типов и примитивов. Действительно в данном случае, исходя из общей концепции, ваша переменная должна была изменить свое значение. Вся проблема в том, что класс String объявлен как final. Про подробности использования этого ключевго слова вы можете почитать сами, но суть в том, что не, во -первых, унаследоваться от таких классов нельзя. Во -вторых, в данном случае это самое главное, вы не можете изменить ссылку на созданный объект. Т.е. каждый раз, присваивая одной и той же переменной новое значение на самом деле вы не изменяете старый объект, а создаете новый. Именно это свойство не позволяет Вам видеть передачи значения по ссылке в данном коде, ведь по сути объект типа стринг не изменился, а создался заново. Причины того, что string объявлен как final, достаточно много, основные из них состоят в обеспечении потокобезопасности, скорости работы, соблюдение требований безопасности в целом(это не позволит подменить стринг классом наследником и производить с ним какие-либо манипуляции). В целом же идею ссылочных типов и примитивов , как я уже говорил, вы поняли правильно. Чтобы убедиться в этом , поэксперементируйте с классами, не объявленными как final. Например, в качестве эксперемента, предлагаю взять ArrayList. Дополните свой код таким образом, и увидите. что передача по ссылке действительно отрабатывает...</p>\n\n<pre><code>import java.util.ArrayList;\n\nclass PassS {\n\n    public static void main(String[] args) {\n        PassS p = new PassS();\n        ArrayList &lt;String&gt; list = new ArrayList&lt;&gt;();\n        list.add(\"one\");\n        list.add(\"two\");\n        list.add(\"three\");\n        System.out.println(list);\n        delFirstElement(list);\n        System.out.println(list);\n\n        p.start();\n    }\n\n    void start() {\n\n        String s1 = \"slip\";\n        String s2 = fix(s1);\n        System.out.println(s1 + \" \" + s2);\n    }\n\n    String fix(String s1) {\n        s1 = s1 + \"stream\";\n        System.out.println(s1 + \" \");\n        return \"stream\";\n    }\n\n    static void delFirstElement (ArrayList list){\n        list.remove(0);\n    }\n\n}\n</code></pre>\n"
+    },
+    {
+      "owner": {
+        "reputation": 35473,
+        "user_id": 178779,
+        "user_type": "registered",
+        "accept_rate": 91,
+        "profile_image": "https://lh4.googleusercontent.com/-Mn41DvtbzPE/AAAAAAAAAAI/AAAAAAAAAAA/BFwZyTCApik/photo.jpg?sz=128",
+        "display_name": "Pavel Mayorov",
+        "link": "https://ru.stackoverflow.com/users/178779/pavel-mayorov"
+      },
+      "is_accepted": false,
+      "score": 0,
+      "last_activity_date": 1510209972,
+      "creation_date": 1510209972,
+      "answer_id": 742222,
+      "question_id": 742178,
+      "body": "<p>В языке Java <strong>любые</strong> параметры передаются только по значению. Строки исключением не являются.</p>\n"
+    },
+    {
+      "owner": {
+        "reputation": 16495,
+        "user_id": 204271,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/89aaf241a35c92275b823a07b995288c?s=128&d=identicon&r=PG",
+        "display_name": "Sergey Gornostaev",
+        "link": "https://ru.stackoverflow.com/users/204271/sergey-gornostaev"
+      },
+      "is_accepted": false,
+      "score": 2,
+      "last_activity_date": 1510195486,
+      "creation_date": 1510195486,
+      "answer_id": 742188,
+      "question_id": 742178,
+      "body": "<p>Если вам необходимо изменять строку, используйте <a href=\"https://docs.oracle.com/javase/9/docs/api/java/lang/StringBuilder.html\" rel=\"nofollow noreferrer\">StringBuilder</a>.</p>\n"
+    },
+    {
+      "owner": {
+        "reputation": 14762,
+        "user_id": 15479,
+        "user_type": "registered",
+        "accept_rate": 38,
+        "profile_image": "https://i.stack.imgur.com/3wRJX.jpg?s=128&g=1",
+        "display_name": "Suvitruf",
+        "link": "https://ru.stackoverflow.com/users/15479/suvitruf"
+      },
+      "is_accepted": false,
+      "score": 7,
+      "last_activity_date": 1510188489,
+      "creation_date": 1510188489,
+      "answer_id": 742180,
+      "question_id": 742178,
+      "body": "<p>Читаем <a href=\"https://docs.oracle.com/javase/7/docs/api/java/lang/String.html\" rel=\"noreferrer\">доки</a>. </p>\n\n<blockquote>\n  <p>Strings are constant; their values cannot be changed after they are\n  created.</p>\n</blockquote>\n\n<p>Строки иммутабельны; их значение нельзя поменять после создания.</p>\n\n<p><code>s1 = s1 + \"stream\"</code> в методе <code>fix</code> меняет лишь локальную переменную на стеке. Оригинальная строка, определённая в методе <code>start</code>, не меняется.</p>\n"
+    }
+  ],
+  "has_more": false,
+  "quota_max": 300,
+  "quota_remaining": 285
+}

@@ -1,0 +1,768 @@
+{
+  "items": [
+    {
+      "tags": [
+        "jquery",
+        "массивы"
+      ],
+      "owner": {
+        "reputation": 35,
+        "user_id": 186017,
+        "user_type": "registered",
+        "accept_rate": 78,
+        "profile_image": "https://www.gravatar.com/avatar/ae4df37eedd9b5585db3d29b2ae67f94?s=128&d=identicon&r=PG&f=1",
+        "display_name": "Денис",
+        "link": "https://ru.stackoverflow.com/users/186017/%d0%94%d0%b5%d0%bd%d0%b8%d1%81"
+      },
+      "is_answered": false,
+      "view_count": 10,
+      "answer_count": 1,
+      "score": 0,
+      "last_activity_date": 1510231608,
+      "creation_date": 1510230757,
+      "question_id": 742388,
+      "link": "https://ru.stackoverflow.com/questions/742388/%d0%a1%d0%be%d0%b7%d0%b4%d0%b0%d1%82%d1%8c-%d1%81%d1%81%d1%8b%d0%bb%d0%ba%d0%b8-%d0%b8%d0%b7-%d0%b7%d0%bd%d0%b0%d1%87%d0%b5%d0%bd%d0%b8%d0%b9-%d0%bc%d0%b0%d1%81%d1%81%d0%b8%d0%b2%d0%b0",
+      "title": "Создать ссылки из значений массива",
+      "body": "<p>Добрый день!\nИмеется массив с произвольной длиной. Т.е. каждый раз значения в нем разные и их кол-во тоже.\nТребуется создать на странице столько ссылок , сколько значений есть в массиве. А их адресом должны стать значения из массива. Пример ниже:</p>\n\n<pre><code>var mass = [1,123,3,7];\n\n&lt;div id=\"link_box\"&gt;&lt;/div&gt;\n</code></pre>\n\n<p>А получиться должно следующее:</p>\n\n<pre><code>&lt;div id=\"link_box\"&gt;\n &lt;a href=\"1\"&gt;&lt;/a&gt;\n &lt;a href=\"123\"&gt;&lt;/a&gt;\n &lt;a href=\"3\"&gt;&lt;/a&gt;\n &lt;a href=\"7\"&gt;&lt;/a&gt;\n&lt;/div&gt;\n</code></pre>\n\n<p>Заранее благодарен за помощь. Понимаю, что вопрос глупый, но не судите строго. Сам ни как не соображу.</p>\n"
+    },
+    {
+      "tags": [
+        "python",
+        "память",
+        "список"
+      ],
+      "owner": {
+        "reputation": 182,
+        "user_id": 181806,
+        "user_type": "registered",
+        "accept_rate": 93,
+        "profile_image": "https://i.stack.imgur.com/3CcnC.jpg?s=128&g=1",
+        "display_name": "Denis",
+        "link": "https://ru.stackoverflow.com/users/181806/denis"
+      },
+      "is_answered": true,
+      "view_count": 85,
+      "accepted_answer_id": 741301,
+      "answer_count": 1,
+      "score": 2,
+      "last_activity_date": 1510231515,
+      "creation_date": 1510011185,
+      "last_edit_date": 1510044690,
+      "question_id": 741232,
+      "link": "https://ru.stackoverflow.com/questions/741232/%d0%97%d0%b0%d0%b3%d1%80%d1%83%d0%b7%d0%ba%d0%b0-%d1%81%d0%bf%d0%b8%d1%81%d0%ba%d0%b0-%d0%b8%d0%b7-200mb-%d1%84%d0%b0%d0%b9%d0%bb%d0%b0-%d0%be%d1%82%d0%b1%d0%b8%d1%80%d0%b0%d0%b5%d1%82-%d0%b1%d0%be%d0%bb%d1%8c%d1%88%d0%b5-1gb-%d0%bf%d0%b0%d0%bc%d1%8f%d1%82%d0%b8-%d0%9f%d0%be%d1%87%d0%b5%d0%bc%d1%83-%d1%82%d0%b0%d0%ba%d0%be%d0%b9-%d0%bf%d1%80%d0%b8%d1%80%d0%be%d1%81%d1%82",
+      "title": "Загрузка списка из 200MB файла отбирает больше 1GB памяти. Почему такой прирост?",
+      "body": "<p>Есть текстовый файл <code>list.txt</code>, состоящий из строк вида:</p>\n\n<pre><code>name1\nname2\nname3\nname4\nname5\n...\n</code></pre>\n\n<p>Файл на диске занимает 196 МБ.</p>\n\n<p>При загрузке его следующим методом:</p>\n\n<pre><code>L = []\nF = open('list.txt')\nL = F.readlines()\nF.close()\n</code></pre>\n\n<p>оперативная память, занимаемая процессом становится порядка 1,3 ГБ.</p>\n\n<p>Помогите разобраться, почему такой прирост использования памяти относительно файла на диске?</p>\n"
+    },
+    {
+      "tags": [
+        "telegram-api",
+        "telegram"
+      ],
+      "owner": {
+        "reputation": 1,
+        "user_id": 273574,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/ea2f3baa602e5f4327f3c9792b0f6972?s=128&d=identicon&r=PG&f=1",
+        "display_name": "Максим",
+        "link": "https://ru.stackoverflow.com/users/273574/%d0%9c%d0%b0%d0%ba%d1%81%d0%b8%d0%bc"
+      },
+      "is_answered": false,
+      "view_count": 3,
+      "answer_count": 0,
+      "score": 0,
+      "last_activity_date": 1510231510,
+      "creation_date": 1510231141,
+      "last_edit_date": 1510231510,
+      "question_id": 742391,
+      "link": "https://ru.stackoverflow.com/questions/742391/%d0%bc%d0%bd%d0%be%d0%b6%d0%b5%d1%81%d1%82%d0%b2%d0%b5%d0%bd%d0%bd%d1%8b%d0%b5-%d0%bc%d0%b5%d1%82%d0%ba%d0%b8-%d0%bd%d0%b0-%d0%ba%d0%b0%d1%80%d1%82%d0%b5",
+      "title": "множественные метки на карте",
+      "body": "<p>В api есть метод для нанесения метки на карту <code>sendLocation()</code>. Метод наносит одну метку за один вызов. </p>\n\n<p>Задача заключается в том, что есть список координат, не важно в каком виде, в БД или в ОЗУ. Необходимо за один вызов проставить n-меток на карте. </p>\n\n<p>С одной меткой работает нормально:</p>\n\n<pre><code>bot.send_location(message.chat.id, latitude=xxx.xxxx, longitude=yyy.yyyyy, reply_to_message_id=None, reply_markup=keyboard, disable_notification=None)\n</code></pre>\n\n<p>Но при нажатии на кнопку появляется карта со мной и только одной меткой, заданной latitude и longitude. </p>\n\n<p>Помогите решить задачу.</p>\n"
+    },
+    {
+      "tags": [
+        "javascript",
+        "jquery",
+        "вёрстка",
+        "autocomplete"
+      ],
+      "owner": {
+        "reputation": 244,
+        "user_id": 207416,
+        "user_type": "registered",
+        "accept_rate": 51,
+        "profile_image": "https://lh5.googleusercontent.com/-ismaHd8xLzw/AAAAAAAAAAI/AAAAAAAAAB0/QjvpissxUH8/photo.jpg?sz=128",
+        "display_name": "Constantine Shibaev",
+        "link": "https://ru.stackoverflow.com/users/207416/constantine-shibaev"
+      },
+      "is_answered": false,
+      "view_count": 3,
+      "answer_count": 0,
+      "score": 0,
+      "last_activity_date": 1510231366,
+      "creation_date": 1510231366,
+      "question_id": 742394,
+      "link": "https://ru.stackoverflow.com/questions/742394/%d0%9a%d0%b0%d0%ba-%d1%80%d0%b5%d0%b0%d0%bb%d0%b8%d0%b7%d0%be%d0%b2%d0%b0%d1%82%d1%8c-%d1%82%d0%b0%d0%ba%d0%be%d0%b9-%d0%b0%d0%b2%d1%82%d0%be%d0%ba%d0%be%d0%bc%d0%bf%d0%bb%d0%b8%d1%82",
+      "title": "Как реализовать такой автокомплит?",
+      "body": "<p>Есть <a href=\"https://www.onliner.by/\" rel=\"nofollow noreferrer\">вот такой вот</a> сайт у него в поиске интересный автокомплит, подскажите как можно реализовать такой же или подобный? Возможно есть какие нибудь плагины/готовые решения для этого. Или это самописный вариант, и без программирования тут не обойтись?</p>\n"
+    },
+    {
+      "tags": [
+        "sql",
+        "postgresql",
+        "функции",
+        "select",
+        "параметры"
+      ],
+      "owner": {
+        "reputation": 11,
+        "user_id": 253713,
+        "user_type": "registered",
+        "profile_image": "https://graph.facebook.com/890878917601940/picture?type=large",
+        "display_name": "Dmitry Nikitin",
+        "link": "https://ru.stackoverflow.com/users/253713/dmitry-nikitin"
+      },
+      "is_answered": false,
+      "view_count": 9,
+      "answer_count": 0,
+      "score": 0,
+      "last_activity_date": 1510231328,
+      "creation_date": 1510230869,
+      "last_edit_date": 1510231328,
+      "question_id": 742390,
+      "link": "https://ru.stackoverflow.com/questions/742390/sql-%d0%b2%d1%8b%d0%b1%d0%be%d1%80%d0%ba%d0%b0-%d0%bf%d0%be-id",
+      "title": "SQL-выборка по ID",
+      "body": "<p>Есть пример функции, где по id \"вытаскивается\" запись из таблицы. Мне же требуется на примере этой функции создать SELECT, который вытащит сразу несколько записей из таблицы.</p>\n\n<pre><code>CREATE OR REPLACE FUNCTION public.pcat_get_wr_params_by_id(\np_user_name character varying,\np_i_post_id integer)\nRETURNS character varying AS\n$BODY$\nDECLARE\nv_ret VARCHAR(128);\nBEGIN\nSELECT post_name INTO v_ret FROM CAT_POSTS WHERE post_id = p_i_post_id;\nRETURN v_ret;\nEXCEPTION\nWHEN others THEN\n perform error_handler (p_user_name,'p_cat','pcat_get_post_name_by_id,sqlstate, sqlerrm');\nEND;\n$BODY$\nLANGUAGE plpgsql VOLATILE\nCOST 100;\n</code></pre>\n\n<p>Вот таблица:\n<a href=\"https://i.stack.imgur.com/WjWve.jpg\" rel=\"nofollow noreferrer\"><img src=\"https://i.stack.imgur.com/WjWve.jpg\" alt=\"введите сюда описание изображения\"></a>\nИз неё нужны поля: req_number, req_date_start, position_id</p>\n\n<p>Как написать такой запрос?</p>\n"
+    },
+    {
+      "tags": [
+        "windows"
+      ],
+      "owner": {
+        "reputation": 444,
+        "user_id": 20184,
+        "user_type": "registered",
+        "accept_rate": 51,
+        "profile_image": "https://www.gravatar.com/avatar/8d8297ca39b0c8570b3f1fcdc3c8be71?s=128&d=identicon&r=PG",
+        "display_name": "Dark Byte",
+        "link": "https://ru.stackoverflow.com/users/20184/dark-byte"
+      },
+      "is_answered": false,
+      "view_count": 12,
+      "answer_count": 1,
+      "score": 0,
+      "last_activity_date": 1510231319,
+      "creation_date": 1510230660,
+      "question_id": 742387,
+      "link": "https://ru.stackoverflow.com/questions/742387/%d0%9a%d0%b0%d0%ba-%d0%be%d1%82%d1%83%d1%87%d0%b8%d1%82%d1%8c-windows-%d1%81%d0%be%d0%b7%d0%b4%d0%b0%d0%b2%d0%b0%d1%82%d1%8c-%d0%bf%d0%b0%d0%bf%d0%ba%d1%83-system-volume-information-%d0%bd%d0%b0-%d1%81%d1%8a%d0%b5%d0%bc%d0%bd%d1%8b%d1%85-%d0%bd%d0%be%d1%81%d0%b8%d1%82",
+      "title": "Как отучить Windows создавать папку &quot;System Volume Information&quot; на съемных носителях?",
+      "body": "<p>Вопрос в заголовке. Я в курсе что это восстановление системы пишет, но нафига оно мне надо на съемных носителях не понимаю? </p>\n\n<p>P.S. Сколько себя помню это работало на всех версиях винды.</p>\n"
+    },
+    {
+      "tags": [
+        "java",
+        "массивы",
+        "алгоритм"
+      ],
+      "owner": {
+        "reputation": 71,
+        "user_id": 246078,
+        "user_type": "registered",
+        "accept_rate": 67,
+        "profile_image": "https://graph.facebook.com/825524670934315/picture?type=large",
+        "display_name": "Valek Potapov",
+        "link": "https://ru.stackoverflow.com/users/246078/valek-potapov"
+      },
+      "is_answered": false,
+      "view_count": 27,
+      "answer_count": 2,
+      "score": 0,
+      "last_activity_date": 1510231196,
+      "creation_date": 1510225840,
+      "question_id": 742336,
+      "link": "https://ru.stackoverflow.com/questions/742336/%d0%9d%d0%b0%d1%85%d0%be%d0%b6%d0%b4%d0%b5%d0%bd%d0%b8%d0%b5-%d0%b1%d0%bb%d0%b8%d0%b6%d0%b0%d0%b9%d1%88%d0%b8%d1%85-%d1%8d%d0%bb%d0%b5%d0%bc%d0%b5%d0%bd%d1%82%d0%be%d0%b2-%d0%b2-%d0%bc%d0%b0%d1%81%d1%81%d0%b8%d0%b2%d0%b5",
+      "title": "Нахождение ближайших элементов в массиве",
+      "body": "<p>Дан двумерный массив:</p>\n\n<pre><code>static int[][] multi = new int[][]{\n        {2, 0, 4, 1241, 424, 1, 12323},\n        {1, 3, 5, 7},\n        {321, 320, 32, 41241, -11, -12, -13, -66, -688}\n\n\n};\n</code></pre>\n\n<p>Нужно создать метод, который принимает индекс определенного элемента и int range - количество элементов находящихся рядом с элементом. Метод должен вернут массив. Например: </p>\n\n<p>nearby(0, 2, 2) вернет: 2, 0, 1241, 12</p>\n\n<p>Я сделал что-то вроде: </p>\n\n<pre><code>public static int[] nearby(int x, int y, int range) {\n\n    int index = 1;\n    ArrayList&lt;Integer&gt;  leftSize= new ArrayList();\n    ArrayList&lt;Integer&gt; rightSize = new ArrayList();\n\n    while (index != range+1) {\n        leftSize.add(multi[x][y - index]);\n        rightSize.add(multi[x][y + index]);\n        index += 1;\n\n    }\n    leftSize.addAll(rightSize);\n\n    int[] stockArr = new int[leftSize.size()];\n\n    return stockArr;\n}\n</code></pre>\n\n<p>Но не уверен, что это лучшее решение. \nПодскажите, какой использовать алгоритм, чтобы работать напрямую с массивом, не создавая arraylist ?</p>\n"
+    },
+    {
+      "tags": [
+        "android",
+        "button"
+      ],
+      "owner": {
+        "reputation": 602,
+        "user_id": 176359,
+        "user_type": "registered",
+        "accept_rate": 92,
+        "profile_image": "https://lh5.googleusercontent.com/-7CMtdzNEnUI/AAAAAAAAAAI/AAAAAAAAAEA/PhDr_GNr6_A/photo.jpg?sz=128",
+        "display_name": "Suleymanovtat",
+        "link": "https://ru.stackoverflow.com/users/176359/suleymanovtat"
+      },
+      "is_answered": false,
+      "view_count": 9,
+      "answer_count": 1,
+      "score": 0,
+      "last_activity_date": 1510231165,
+      "creation_date": 1510229245,
+      "question_id": 742373,
+      "link": "https://ru.stackoverflow.com/questions/742373/%d0%9f%d0%be-%d0%ba%d0%bb%d0%b8%d0%ba%d1%83-%d0%ba%d0%bd%d0%be%d0%bf%d0%ba%d0%b5-%d0%be%d1%82%d0%ba%d1%80%d1%8b%d0%b2%d0%b0%d0%b5%d1%82%d1%81%d1%8f-%d0%bd%d0%b5%d1%81%d0%ba%d0%be%d0%bb%d1%8c%d0%ba%d0%be-%d1%80%d0%b0%d0%b7-activity",
+      "title": "По клику кнопке открывается несколько раз activity",
+      "body": "<p>Проблема в следующем пользователь успевает несколько раз кликнуть по кнопке и открывается несколько activity или запускается какой то процесс, Я тут погулил мне выдало несколько решение </p>\n\n<pre><code>1)  setEnabled(false)\n\n2)  if (SystemClock.elapsedRealtime() - mLastClickTime &lt; 1000){\n    return;\n    }\n    mLastClickTime = SystemClock.elapsedRealtime();\n</code></pre>\n\n<p>Почему кнопка сама не блокируют кнопку, что бы пользователь не успел повторно нажать? Каким Вы способ пользуетесь? как Вы обрабатываете данные ситуацию</p>\n"
+    },
+    {
+      "tags": [
+        "java"
+      ],
+      "owner": {
+        "reputation": 16,
+        "user_id": 239242,
+        "user_type": "registered",
+        "profile_image": "https://graph.facebook.com/1290243967736837/picture?type=large",
+        "display_name": "Roman  Bogdanov",
+        "link": "https://ru.stackoverflow.com/users/239242/roman-bogdanov"
+      },
+      "is_answered": true,
+      "view_count": 73,
+      "answer_count": 5,
+      "score": 3,
+      "last_activity_date": 1510231160,
+      "creation_date": 1510186364,
+      "question_id": 742178,
+      "link": "https://ru.stackoverflow.com/questions/742178/%d0%9f%d0%be%d1%87%d0%b5%d0%bc%d1%83-%d0%be%d0%b1%d1%8a%d0%b5%d0%ba%d1%82-string-%d0%bd%d0%b5-%d0%bf%d0%b5%d1%80%d0%b5%d0%b4%d0%b0%d1%91%d1%82%d1%81%d1%8f-%d0%bf%d0%be-%d1%81%d1%81%d1%8b%d0%bb%d0%ba%d0%b5",
+      "title": "Почему объект String не передаётся по ссылке",
+      "body": "<p>Доброго времени суток.<br>\nВ консоль данный код выводит: \"<strong>slipstream slip stream</strong>\", а не \"<strong>slipstream slipstream stream</strong>\" как я предполагал. Помогите разобраться, почему <strong>s1</strong> после fix(String s1) не изменила значения на \"<strong>slipstream</strong>\". Спасибо. <a href=\"https://www.indiabix.com/java-programming/operators-and-assignments/discussion-68\" rel=\"nofollow noreferrer\">ссылка</a></p>\n\n<pre><code>class PassS\n{\n    public static void main(String [] args)\n    {\n        PassS p = new PassS();\n        p.start();\n    }\n\n    void start()\n    {\n        String s1 = \"slip\";\n        String s2 = fix(s1);\n        System.out.println(s1 + \" \" + s2);\n    }\n\n    String fix(String s1)\n    {\n        s1 = s1 + \"stream\";\n        System.out.print(s1 + \" \");\n        return \"stream\";\n    }\n}\n</code></pre>\n"
+    },
+    {
+      "tags": [
+        "c",
+        "указатели",
+        "односвязный-список"
+      ],
+      "owner": {
+        "reputation": 11,
+        "user_id": 271033,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/9e39a8d4acdf2f41391a0536b581a81a?s=128&d=identicon&r=PG&f=1",
+        "display_name": "Павел",
+        "link": "https://ru.stackoverflow.com/users/271033/%d0%9f%d0%b0%d0%b2%d0%b5%d0%bb"
+      },
+      "is_answered": false,
+      "view_count": 31,
+      "answer_count": 1,
+      "score": 2,
+      "last_activity_date": 1510231080,
+      "creation_date": 1510170532,
+      "question_id": 742124,
+      "link": "https://ru.stackoverflow.com/questions/742124/%d0%a2%d0%b0%d0%ba%d0%b0%d1%8f-%d0%bf%d1%80%d0%be%d0%b1%d0%bb%d0%b5%d0%bc%d0%b0-%d1%84%d1%83%d0%bd%d0%ba%d1%86%d0%b8%d1%8f-add-%d0%bd%d0%b5-%d0%b2%d1%81%d1%82%d0%b0%d0%b2%d0%bb%d1%8f%d0%b5%d1%82-%d0%b7%d0%bd%d0%b0%d1%87%d0%b5%d0%bd%d0%b8%d0%b5-%d0%b2-%d0%bd%d0%b0%d1%87%d0%b0%d0%bb%d0%be-%d0%be%d0%b4%d0%bd%d0%be%d1%81%d0%b2%d1%8f%d0%b7%d0%bd%d0%be%d0%b3%d0%be-%d1%81%d0%bf%d0%b8%d1%81%d0%ba%d0%b0",
+      "title": "Такая проблема, функция Add не вставляет значение в начало односвязного списка",
+      "body": "<p>Всем привет. Такая проблема, функция Add не вставляет значение в начало односвязного списка если элементов ещё нет. Если перед её использованием использовать функцию push и добавить с помощью неё хотя бы один элемент, то работает как надо. Помогите пожалуйста</p>\n\n<pre><code>#include &lt;stdio.h&gt;\n#include &lt;stdlib.h&gt;\n#include &lt;locale.h&gt;\n\ntypedef struct Node\n{\n    int value;\n    struct Node *next;\n} Node;\nNode* head = NULL;\nvoid PrintNode(const Node *head)\n{\n    while (head)\n    {\n        printf(\"%d \", head-&gt;value);\n        head = head-&gt;next;\n    }\n    printf(\"\\n\");\n}\nvoid Add(Node *head, int n, int val)\n{\n    int i = 0;\n    while (i&lt;n &amp;&amp; head)\n    {\n        head=head-&gt;next;\n        i++;\n    }\n    Node *tmp = (Node*) malloc(sizeof(Node));\n    tmp-&gt;value=val;\n    if (!head)\n    {\n        head=tmp;\n    }\n    else\n    {\n        if (head-&gt;next)\n        {\n            tmp-&gt;next = head-&gt;next;\n        }\n        else\n        {\n            tmp-&gt;next = NULL;\n        }\n        head-&gt;next = tmp;\n    }\n}\nvoid push(Node **head, int data)\n{\n    Node *tmp = (Node*) malloc(sizeof(Node));\n    tmp-&gt;value = data;\n    tmp-&gt;next = (*head);\n    (*head) = tmp;\n}\nint main()\n{\n    setlocale(LC_ALL, \"RUS\");\n    push(&amp;head, 12)\n    Add(head, 1, 15);\n    PrintNode(head);\n    return 0;\n}\n</code></pre>\n"
+    },
+    {
+      "tags": [
+        "mysql"
+      ],
+      "owner": {
+        "reputation": 11,
+        "user_id": 213557,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/4529c5437a18655a056439a8f0b076cb?s=128&d=identicon&r=PG&f=1",
+        "display_name": "StereoFlo",
+        "link": "https://ru.stackoverflow.com/users/213557/stereoflo"
+      },
+      "is_answered": false,
+      "view_count": 16,
+      "answer_count": 1,
+      "score": 0,
+      "last_activity_date": 1510230798,
+      "creation_date": 1510212591,
+      "question_id": 742239,
+      "link": "https://ru.stackoverflow.com/questions/742239/orderby-%d0%b2%d0%be%d0%b7%d0%b2%d1%80%d0%b0%d1%89%d0%b0%d0%b5%d1%82-using-filesort",
+      "title": "OrderBy возвращает using filesort",
+      "body": "<p>Есть таблица:</p>\n\n<pre><code>CREATE TABLE work\n(\n    id          INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,\n    workName    VARCHAR(255)           NOT NULL,\n    userId      INT                    NOT NULL,\n    likes       INT DEFAULT '0'        NOT NULL,\n    description TEXT                   NULL,\n    approved    TINYINT(1) DEFAULT '0' NOT NULL,\n    created_at  TIMESTAMP              NULL,\n    updated_at  TIMESTAMP              NULL\n);\nCREATE INDEX work_approved_index\n    ON work (approved);\nCREATE INDEX work_likes_index\n    ON work (likes);\nCREATE INDEX work_userid_index\n    ON work (userId);\n</code></pre>\n\n<p>Заглянул в explain, вижу Using where; Using filesort, не понимаю куда и как оптимизировать</p>\n\n<pre><code>EXPLAIN SELECT likes, approved\n    FROM `work`\n    WHERE `work`.`approved` = TRUE\n    ORDER BY `work`.`likes`, approved\n</code></pre>\n\n<p>Талица планируется быть достаточно большой, поэтому хотелось бы избежать сортировки</p>\n"
+    },
+    {
+      "tags": [
+        "java",
+        "android",
+        "геолокация"
+      ],
+      "owner": {
+        "reputation": 4217,
+        "user_id": 191718,
+        "user_type": "registered",
+        "accept_rate": 77,
+        "profile_image": "https://i.stack.imgur.com/xsHho.jpg?s=128&g=1",
+        "display_name": "Kirill Stoianov",
+        "link": "https://ru.stackoverflow.com/users/191718/kirill-stoianov"
+      },
+      "is_answered": false,
+      "view_count": 19,
+      "answer_count": 1,
+      "score": 0,
+      "last_activity_date": 1510230758,
+      "creation_date": 1510222850,
+      "last_edit_date": 1510223269,
+      "question_id": 742317,
+      "link": "https://ru.stackoverflow.com/questions/742317/%d0%97%d0%b0%d0%bf%d1%80%d0%be%d1%81-%d1%82%d0%b5%d0%ba%d1%83%d1%89%d0%b5%d0%b3%d0%be-%d0%bc%d0%b5%d1%81%d1%82%d0%be%d0%bf%d0%be%d0%bb%d0%be%d0%b6%d0%b5%d0%bd%d0%b8%d1%8f-%d0%b1%d0%b5%d0%b7-%d0%b7%d0%b0%d0%bf%d1%83%d1%81%d0%ba%d0%b0-provider%d0%be%d0%b2",
+      "title": "Запрос текущего местоположения без запуска Provider&#39;ов",
+      "body": "<p>Мне нужно получать локацию пользователя раз  в полчаса. \nЕсть следующик код:</p>\n\n<pre><code> public static Location getLastKnownLoaction(boolean enabledProvidersOnly, Context context) {\n        LocationManager manager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);\n        Location utilLocation = null;\n        List&lt;String&gt; providers = manager.getProviders(enabledProvidersOnly);\n        for (String provider : providers) {\n            utilLocation = manager.getLastKnownLocation(provider);\n            if(utilLocation != null) return utilLocation;\n        }\n        return null;\n}\n</code></pre>\n\n<p>Но насколько я понимаю если провайдер не был запущен, то я могу не получить этих  данных о местоположении. </p>\n\n<p>Или же такой код, но он может сьедать заряд батареи.</p>\n\n<pre><code>public class LocationService implements LocationListener {\n\n    static Location imHere; \n    public static void SetUpLocationListener(Context context) // это нужно запустить в самом начале работы программы\n    {\n        LocationManager locationManager = (LocationManager)\n                context.getSystemService(Context.LOCATION_SERVICE);\n\n        LocationListener locationListener = new LocationService();\n\n        locationManager.requestLocationUpdates(\n                LocationManager.GPS_PROVIDER,\n                5000,\n                10,\n                locationListener); \n\n        imHere = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);\n    }\n\n    @Override\n    public void onLocationChanged(Location loc) {\n        imHere = loc;\n    }\n\n    @Override\n    public void onProviderDisabled(String provider) {\n    }\n\n    @Override\n    public void onProviderEnabled(String provider) {\n    }\n\n    @Override\n    public void onStatusChanged(String provider, int status, Bundle extras) {\n    }\n}\n</code></pre>\n\n<p><strong>Вопрос</strong>: как можно получать локацию пользователя не запуская провайдеры и с минимальным потреблением батарейки?</p>\n"
+    },
+    {
+      "tags": [
+        "java",
+        "spring",
+        "spring-mvc",
+        "proxy",
+        "controller"
+      ],
+      "owner": {
+        "reputation": 16,
+        "user_id": 208678,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/5c80d21e8feb1363985d79a064049199?s=128&d=identicon&r=PG",
+        "display_name": "DenStreet",
+        "link": "https://ru.stackoverflow.com/users/208678/denstreet"
+      },
+      "is_answered": false,
+      "view_count": 114,
+      "answer_count": 1,
+      "score": 1,
+      "last_activity_date": 1510230643,
+      "creation_date": 1461176176,
+      "last_edit_date": 1461177791,
+      "question_id": 515253,
+      "link": "https://ru.stackoverflow.com/questions/515253/beanpostprocessor-%d0%b8-springmvc-controller-%d0%bf%d1%80%d0%be%d0%b1%d0%bb%d0%b5%d0%bc%d0%b0-%d1%81-%d0%bc%d0%b0%d0%bf%d0%bf%d0%b8%d0%bd%d0%b3%d0%be%d0%bc",
+      "title": "BeanPostProcessor и SpringMVC @Controller проблема с маппингом",
+      "body": "<p>Над методами <code>Spring MVC @Controller</code> стоит <code>custom</code> аннотация, которая передаёт параметры метода и его названия в свой сервис, для работы аннотации данный контроллер \"оборачивается\" в прокси в <code>CustomBeanPostProcessor</code>. Соответственно, при запуске приложения создаётся прокси нашего контроллера, но при этом теряются все <code>@RequestMapping</code> над методами, и получается, что при запросе с клиента запрос не обрабатывается, поскольку бинпостпроцессор работает только в своём контексте <code>ApplicationContext</code>, а бин РестКонтроллера в <code>WebApplicationContext</code>. Вопрос, как прописать зависимость в <code>WebApplicationContext</code>, чтоб контроллер не \"терял\" маппинг?</p>\n"
+    },
+    {
+      "tags": [
+        "javascript",
+        "html",
+        "jquery"
+      ],
+      "owner": {
+        "reputation": 1,
+        "user_id": 273433,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/120b4857570b8f3e38eb8172a2c3d40c?s=128&d=identicon&r=PG&f=1",
+        "display_name": "Vlad Danishevsky",
+        "link": "https://ru.stackoverflow.com/users/273433/vlad-danishevsky"
+      },
+      "is_answered": false,
+      "view_count": 14,
+      "answer_count": 0,
+      "score": 0,
+      "last_activity_date": 1510230623,
+      "creation_date": 1510228271,
+      "last_edit_date": 1510230623,
+      "question_id": 742360,
+      "link": "https://ru.stackoverflow.com/questions/742360/%d0%9f%d1%80%d0%be%d0%bb%d0%be%d0%b6%d0%b8%d1%82%d1%8c-%d0%bf%d1%83%d1%82%d1%8c-%d0%ba-%d1%8d%d0%bb%d0%b5%d0%bc%d0%b5%d0%bd%d1%82%d1%83-%d1%82%d0%b0%d0%b1%d0%bb%d0%b8%d1%86%d1%8b",
+      "title": "Проложить путь к элементу таблицы",
+      "body": "<p>Как прописать путь с помощью .parent() к таблице показанной на скриншоте?\nНа данный момент прописанный путь в JS работает с таблицей что сверху.\nКак можно задать путь только для второй таблицы? Спасибо.</p>\n\n<p><a href=\"https://i.stack.imgur.com/GVI2v.png\" rel=\"nofollow noreferrer\"><img src=\"https://i.stack.imgur.com/GVI2v.png\" alt=\"введите сюда описание изображения\"></a>\n<strong>Код JS:</strong></p>\n\n<p><div class=\"snippet\" data-lang=\"js\" data-hide=\"false\" data-console=\"true\" data-babel=\"false\">\r\n<div class=\"snippet-code\">\r\n<pre class=\"snippet-code-js lang-js prettyprint-override\"><code>$(\"thead\").on(\"click\", function() {\r\n  t = $(this).parent(\".spoilerclick\").find(\"tbody\").eq($(this).index($(\"thead\")));\r\n  if (t.css('display') == 'block') {\r\n    t.css(\"display\", \"none\");\r\n  } else {\r\n    t.css(\"display\", \"block\");\r\n  }\r\n});</code></pre>\r\n<pre class=\"snippet-code-html lang-html prettyprint-override\"><code>&lt;script src=\"https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js\"&gt;&lt;/script&gt;\r\n&lt;table class=\"spoilerclick\"&gt;\r\n  &lt;thead&gt;\r\n    &lt;th class=\"title_team\" style=\"font-size:14pt; padding: 20px 20px; background-color: #002C5E; color:white\"&gt;Table 1&lt;/th&gt;\r\n  &lt;/thead&gt;\r\n  &lt;tbody&gt;\r\n    &lt;tr&gt;\r\n      &lt;td&gt;Spoiler 1&lt;/td&gt;\r\n    &lt;/tr&gt;\r\n  &lt;/tbody&gt;\r\n&lt;/table&gt;\r\n&lt;div id=\"listfilteredcontacts\"&gt;\r\n  &lt;div class=\"scroll\"&gt;\r\n    &lt;table id=\"users_list\"&gt;\r\n      &lt;tr&gt;\r\n        &lt;td class=\"no-padding\"&gt;\r\n          &lt;table cellspacing=\"0\" cellpadding=\"0\"&gt;\r\n            &lt;thead&gt;\r\n              &lt;tr&gt;\r\n                &lt;th&gt;\r\n                  &lt;i class=\"fa fa-users\" aria-hidden=\"true\"&gt;&lt;/i&gt; &amp;nbsp;[[team.team_name]]\r\n                &lt;/th&gt;\r\n              &lt;/tr&gt;\r\n            &lt;/thead&gt;\r\n            &lt;tbody&gt;\r\n              &lt;tr v-for=\"(group, indexgroup) in team.groups\" v-bind:id=\" 'tr_group' + indexgroup\" v-if=\"contacts_length(group)\"&gt;\r\n                &lt;td class=\"no-padding\"&gt;\r\n                  &lt;table cellspacing=\"0\" cellpadding=\"0\" v-bind:id=\" 'tblGroup' + indexgroup\" class=\"maintable\"&gt;\r\n                    &lt;thead v-bind:class=\"{hidden : inGroup}\"&gt;\r\n                      &lt;tr for=\"spoiler2\"&gt;\r\n                        &lt;th class=\"spoiler\" colspan=\"4\"&gt;\r\n                          &lt;i class=\"fa fa-folder-open\" aria-hidden=\"true\"&gt;&lt;/i&gt; &amp;nbsp;Table 2\r\n                        &lt;/th&gt;\r\n                      &lt;/tr&gt;\r\n                    &lt;/thead&gt;\r\n                    &lt;tbody&gt;\r\n                      &lt;tr&gt;\r\n                        &lt;td style=\"width: 50px; \"&gt;\r\n                          &lt;img src=\"/static/assets/green_avatar.svg\" alt=\"\" width=\"36\" height=\"36\"&gt;\r\n                          &lt;span class=\"icon_selected\"&gt;&lt;/span&gt;&lt;/td&gt;\r\n                        &lt;td style=\"width: 200px\"&gt;[[c.first_name]] [[c.last_name]]&lt;/td&gt;\r\n                        &lt;td&gt;[[c.email | truncate(40,'...')]]&lt;/td&gt;\r\n                        &lt;td style=\"width: 200px; padding-right: 24px;\" class=\"text-right\"&gt;[[c.phone]]&lt;/td&gt;\r\n                      &lt;/tr&gt;\r\n                    &lt;/tbody&gt;\r\n                  &lt;/table&gt;\r\n                &lt;/td&gt;\r\n              &lt;/tr&gt;\r\n            &lt;/tbody&gt;\r\n          &lt;/table&gt;\r\n        &lt;/td&gt;\r\n      &lt;/tr&gt;\r\n    &lt;/table&gt;</code></pre>\r\n</div>\r\n</div>\r\n</p>\n"
+    },
+    {
+      "tags": [
+        "python",
+        "python-3.x"
+      ],
+      "owner": {
+        "reputation": 183,
+        "user_id": 195664,
+        "user_type": "registered",
+        "accept_rate": 69,
+        "profile_image": "https://www.gravatar.com/avatar/b3b3afb6238a463c8a9a751c1337cd76?s=128&d=identicon&r=PG&f=1",
+        "display_name": "beginner",
+        "link": "https://ru.stackoverflow.com/users/195664/beginner"
+      },
+      "is_answered": true,
+      "view_count": 26,
+      "accepted_answer_id": 742362,
+      "answer_count": 2,
+      "score": 0,
+      "last_activity_date": 1510230482,
+      "creation_date": 1510227655,
+      "question_id": 742357,
+      "link": "https://ru.stackoverflow.com/questions/742357/%d0%9d%d0%b5-%d0%b2%d1%8b%d0%b2%d0%be%d0%b4%d0%b8%d1%82-%d0%b7%d0%b0%d0%b4%d0%b0%d0%bd%d0%bd%d0%be%d0%b5-%d0%ba%d0%be%d0%bb%d0%b8%d1%87%d0%b5%d1%81%d1%82%d0%b2%d0%be-%d1%81%d1%82%d1%80%d0%be%d0%ba",
+      "title": "Не выводит заданное количество строк",
+      "body": "<p>Изучаю <code>Python</code> и возникла небольшая проблема с таким упражнением(изучаю по книге Саммерфильда - \"Программирование на <code>Python3</code>. Подробное руководство\") </p>\n\n<p>Само упражнение сократил но задание можно понять\nИ так из 4 уже заполненных списков(артикль,существительное,глагол,наречие) сгенерировать предложения с помощью 5 циклов,<code>random.choice()</code>. В таком полученном стихе 5 строк,и в каждой строке такие вот случайно подобранные предложения. </p>\n\n<p>Что было сделано мной</p>\n\n<p>-Созданы 4 списка, переменная <code>line=5</code>(количество строк)</p>\n\n<p>-Цикл <code>while</code> с таким условием пока <code>line!=5</code> выполнять</p>\n\n<p>-В самом цикле уже внутренние циклы перебора значений каждого списка,выбор какого-либо из них с помощью <code>random.choice()</code> и вывод на экран.</p>\n\n<p>Проблема следующая:</p>\n\n<p>Я работаю в <code>Ubuntu</code> и с помощью терминала запускаю своё мини-приложение но оно не запускается,а просто происходит перенос на следующую строку в терминале(как будто команда выполнилась-см. рисунок)</p>\n\n<p><a href=\"https://i.stack.imgur.com/bXLZV.png\" rel=\"nofollow noreferrer\"><img src=\"https://i.stack.imgur.com/bXLZV.png\" alt=\"введите сюда описание изображения\"></a></p>\n\n<pre><code>Код:\n#!/usr/bin/env python3\n\nimport random\nimport sys\n\nlistarticles=[\"the\",\"a\",\"for\",\"an\",\"this\",\"that\",\"those\"]\nlistsush=[\"cat\",\"dog\",\"man\",\"woman\",\"duck\",\"girl\",\"boy\"]\nlistglag=[\"sing\",\"walk\",\"run\",\"drink\",\"eat\",\"sleep\",\"cry\"]\nlistnarech=[\"loudly\",\"fastly\",\"well\",\"badly\",\"quietly\",\"ugly\",\"blackly\"]\n\nline = 5\nwhile line!=5:\n     for ls1 in listarticles:\n        ls1 = random.choice(listarticles)\n        print(ls1)\n     for ls2 in listsush:\n        ls2 = random.choice(listsush)\n        print(ls2)\n     for ls3 in listglag:   \n        ls3 = random.choice(listglag)\n        print(ls3)\n     for ls4 in listnarech:\n        ls4 = random.choice(listnarech)\n        print(ls4)\n     line+=1\n</code></pre>\n"
+    },
+    {
+      "tags": [
+        "postgresql"
+      ],
+      "owner": {
+        "reputation": 1,
+        "user_id": 225732,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/f5577593d77f5c891937359b4212924e?s=128&d=identicon&r=PG&f=1",
+        "display_name": "Darron",
+        "link": "https://ru.stackoverflow.com/users/225732/darron"
+      },
+      "is_answered": false,
+      "view_count": 2,
+      "answer_count": 0,
+      "score": 0,
+      "last_activity_date": 1510230477,
+      "creation_date": 1510230477,
+      "question_id": 742386,
+      "link": "https://ru.stackoverflow.com/questions/742386/ha-cluster-pacemaker-corosync-pgpoolii-postgres",
+      "title": "HA Cluster Pacemaker + CoroSync + PgpoolII + Postgres",
+      "body": "<p>Есть ли смысл создавать НА кластер с указанной связкой? Стоит задача настроить репликацию БД и управлении нодами, в том числе ввод новых нод при необходимости.\nСобственно Pacemaker и CoroSync это не обсуждается даже, как и Postgres. А вот, что лучше подобрать для репликации и управления бд? При этом общее для кластера хранилище заводить нельзя, каждая нода должна обладать актуальной на данной момент версией таблиц.</p>\n"
+    },
+    {
+      "tags": [
+        "pascal"
+      ],
+      "owner": {
+        "reputation": 121,
+        "user_id": 264868,
+        "user_type": "registered",
+        "accept_rate": 54,
+        "profile_image": "https://www.gravatar.com/avatar/f013d82e401399135fb62da646b362c8?s=128&d=identicon&r=PG&f=1",
+        "display_name": "BraFik",
+        "link": "https://ru.stackoverflow.com/users/264868/brafik"
+      },
+      "is_answered": false,
+      "view_count": 20,
+      "answer_count": 2,
+      "score": 0,
+      "last_activity_date": 1510230447,
+      "creation_date": 1510225383,
+      "question_id": 742334,
+      "link": "https://ru.stackoverflow.com/questions/742334/%d0%98%d1%81%d0%bf%d0%be%d0%bb%d1%8c%d0%b7%d0%be%d0%b2%d0%b0%d1%82%d1%8c-%d1%86%d0%b8%d0%ba%d0%bb-%d1%81-%d0%bf%d1%80%d0%b5%d0%b4%d1%83%d1%81%d0%bb%d0%be%d0%b2%d0%b8%d0%b5%d0%bc",
+      "title": "Использовать цикл с предусловием",
+      "body": "<p>Не понимаю поставленой задачи, точнее не знаю как это использовать цикл с предусловием в паскале.</p>\n\n<pre><code>Program PROIZVED;\nvar N, i, P: byte;\nBEGIN\nwrite('vedite N= ');\nreadln(N);\nP:=1;\nFor i:=1 to N do\nP:=P*i;\nwriteln('PROIZVED= ',P:5);\nreadln;\nEND.\n</code></pre>\n"
+    },
+    {
+      "tags": [
+        "windows",
+        "windowsinstaller"
+      ],
+      "owner": {
+        "reputation": 1179,
+        "user_id": 11230,
+        "user_type": "registered",
+        "accept_rate": 61,
+        "profile_image": "https://i.stack.imgur.com/xGbFP.jpg?s=128&g=1",
+        "display_name": "MaLS",
+        "link": "https://ru.stackoverflow.com/users/11230/mals"
+      },
+      "is_answered": false,
+      "view_count": 2,
+      "answer_count": 0,
+      "score": 0,
+      "last_activity_date": 1510230272,
+      "creation_date": 1510230272,
+      "question_id": 742384,
+      "link": "https://ru.stackoverflow.com/questions/742384/%d0%9a%d0%b0%d0%ba-%d0%bf%d0%be%d0%bc%d0%b5%d0%bd%d1%8f%d1%82%d1%8c-%d0%b8%d0%ba%d0%be%d0%bd%d0%ba%d1%83-%d0%b2-%d0%be%d0%ba%d0%bd%d0%b5-user-account-control",
+      "title": "Как поменять иконку в окне User Account Control?",
+      "body": "<p>Подскажите, возможно ли поменять иконку в окне \"User Account Control\", которая появилось в результате запуска удаления программы из списка \"Uninstall or change program\"?</p>\n\n<p><a href=\"https://i.stack.imgur.com/WTVKL.png\" rel=\"nofollow noreferrer\"><img src=\"https://i.stack.imgur.com/WTVKL.png\" alt=\"введите сюда описание изображения\"></a></p>\n"
+    },
+    {
+      "tags": [
+        "php",
+        "yii2"
+      ],
+      "owner": {
+        "reputation": 5,
+        "user_id": 269072,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/ef1dbee08cada7ad32a6312cc82186db?s=128&d=identicon&r=PG&f=1",
+        "display_name": "Alex",
+        "link": "https://ru.stackoverflow.com/users/269072/alex"
+      },
+      "is_answered": false,
+      "view_count": 11,
+      "answer_count": 1,
+      "score": 0,
+      "last_activity_date": 1510230183,
+      "creation_date": 1510077038,
+      "question_id": 741613,
+      "link": "https://ru.stackoverflow.com/questions/741613/%d0%a3%d0%b4%d0%b0%d0%bb%d0%b5%d0%bd%d0%b8%d0%b5-%d0%ba%d0%b0%d1%80%d1%82%d0%b8%d0%bd%d0%ba%d0%b8-yii2-costarico-yii2-images",
+      "title": "Удаление картинки Yii2 (CostaRico/yii2-images)",
+      "body": "<pre><code>&lt;div class=\"form-group\"&gt;\n    &lt;div class=\"col-md-offset-2 col-md-10\"&gt;\n        &lt;?php\n\n            $img = $model-&gt;getImages();\n\n        ?&gt;\n        &lt;div class=\"row\"&gt;\n\n            &lt;?php foreach ($img as $item) :?&gt;\n            &lt;div class=\"col-md-3 text-center wrap_portf\"&gt;\n                &lt;img src=\"&lt;?=$item-&gt;getUrl()?&gt;\" class=\"img_slider_view\" alt=\"Image\"&gt;\n                &lt;a href=\"&lt;?=\\yii\\helpers\\Url::to('deletemoreimg') .\"?id=\". $item-&gt;id?&gt;\" class=\"btn_port_del\"&gt;X&lt;/a&gt;\n            &lt;/div&gt;\n            &lt;?php endforeach; ?&gt;\n\n        &lt;/div&gt;\n    &lt;/div&gt;\n&lt;/div&gt;\n</code></pre>\n\n<p>в контролере пробую что то принимать:</p>\n\n<pre><code>public function actionDeletemoreimg($id){\n\n    $portfolio = new Portfolio();\n\n    $img = $portfolio-&gt;getImage($id);\n    $portfolio-&gt;removeImage($img);\n\n    return $this-&gt;redirect([\"portfolio/view?id=$id\"]);\n}\n</code></pre>\n\n<p>Помогите удалить загружение картинки по одной что виведени форичем, идея такая чтоб можно било удалять картинки по одной, прочитал что ето делаетса методом removeImage($img) вот ссилка источника:\n<a href=\"https://github.com/CostaRico/yii2-images\" rel=\"nofollow noreferrer\">https://github.com/CostaRico/yii2-images</a>\nПомогите пожайлусто удалить картинку</p>\n"
+    },
+    {
+      "tags": [
+        "windows",
+        "память",
+        "windows-xp"
+      ],
+      "owner": {
+        "reputation": 577,
+        "user_id": 6083,
+        "user_type": "registered",
+        "accept_rate": 67,
+        "profile_image": "https://www.gravatar.com/avatar/ed8e1707636b0a6bd548ed8ac0fab925?s=128&d=identicon&r=PG",
+        "display_name": "Realetive__",
+        "link": "https://ru.stackoverflow.com/users/6083/realetive"
+      },
+      "is_answered": true,
+      "view_count": 1217,
+      "accepted_answer_id": 340600,
+      "answer_count": 6,
+      "score": 0,
+      "last_activity_date": 1510230167,
+      "creation_date": 1328716833,
+      "last_edit_date": 1510230167,
+      "question_id": 340590,
+      "link": "https://ru.stackoverflow.com/questions/340590/2x2-gb-ddr3-%d0%b8-windows-xp",
+      "title": "2x2 Gb DDR3 и Windows XP",
+      "body": "<p>Объясните, пожалуйста, чревато ли какими-то отрицательными последствиями использование 2x2 Gb DDR3 в Windows XP или все же лучше (/правильнее?) использовать 2+1 Gb ?</p>\n"
+    },
+    {
+      "tags": [
+        "php",
+        "sql",
+        "pdo"
+      ],
+      "owner": {
+        "reputation": 135,
+        "user_id": 229243,
+        "user_type": "registered",
+        "accept_rate": 79,
+        "profile_image": "https://i.stack.imgur.com/bcYdx.jpg?s=128&g=1",
+        "display_name": "kittycat_13",
+        "link": "https://ru.stackoverflow.com/users/229243/kittycat-13"
+      },
+      "is_answered": false,
+      "view_count": 6,
+      "answer_count": 0,
+      "score": 0,
+      "last_activity_date": 1510230163,
+      "creation_date": 1510230163,
+      "question_id": 742383,
+      "link": "https://ru.stackoverflow.com/questions/742383/%d0%9d%d0%b5-%d0%b2%d1%8b%d0%bf%d0%be%d0%bb%d0%bd%d1%8f%d0%b5%d1%82%d1%81%d1%8f-%d0%bf%d0%be%d0%b4%d0%b3%d0%be%d1%82%d0%be%d0%b2%d0%bb%d0%b5%d0%bd%d0%bd%d1%8b%d0%b9-%d0%b7%d0%b0%d0%bf%d1%80%d0%be%d1%81-pdo-%d0%bf%d1%80%d0%b8-%d0%b4%d0%b2%d1%83%d1%85-%d0%b8%d0%bb%d0%b8-%d0%b1%d0%be%d0%bb%d0%b5%d0%b5-%d0%bf%d0%b0%d1%80%d0%b0%d0%bc%d0%b5%d1%82%d1%80%d0%b0%d1%85-%d0%ba%d0%be%d1%82%d0%be%d1%80%d1%8b%d0%b5",
+      "title": "Не выполняется подготовленный запрос PDO при двух или более параметрах, которые надо биндить",
+      "body": "<p>Здравствуйте. </p>\n\n<p>Есть небольшое приложение, которое находит юзеров, которые подходят к определенным параметрам.\nДля поиска юзеров есть небольшая форма, в которой каждое поле является не обязательным.</p>\n\n<p><a href=\"https://i.stack.imgur.com/Vyohy.png\" rel=\"nofollow noreferrer\"><img src=\"https://i.stack.imgur.com/Vyohy.png\" alt=\"введите сюда описание изображения\"></a></p>\n\n<p>Я обрабатываю данные, полученные из массива $_POST в специальном классе:</p>\n\n<pre><code>class FilterData\n{\n    public static function checkName($name)\n    {\n        if(preg_match('/[^\\w\\d\\s]*/', $name))\n        {\n            return $result = preg_replace('/[^\\w\\d\\s]*/','',$name);\n        } else {\n            return $result = $name;\n        }\n    }\n\n    public static function checkMinAge($min)\n    {\n        if($min &lt; 4)\n        {\n            return false;\n        } else {\n            return $result = $min;\n        }\n    }\n\n    public static function checkMaxAge($max)\n    {\n        if($max &gt; 100)\n        {\n            return false;\n        } else {\n            return $result = $max;\n        }\n    }\n\n    public static function checkDate($date)\n    {\n        if(strtotime($date) &gt; strtotime(date(\"Y-m-d\")))\n        {\n            return false;\n        } else {\n            return $result = strtotime($date);\n        }\n    }\n\n    public static function checkInterests($interests)\n    {\n        return $result = implode(',', $interests);\n    }\n\n    public static function checkCountOfInterests($interests)\n    {\n        return $count = count($interests);\n    }\n\n    public static function checkData($data)\n    {\n        $result['name'] = self::checkName($data['name']);\n        $result['min'] = self::checkMinAge($data['min']);\n        $result['max'] = self::checkMaxAge($data['max']);\n        $result['date'] = self::checkDate($data['date']);\n        $result['interests'] = self::checkInterests($data['interests']);\n        $result['count'] = self::checkCountOfInterests($data['interests']);\n\n        return $result;\n    }\n}\n</code></pre>\n\n<p>Затем, я возвращаю отфильтрованные данные и передаю их в класс, где происходит поиск юзеров.</p>\n\n<pre><code>class Users\n{\n    private static $sql;\n    public static $params;\n\n    public static function filter()\n    {\n        if(strpos(self::$sql, 'WHERE'))\n        {\n            return ' AND ';\n        } else {\n            return ' WHERE ';\n        }\n    }\n\n    public static function getUsers($data = [])\n    {\n       $sql = 'SELECT users.name as name, users.age as age, users.email as email, users.date_of_registration as date, GROUP_CONCAT(interests.name) as interests FROM users '\n                . 'INNER JOIN users_interests ON users.id = users_interests.user_id '\n                . 'INNER JOIN interests ON users_interests.interest_id = interests.id ';\n            self::$sql.= $sql;\n    }\n\n    public static function searchInterests($interests, $count)\n    {\n        if($interests)\n        {\n            $sql = 'interests.id IN('.$interests.') '\n                . 'GROUP BY users.id '\n                . 'HAVING COUNT(users_interests.interest_id) &gt;= :count';\n            self::$params['count'] = $count;\n            $filter = self::filter();\n            $filter .= $sql;\n            self::$sql.= $filter;\n        }\n    }\n\n    public static function searchName($name)\n    {\n        if($name)\n        {\n            $sql = '(users.name LIKE :name)';\n            self::$params['name'] = \"%\".$name.\"%\";\n            $filter = self::filter();\n            $filter .= $sql;\n            self::$sql.= $filter;\n        }\n    }\n\n    public static function searchEmail($email)\n    {\n        if($email)\n        {\n            $sql = '(users.email LIKE :email)';\n            self::$params['email'] = \"%\".$email.\"%\";\n            $filter = self::filter();\n            $filter .= $sql;\n            self::$sql.= $filter;\n        }\n    }\n\n    public static function searchAge($min, $max)\n    {\n        $filter = self::filter();\n\n        if($min &amp;&amp; $max)\n        {\n            $sql = '(users.age BETWEEN :min AND :max) ';\n            self::$params['min'] = $min;\n            self::$params['max'] = $max;\n            $filter .= $sql;\n            self::$sql.= $filter;\n        } elseif($min) {\n            $sql = 'users.age &gt;= :min';\n            self::$params['min'] = $min;\n            $filter .= $sql;\n            self::$sql.= $filter;\n        } elseif($max) {\n            $sql = 'users.age &lt;= :max ';\n            self::$params['max'] = $max;\n            $filter .= $sql;\n            self::$sql.= $filter;\n        }\n    }\n\n    public static function searchDate($date)\n    {\n        if($date)\n        {\n            $sql = 'users.date_of_registration = :date ';\n            self::$params['date'] = $date;\n            $filter = self::filter();\n            $filter .= $sql;\n            self::$sql.= $filter;\n        }\n    }\n\n    public static function addGroup()\n    {\n        if(!strpos(self::$sql, 'GROUP BY '))\n        {\n             self::$sql.= ' GROUP BY users.id ';\n        }\n    }\n\n    public static function userSearch($data = [])\n    {\n        self::getUsers($data);\n        self::searchName($data['name']);\n        //self::searchAge($data['min'],$data['max']);\n        self::searchEmail($data['email']);\n        //self::searchDate($data['date']);\n        //self::searchInterests($data['interests'], $data['count']);\n\n        self::addGroup();\n\n        $db = Db::getConnection();\n        $result = $db-&gt;prepare(self::$sql);\n\n        foreach(self::$params as $parameter =&gt; $value)\n        {\n            $result-&gt;bindParam(':'.$parameter, $value);\n        }\n        $result-&gt;execute();\n        return $result-&gt;fetchAll();\n    }\n\n   }\n</code></pre>\n\n<p>Собственно, проблема в том, что если я делаю поиск только по одному полю, например по имени или мейлу, то запрос проходит прекрасно. Данные отдаются. Но как только я пытаюсь сделать поиск по двум полям, например и по имени и по имейлу, мне не выводится никакой результат. Ошибок тоже никаких нет. Просто ничего не находит. </p>\n\n<p>Данные ввожу правильные. Только те, которые точно есть в БД. Может кто-то сталкивался с такой проблемой? Буду рада любой помощи.</p>\n"
+    },
+    {
+      "tags": [
+        "архитектура",
+        "cpu"
+      ],
+      "owner": {
+        "reputation": 11,
+        "user_id": 17233,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/b768d619fcbe0d19c843f9a02828c888?s=128&d=identicon&r=PG",
+        "display_name": "rastabelka",
+        "link": "https://ru.stackoverflow.com/users/17233/rastabelka"
+      },
+      "is_answered": true,
+      "view_count": 177,
+      "accepted_answer_id": 292738,
+      "answer_count": 1,
+      "score": 0,
+      "last_activity_date": 1510230135,
+      "creation_date": 1391077378,
+      "last_edit_date": 1510230135,
+      "question_id": 292722,
+      "link": "https://ru.stackoverflow.com/questions/292722/%d0%a0%d0%b0%d1%81%d1%87%d0%b5%d1%82-%d0%bc%d0%b0%d0%ba%d1%81%d0%b8%d0%bc%d0%b0%d0%bb%d1%8c%d0%bd%d0%be-%d0%b2%d0%be%d0%b7%d0%bc%d0%be%d0%b6%d0%bd%d0%be%d0%b3%d0%be-%d1%87%d0%b8%d1%81%d0%bb%d0%b0-%d0%ba%d0%be%d0%bc%d0%b0%d0%bd%d0%b4-%d0%bf%d1%80%d0%be%d1%86%d0%b5%d1%81%d1%81%d0%be%d1%80%d0%b0",
+      "title": "Расчет максимально возможного числа команд процессора",
+      "body": "<p>Имеется процессор risc архитектуры с 16 программно доступными регистрами. Все команды, кроме команд с непосредственной адресацией, должны кодироваться с помощью 2х байт. Известно число команд трехадресных - 13, безадресных - 36. Рассчитать </p>\n\n<ol>\n<li>Максимально возможное число двухадресных команд </li>\n<li>Максимально возможное число одноадресных команд </li>\n<li>Количества одноадресных и двухадресных команд, исходя из их приблизительного равенства</li>\n</ol>\n"
+    },
+    {
+      "tags": [
+        "jquery",
+        "yii2"
+      ],
+      "owner": {
+        "reputation": 81,
+        "user_id": 217738,
+        "user_type": "registered",
+        "accept_rate": 64,
+        "profile_image": "https://www.gravatar.com/avatar/74dece5668505519cd2b9c9165cee09c?s=128&d=identicon&r=PG&f=1",
+        "display_name": "Ghost",
+        "link": "https://ru.stackoverflow.com/users/217738/ghost"
+      },
+      "is_answered": false,
+      "view_count": 3,
+      "answer_count": 0,
+      "score": 0,
+      "last_activity_date": 1510230128,
+      "creation_date": 1510230128,
+      "question_id": 742382,
+      "link": "https://ru.stackoverflow.com/questions/742382/%d0%9a%d0%b0%d0%ba-%d0%b4%d0%be%d0%b1%d0%b0%d0%b2%d0%b8%d1%82%d1%8c-%d0%b4%d0%b0%d0%bd%d0%bd%d1%8b%d0%b5-%d0%b2%d0%be-%d0%b2%d1%81%d0%b5-ajax-%d0%b7%d0%b0%d0%bf%d1%80%d0%be%d1%81%d1%8b",
+      "title": "Как добавить данные во все ajax запросы?",
+      "body": "<p>Здравствуйте, как можно добавить данные (cscrf token) ко всем ajax запросам? </p>\n"
+    },
+    {
+      "tags": [
+        "python",
+        "telebot"
+      ],
+      "owner": {
+        "reputation": 1,
+        "user_id": 255432,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/8cca6263d873c7fe29c08049d7e5d682?s=128&d=identicon&r=PG&f=1",
+        "display_name": "Olga",
+        "link": "https://ru.stackoverflow.com/users/255432/olga"
+      },
+      "is_answered": false,
+      "view_count": 8,
+      "answer_count": 0,
+      "score": 0,
+      "last_activity_date": 1510230113,
+      "creation_date": 1510230113,
+      "question_id": 742381,
+      "link": "https://ru.stackoverflow.com/questions/742381/%d0%a1%d0%be%d0%b7%d0%b4%d0%b0%d0%bd%d0%b8%d0%b5-telegram-bot-%d0%bd%d0%b0-python",
+      "title": "Создание telegram bot на python",
+      "body": "<p>Есть функции, посредством которых прошу пользователя ввести определенные данные. \nНо если пользователь зашел в этот блок, а потом передумал заполнять данные и решил перейти в другие разделы бота, бот начинает отправлять ему сообщения из прошлого блока, что он ввел что-то некорректно.</p>\n\n<p>Как выходить из функций при переходе между блоками.</p>\n\n<p>Пример кода:</p>\n\n<pre><code>@bot.message_handler(regexp=\"Payeer\")\ndef payeer(message):\n    state = dbworker.get_current_state(message.chat.id)\n    if state == config.States.S_ENTER_PAYEER.value:\n       bot.send_message(message.chat.id,\n       \"\"\"В прошлый раз вы не законьчили \n       ввод ваших 📘Payeer реквизитов.\"\"\")\n   else: # Под \"остальным\" понимаем состояние \"0\" - начало диалога\n       bot.send_message(message.chat.id,\n       \"\"\"Введите № вашего кошелька \n       📘Payeer: \"\"\")\n   dbworker.set_state(message.chat.id, config.States.S_ENTER_PAYEER.value)\n</code></pre>\n"
+    },
+    {
+      "tags": [
+        "javascript",
+        "jquery",
+        "servlet"
+      ],
+      "owner": {
+        "reputation": 25,
+        "user_id": 261123,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/63e81aa7a85a4914aa5133dd41784a19?s=128&d=identicon&r=PG&f=1",
+        "display_name": "Александр Плющев",
+        "link": "https://ru.stackoverflow.com/users/261123/%d0%90%d0%bb%d0%b5%d0%ba%d1%81%d0%b0%d0%bd%d0%b4%d1%80-%d0%9f%d0%bb%d1%8e%d1%89%d0%b5%d0%b2"
+      },
+      "is_answered": false,
+      "view_count": 8,
+      "answer_count": 0,
+      "score": 0,
+      "last_activity_date": 1510229998,
+      "creation_date": 1510229998,
+      "question_id": 742380,
+      "link": "https://ru.stackoverflow.com/questions/742380/%d0%9e%d1%82%d0%bf%d1%80%d0%b0%d0%b2%d0%b8%d1%82%d1%8c-%d1%81%d0%be%d0%be%d0%b1%d1%89%d0%b5%d0%bd%d0%b8%d0%b8%d0%b5",
+      "title": "Отправить сообщениие",
+      "body": "<p>Имеется следующая функция. Надо чтобы вывелось сообщение на другой странице когда осуществится переход <code>window.location.href = '/logout'</code>.</p>\n\n<pre><code>function startTimer(timeoutCount) {\n    if (#{request.userPrincipal != null}) {\n      if (timeoutCount == 0) {\n        window.location.href = '/logout';\n      }\n      setTimeout(function() {\n        startTimer(timeoutCount - 1);\n      }, '1000');\n    }\n  }\n</code></pre>\n\n<p>При переходе по ссылке осуществляется взаимодействие с сервлетом</p>\n\n<pre><code>public class LogoutServlet extends HttpServlet {\n\n    @Override\n    protected void service(HttpServletRequest request,\n            HttpServletResponse response) throws ServletException, IOException {\n        String logoutMsg = (String) request.getSession().getAttribute(\"inactiveSessionTimeout\");\n        // Destroys the session for this user.\n        request.getSession(false).invalidate();\n        // Redirects back to the initial page.\n        response.sendRedirect(request.getContextPath());\n    }\n}\n</code></pre>\n"
+    },
+    {
+      "tags": [
+        "sql",
+        "oracle"
+      ],
+      "owner": {
+        "reputation": 6,
+        "user_id": 273555,
+        "user_type": "registered",
+        "profile_image": "https://graph.facebook.com/360527587726097/picture?type=large",
+        "display_name": "Антон Шаронов",
+        "link": "https://ru.stackoverflow.com/users/273555/%d0%90%d0%bd%d1%82%d0%be%d0%bd-%d0%a8%d0%b0%d1%80%d0%be%d0%bd%d0%be%d0%b2"
+      },
+      "is_answered": false,
+      "view_count": 21,
+      "answer_count": 1,
+      "score": 1,
+      "last_activity_date": 1510229898,
+      "creation_date": 1510221889,
+      "last_edit_date": 1510226218,
+      "question_id": 742310,
+      "link": "https://ru.stackoverflow.com/questions/742310/%d0%92%d1%8b%d0%b1%d1%80%d0%b0%d1%82%d1%8c-%d0%b4%d1%83%d0%b1%d0%bb%d0%b8%d0%ba%d0%b0%d1%82%d1%8b-%d0%b8%d0%b7-%d1%82%d0%b0%d0%b1%d0%bb%d0%b8%d1%86%d1%8b-%d0%b8-%d0%bf%d0%be%d1%82%d0%be%d0%bc-%d1%83%d0%b4%d0%b0%d0%bb%d0%b8%d1%82%d1%8c-%d0%b8%d1%85-oracle-sql",
+      "title": "Выбрать дубликаты из таблицы и потом удалить их Oracle SQL",
+      "body": "<p>Нужно составить подзапрос для Delete, где выбираются номера клиентов - дубликатов, которые нужно удалить</p>\n\n<p>Таблица и ее поля:\nТаблица CLIENT – данные об абонентах.</p>\n\n<ul>\n<li>N_CLIENT – лицевой счет</li>\n<li>C_FIRST_NAME – имя</li>\n<li>C_SECOND_NAME – отчество</li>\n<li>C_LAST_NAME – фамилия</li>\n<li>N_SEX – идентификатор пола</li>\n<li>N_CITY – идентификатор города или поселка</li>\n<li>N_STREET – идентификатор улицы</li>\n<li>C_HOUSE – номер дома и номер корпуса</li>\n<li>N_FLAT – номер квартиры</li>\n<li>N_PHONE – номер телефона</li>\n</ul>\n\n<p>Сам подзапрос:</p>\n\n<pre><code>select n_client \nfrom client\nwhere (c_first_name, c_second_name, c_last_name) in (select c_first_name,c_second_name, c_last_name, count(*)\n                                                     from client\n                                                     group by c_first_name, c_second_name, c_last_name having count(*)&gt;1)\n</code></pre>\n\n<p>Данный подзапрос выдает ошибку ORA-00979: not a GROUP BY expression Хотя по идее все верно</p>\n"
+    },
+    {
+      "tags": [
+        "javascript"
+      ],
+      "owner": {
+        "reputation": 35,
+        "user_id": 17942,
+        "user_type": "registered",
+        "accept_rate": 27,
+        "profile_image": "https://www.gravatar.com/avatar/c44ee6d8cee9afc64bed647739933f8f?s=128&d=identicon&r=PG",
+        "display_name": "vasyavasya",
+        "link": "https://ru.stackoverflow.com/users/17942/vasyavasya"
+      },
+      "is_answered": true,
+      "view_count": 143,
+      "answer_count": 2,
+      "score": 0,
+      "last_activity_date": 1510229867,
+      "creation_date": 1396096061,
+      "last_edit_date": 1510229867,
+      "question_id": 308461,
+      "link": "https://ru.stackoverflow.com/questions/308461/javascript-%d1%80%d0%b0%d0%b7%d0%b2%d0%be%d1%80%d0%b0%d1%87%d0%b8%d0%b2%d0%b0%d0%bd%d0%b8%d0%b5-div-%d0%bf%d1%80%d0%b8-%d0%ba%d0%bb%d0%b8%d0%ba%d0%b5",
+      "title": "JavaScript разворачивание div при клике",
+      "body": "<p>Нужно сделать блок (div), при клике на который он будет разворачиваться, а при повторном - сворачиваться.</p>\n\n<p>Вот что я делал:</p>\n\n<pre><code>        function Show_Service(g, SH){\n            if(SH){\n                if(g.offsetHeight &lt; g.scrollHeight){\n                    g.style.height = g.offsetHeight + 2 + \"px\";\n                    setTimeout(function (){Show_Service(g, SH);}, 20);\n                }\n            } else {\n                if(g.offsetHeight &gt; 28){\n                    g.style.height = g.offsetHeight - 2 + \"px\";\n                    setTimeout(function (){Show_Service(g, SH);}, 20);\n                }\n            }\n        }\n\n&lt;div onClick=\"Show_Service(this, (this.K = !this.K));\"&gt;\n    ...\n&lt;/div&gt;\n</code></pre>\n\n<p>При первом клике, все успешно разворачивается, а при повторном, происходит бесконечная рекурсия, т.е. условие <code>if(g.offsetHeight &gt; 28){</code> всегда истинно, хотя оно должно изменяться <code>g.style.height = g.offsetHeight - 2 + \"px\";</code></p>\n\n<p>В чем проблема? </p>\n\n<p>JQuery не предлагайте...</p>\n\n<p>С точки зрения кроссбраузерности, что тут можно изменить, добавить?</p>\n"
+    },
+    {
+      "tags": [
+        "javascript",
+        "angular2",
+        "webpack"
+      ],
+      "owner": {
+        "reputation": 41,
+        "user_id": 269926,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/d5bc6a5d46b190a2a7631e46c2f472b1?s=128&d=identicon&r=PG&f=1",
+        "display_name": "Анна",
+        "link": "https://ru.stackoverflow.com/users/269926/%d0%90%d0%bd%d0%bd%d0%b0"
+      },
+      "is_answered": false,
+      "view_count": 28,
+      "answer_count": 0,
+      "score": 0,
+      "last_activity_date": 1510229661,
+      "creation_date": 1510223239,
+      "last_edit_date": 1510229661,
+      "question_id": 742320,
+      "link": "https://ru.stackoverflow.com/questions/742320/%d0%9e%d1%88%d0%b8%d0%b1%d0%ba%d0%b8-%d0%bf%d0%be%d1%81%d0%bb%d0%b5-%d0%bf%d0%b5%d1%80%d0%b5%d0%bd%d0%be%d1%81%d0%b0-%d0%bf%d0%b0%d0%bf%d0%ba%d0%b8-%d0%bf%d1%80%d0%be%d0%b5%d0%ba%d1%82%d0%b0",
+      "title": "Ошибки после переноса папки проекта",
+      "body": "<p>Здравствуйте перенесла проект из одной папки в другую, но появляется ошибка. Что делать?</p>\n\n<pre><code>ERROR in Error: \nCould not resolve \"D:/Курси Angular4/lesson1/homeWork1/anna-medvid/homework\" from \"D:/Курси Angular4/lesson1/homeWork1/anna-medvid/homework\".\n\nat _resolveModule (D:\\Курси Angular4\\lesson1\\homeWork1\\anna-medvid\\homework#2\\node_modules\\@angular\\compiler-cli\\src\\ngtools_impl.js:79:15)\n\nat Object.listLazyRoutesOfModule (D:\\Курси Angular4\\lesson1\\homeWork1\\anna-medvid\\homework#2\\node_modules\\@angular\\compiler-cli\\src\\ngtools_impl.js:47:26)\n\nat Function.NgTools_InternalApi_NG_2.listLazyRoutes (D:\\Курси Angular4\\lesson1\\homeWork1\\anna-medvid\\homework#2\\node_modules\\@angular\\compiler-cli\\src\\ngtools_api.js:91:39)\n\nat AotPlugin._getLazyRoutesFromNgtools (D:\\Курси Angular4\\lesson1\\homeWork1\\anna-medvid\\homework#2\\node_modules\\@ngtools\\webpack\\src\\plugin.js:212:44)\n\nat _donePromise.Promise.resolve.then.then.then.then.then (D:\\Курси Angular4\\lesson1\\homeWork1\\anna-medvid\\homework#2\\node_modules\\@ngtools\\webpack\\src\\plugin.js:448:24)\n</code></pre>\n"
+    },
+    {
+      "tags": [
+        "c++-cli"
+      ],
+      "owner": {
+        "reputation": 39,
+        "user_id": 258703,
+        "user_type": "registered",
+        "accept_rate": 17,
+        "profile_image": "https://www.gravatar.com/avatar/072ea504f07cfa3cfe58f71acd4f31db?s=128&d=identicon&r=PG&f=1",
+        "display_name": "Pablo Murena",
+        "link": "https://ru.stackoverflow.com/users/258703/pablo-murena"
+      },
+      "is_answered": false,
+      "view_count": 21,
+      "answer_count": 0,
+      "score": 1,
+      "last_activity_date": 1510229624,
+      "creation_date": 1510220678,
+      "last_edit_date": 1510229624,
+      "question_id": 742302,
+      "link": "https://ru.stackoverflow.com/questions/742302/%d0%9e%d1%82%d1%81%d0%bb%d0%b5%d0%b4%d0%b8%d1%82%d1%8c-%d0%b1%d0%b5%d0%b7-%d0%be%d1%82%d0%b2%d0%b5%d1%82%d0%bd%d1%8b%d0%b9-writefile",
+      "title": "Отследить без ответный WriteFile",
+      "body": "<p>Проблем такова что при определенных условиях файл а именно устройство  перестает отвечать (а команды устройству  все идут и идут) он накапливает в буфере  значения и только при устранении этих \"определенных условий\" начинает отвечать. Есть может какая то структура или еще что то что бы знать что устройство (файл) отправил но ничего не принял, дабы выполнить очистку буфера устройства и приостановить выполнение программы. Забыл сказать что есть команды которые конфигурируют устройство и ничего не возвращают в замен.</p>\n\n<pre><code> void SendComand(byte byt[]) {\n    connectedStatus = CreatePrinter(n);\n        if (connectedStatus) {\n            try\n            {\n                OVERLAPPED OverlapWrite;\n                OverlapWrite.OffsetHigh = 1;\n                OverlapWrite.Offset = 1;\n                OverlapWrite.hEvent = CreateEvent(NULL, false, false, NULL);\n\n                OVERLAPPED OverlapRead;\n                OverlapRead.OffsetHigh = 1;\n                OverlapRead.Offset = 1;\n                OverlapRead.hEvent = CreateEvent(NULL, false, false, NULL);\n\n                memset(sim, 0, sizeof(sim));\n\n                int sizebyt = sizeof(byt) - 1;\n                bool sucsses = WriteFile(ConDevice, (LPCVOID)byt, sizebyt, &amp;ReturnedLength, &amp;OverlapWrite);\n\n                sucsses = ReadFile(ConDevice, &amp;sim, sizeof(sim), &amp;ReturnedLength, &amp;OverlapRead);\n\n                CloseHandle(ConDevice);\n                Sleep(20);\n\n                for (int i = OverlapRead.InternalHigh; i &lt; 300; i++) {\n                    sim[i] = 0;\n                }\n\n            }\n            catch (const std::exception&amp;)\n            {\n\n            }\n        }\n}\n</code></pre>\n"
+    },
+    {
+      "tags": [
+        "prolog"
+      ],
+      "owner": {
+        "reputation": 1,
+        "user_id": 272382,
+        "user_type": "registered",
+        "profile_image": "https://www.gravatar.com/avatar/51181956a8ee2fe6c4916388de41cee1?s=128&d=identicon&r=PG&f=1",
+        "display_name": "vova",
+        "link": "https://ru.stackoverflow.com/users/272382/vova"
+      },
+      "is_answered": false,
+      "view_count": 4,
+      "answer_count": 0,
+      "score": 0,
+      "last_activity_date": 1510229528,
+      "creation_date": 1510229276,
+      "last_edit_date": 1510229528,
+      "question_id": 742374,
+      "link": "https://ru.stackoverflow.com/questions/742374/%d1%81%d0%be%d1%80%d1%82%d0%b8%d1%80%d0%be%d0%b2%d0%b0%d1%82%d1%8c-%d0%bf%d0%be-%d0%bc%d0%be%d0%b4%d1%83%d0%bb%d1%8e-prolog",
+      "title": "сортировать по модулю. Prolog",
+      "body": "<pre><code>member( X, [X | _]).\nmember( X, [_ | Tail]):-member( X, Tail).\n\n% create list with integer elements and sort it ascending order\n  run:-\n     write('Input list. '), nl,\n     write('For exit type 1'), nl,\n     write_database,\n     findall(X, dlist(X), List),\n     insertsort(List,List_sort),\n     show(List_sort).\n   write_database:-\n     repeat,\n     write('Input some number: '), nl,\n     read(Number),\n     abs(Number),\n     check(Number),!.\n\n  check(1) :-  nl,nl.\n  check(Num) :- assertz(dlist(Num)),\n     fail.\n  show(List) :-\n     write('Sorted list: '), nl,\n     member(X, List),\n     write(X), nl,\n     fail.\n  show(_) :- read(_).\n\n\n  insertsort([],[]).\n  insertsort([X|T], Sorted_L) :- insertsort(T, Sorted_T), insert(X, Sorted_T, Sorted_L).\n\n  insert(X, [Y|Sorted_L], [Y|Sorted_L1]):- ascorder(X,Y), !, insert(X, Sorted_L, Sorted_L1).\n  insert(X, Sorted_L, [X|Sorted_L]).\n  ascorder(X,Y) :- X @&gt; Y.\n</code></pre>\n\n<p>этот код сортирует, но не по модулю.</p>\n"
+    }
+  ],
+  "has_more": true,
+  "quota_max": 300,
+  "quota_remaining": 288
+}

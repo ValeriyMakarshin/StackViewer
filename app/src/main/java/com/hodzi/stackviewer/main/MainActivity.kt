@@ -101,9 +101,9 @@ class MainActivity : BaseActivity<MainView, MainPresenter>(),
                     UsersFragment()
                 }
                 else               -> {
-                    lastScreen = R.id.nav_tags
-                    uiToolbar.setTitle(R.string.nav_tags)
-                    TagsFragment()
+                    lastScreen = R.id.nav_questions
+                    uiToolbar.setTitle(R.string.nav_questions)
+                    QuestionsFragment()
                 }
             }
 

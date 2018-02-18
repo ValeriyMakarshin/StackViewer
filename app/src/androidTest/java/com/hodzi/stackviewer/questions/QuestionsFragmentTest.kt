@@ -17,6 +17,8 @@ import com.hodzi.stackviewer.R
 import com.hodzi.stackviewer.adapters.holders.QuestionsHolder
 import com.hodzi.stackviewer.main.MainActivity
 import com.hodzi.stackviewer.questions.detail.QuestionDetailActivity
+import io.appflate.restmock.RESTMockServer
+import io.appflate.restmock.utils.RequestMatchers.pathContains
 import org.hamcrest.CoreMatchers.allOf
 import org.hamcrest.CoreMatchers.not
 import org.junit.After
@@ -34,6 +36,10 @@ internal class QuestionsFragmentTest {
     @Before
     fun setUp() {
         Intents.init()
+
+        RESTMockServer.reset()
+        RESTMockServer.whenGET(pathContains("/questions\$"))
+            .thenReturnFile(200, "questions.json")
     }
 
     @Test
