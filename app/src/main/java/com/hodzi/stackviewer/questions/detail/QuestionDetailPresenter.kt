@@ -19,12 +19,13 @@ class QuestionDetailPresenter(private val questionsInteractor: QuestionsInteract
     lateinit var question: Question
 
     override fun parseArguments(extras: Bundle) {
+        super.parseArguments(extras)
         question = bundle?.getSerializable(EXTRA_QUESTION) as Question
     }
 
-    override fun attach(v: QuestionDetailView, bundle: Bundle?) {
-        super.attach(v, bundle)
-        view?.showQuestion(question)
+    override fun attach(view: QuestionDetailView, bundle: Bundle?) {
+        super.attach(view, bundle)
+        this.view?.showQuestion(question)
     }
 
     override fun loadData() {

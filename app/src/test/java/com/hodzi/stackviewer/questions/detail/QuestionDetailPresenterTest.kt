@@ -9,6 +9,7 @@ import com.hodzi.stackviewer.questions.QuestionsInteractor
 import com.hodzi.stackviewer.utils.Generator
 import com.hodzi.stackviewer.utils.Shared
 import com.hodzi.stackviewer.utils.Vote
+import com.nhaarman.mockito_kotlin.verify
 import io.reactivex.Observable
 import org.junit.Before
 import org.junit.Rule
@@ -25,7 +26,7 @@ internal class QuestionDetailPresenterTest {
     lateinit var presenterAuth: QuestionDetailPresenter
     lateinit var view: QuestionDetailView
 
-    lateinit var bundle: Bundle
+    lateinit var mockBundle: Bundle
     lateinit var questionsInteractor: QuestionsInteractor
     lateinit var question: Question
     lateinit var answers: Array<Answer>
@@ -35,8 +36,8 @@ internal class QuestionDetailPresenterTest {
     @Before
     fun setUp() {
         question = Generator.create(Question::class.java)
-        bundle = Mockito.mock(Bundle::class.java)
-        Mockito.`when`(bundle.getSerializable(QuestionDetailActivity.EXTRA_QUESTION))
+        mockBundle = Mockito.mock(Bundle::class.java)
+        Mockito.`when`(mockBundle.getSerializable(QuestionDetailActivity.EXTRA_QUESTION))
             .thenReturn(question)
 
         questionsInteractor = Mockito.mock(QuestionsInteractor::class.java)
@@ -73,41 +74,36 @@ internal class QuestionDetailPresenterTest {
 
     @Test
     fun testAttach() {
-        presenterEmpty.attach(view, bundle)
-        Mockito.verify(questionsInteractor).getQuestionAnswers(question.questionId)
-        Mockito.verify(view).showQuestion(question)
-        Mockito.verify(view).showArray(answers)
+        presenterEmpty.attach(view, mockBundle)
+
+        verify(questionsInteractor).getQuestionAnswers(question.questionId)
+        verify(view).showQuestion(question)
+        verify(view).showArray(answers)
     }
 
     @Test
     fun testVoteEmpty() {
         presenterEmpty.vote(1, Vote.QUESTION_DOWN)
-        Mockito.verify(view).goToAuth()
+
+        verify(view).goToAuth()
     }
 
     @Test
     fun testVoteAuth() {
         presenterAuth.vote(1, Vote.QUESTION_DOWN)
-        Mockito.verify(view).voiceAccepted()
+
+        verify(view).voiceAccepted()
     }
 
     @Test
     fun testLoadData() {
-        presenterEmpty.question = Generator.create(Question::class.java)
+        val question: Question = Generator.create(Question::class.java)
+        presenterEmpty.question = question
+
         presenterEmpty.loadData()
-        Mockito.verify(view).showRefresh()
-        Mockito.verify(view).hideRefresh()
-        Mockito.verify(view).showArray(answers)
-    }
 
-
-    @Test
-    fun testBaseObservableListDefaultError() {
-        presenterEmpty.baseObservableListDefaultError(Observable.create {
-            it.onError(Throwable("Test throwable"))
-        })
-        Mockito.verify(view).showRefresh()
-        Mockito.verify(view).hideRefresh()
-        Mockito.verify(view).showRefreshButton()
+        verify(view).showRefresh()
+        verify(view).hideRefresh()
+        verify(view).showArray(answers)
     }
 }

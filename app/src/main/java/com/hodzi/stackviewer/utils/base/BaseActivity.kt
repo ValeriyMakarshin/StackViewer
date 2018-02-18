@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import com.hodzi.stackviewer.model.Data
 import com.hodzi.stackviewer.utils.KeyboardUtil
 import com.hodzi.stackviewer.utils.ui.ActivityInfo
 import com.hodzi.stackviewer.utils.ui.ActivityListInfo
@@ -106,4 +107,23 @@ abstract class BaseActivity<V : BaseView, P : BasePresenter<V>> : AppCompatActiv
     override fun hideKeyboard() {
         KeyboardUtil.hide(this)
     }
+
+    override fun showError(throwable: Throwable) {
+
+    }
+
+    override fun <D : Data> showArray(array: Array<D>) {
+        activityListInfo?.recyclerView?.apply {
+            if (adapter != null && adapter is BaseRAdapter<*, *>) {
+                (adapter as BaseRAdapter<*, *>).updateList(array)
+            } else {
+                adapter = getAdapter(array)
+            }
+        }
+    }
+
+    open fun getAdapter(array: Array<*>): BaseRAdapter<*, out BaseHolder<*>>? {
+        return null
+    }
+
 }

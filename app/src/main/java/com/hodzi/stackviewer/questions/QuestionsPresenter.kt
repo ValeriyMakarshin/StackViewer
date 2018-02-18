@@ -6,8 +6,6 @@ class QuestionsPresenter(val questionsInteractor: QuestionsInteractor)
     : BasePresenter<QuestionsView>() {
 
     override fun loadData() {
-        baseObservableListDefaultError(questionsInteractor.getAllQuestions(), { block ->
-            view?.showArray(block.items.toTypedArray())
-        })
+        baseObservableListDefaultError(questionsInteractor.getAllQuestions())
     }
 }

@@ -18,7 +18,6 @@ import com.hodzi.stackviewer.adapters.holders.QuestionsHolder
 import com.hodzi.stackviewer.utils.IdlingResourceUtils
 import org.hamcrest.CoreMatchers.allOf
 import org.hamcrest.CoreMatchers.not
-import org.junit.BeforeClass
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -26,15 +25,15 @@ import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
 internal class MainActivityTest {
-    companion object {
-//        private lateinit var idlingResource : IdlingResource
-
-        @BeforeClass
-        @JvmStatic
-        fun set() {
-//            idlingResource = IdlingResourceUtils.timeout(Const.UI_TEST_TIMEOUT)
-        }
-    }
+//    companion object {
+////        private lateinit var idlingResource : IdlingResource
+//
+//        @BeforeClass
+//        @JvmStatic
+//        fun set() {
+////            idlingResource = IdlingResourceUtils.timeout(Const.UI_TEST_TIMEOUT)
+//        }
+//    }
 
     @Rule
     @JvmField

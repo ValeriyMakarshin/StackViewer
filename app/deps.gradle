@@ -11,7 +11,8 @@ ext {
             dagger    : '2.11',
             stetho    : '1.5.0',
             test      : '1.0.1',
-            mockito   : '2.11.0'
+            mockito   : '2.11.0',
+            mockitoK  : '1.5.0'
     ]
     supportDeps = [
 
@@ -57,11 +58,12 @@ ext {
     tests = [
             testRunner: "com.android.support.test:runner:$versions.test",
             rules     : "com.android.support.test:rules:$versions.test",
-            mockito   : "org.mockito:mockito-core:$versions.mockito",
+//            mockito   : "org.mockito:mockito-core:$versions.mockito",
     ]
     kotlinTest = [
-            test     : "org.jetbrains.kotlin:kotlin-test:$versions.kotlin",
-            testJUnit: "org.jetbrains.kotlin:kotlin-test-junit:$versions.kotlin"
+            test         : "org.jetbrains.kotlin:kotlin-test:$versions.kotlin",
+            testJUnit    : "org.jetbrains.kotlin:kotlin-test-junit:$versions.kotlin",
+            mockitoKotlin: "com.nhaarman:mockito-kotlin:$versions.mockitoK"
     ]
     androidTests = [
             espressoCore   : "com.android.support.test.espresso:espresso-core:$versions.espresso",

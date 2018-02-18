@@ -9,92 +9,89 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
+
 abstract class BasePresenter<V : BaseView> {
     var view: V? = null
     protected var bundle: Bundle? = null
 
-    private var disposableList: Disposable? = null
-    private var disposableData: Disposable? = null
+    var disposableList: Disposable? = null
+    var disposableData: Disposable? = null
 
     @CallSuper
-    open fun attach(v: V, bundle: Bundle? = null) {
-        this.view = v
-        this.bundle = bundle
+    open fun attach(view: V, bundle: Bundle? = null) {
+        this.view = view
         if (bundle != null) {
             parseArguments(bundle)
         }
         loadData()
     }
 
+    @CallSuper
+    open fun parseArguments(extras: Bundle) {
+        this.bundle = extras
+    }
+
     open fun loadData() {
 
     }
 
-    fun <T : Data> baseObservableListDefaultError(observable: Observable<Block<T>>,
-                                                  function: (Block<T>) -> Unit = {}) {
+    inline fun <reified T : Data>
+        baseObservableListDefaultError(observable: Observable<Block<T>>,
+                                       crossinline function: (Block<T>) -> Unit = {
+                                           view?.showArray(
+                                               it.items.toTypedArray())
+                                       }) {
         if (disposableList != null) return
         disposableList = observable
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .doOnSubscribe({
+            .doOnSubscribe {
                 view?.showRefresh()
-            })
-            .doOnTerminate({
-                unsubscribeSubscription()
-            })
-            .doOnError { throwable ->
-                view?.hideRefresh()
-                view?.showRefreshButton()
             }
-//            .onErrorReturn({
-//            })
-            .subscribe({ block ->
+            .doOnTerminate {
+                unsubscribeSubscription()
                 view?.hideRefresh()
-                if (block?.items != null) {
-                    view?.hideProgress()
-                    function(block)
-                }
-            })
+            }
+            .subscribe(
+                { block ->
+                    block?.items?.run { function(block) }
+                },
+                {
+                    view?.showRefreshButton()
+                    view?.showError(it)
+                })
     }
 
     fun <T : Data> baseObservableData(observable: Observable<T>,
                                       functionSuccess: (T) -> Unit = {},
-                                      functionError: (Throwable) -> Unit = {}) {
+                                      functionError: (Throwable) -> Unit = {
+                                          view?.showError(it)
+                                      }) {
         if (disposableData != null) return
         disposableData = observable
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .doOnSubscribe({
+            .doOnSubscribe {
                 view?.showProgress()
-            })
-            .doOnTerminate({
+            }
+            .doOnTerminate {
                 unsubscribeSubscription()
                 view?.hideProgress()
-            })
-            .onErrorReturn({ throwable ->
-                view?.hideProgress()
-                functionError(throwable)
-                disposableData = null
-                null
-            })
-            .subscribe({ data ->
-                if (data != null) {
-                    view?.hideProgress()
-                    functionSuccess(data)
-                }
-                disposableData = null
-            })
-    }
-
-
-    protected open fun parseArguments(extras: Bundle) {
+            }
+            .subscribe(
+                {
+                    it?.let { functionSuccess(it) }
+                },
+                {
+                    functionError(it)
+                })
     }
 
     fun detach() {
         unsubscribeSubscription()
     }
 
-    private fun unsubscribeSubscription() {
+    open fun unsubscribeSubscription() {
         if (disposableList?.isDisposed == false) {
             disposableList?.dispose()
             disposableList = null

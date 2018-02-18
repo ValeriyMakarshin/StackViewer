@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.hodzi.stackviewer.model.Data
 import com.hodzi.stackviewer.utils.KeyboardUtil
 import com.hodzi.stackviewer.utils.ui.ActivityInfo
 import com.hodzi.stackviewer.utils.ui.ActivityListInfo
@@ -103,5 +104,23 @@ abstract class BaseFragment<V : BaseView, P : BasePresenter<V>> : Fragment(), Ba
 
     override fun finish() {
         activity.onBackPressed()
+    }
+
+    override fun showError(throwable: Throwable) {
+
+    }
+
+    override fun <D : Data> showArray(array: Array<D>) {
+        activityListInfo?.recyclerView?.apply {
+            if (adapter != null && adapter is BaseRAdapter<*, *>) {
+                (adapter as BaseRAdapter<*, *>).updateList(array)
+            } else {
+                adapter = getAdapter(array)
+            }
+        }
+    }
+
+    open fun getAdapter(array: Array<*>): BaseRAdapter<*, out BaseHolder<*>>? {
+        return null
     }
 }
