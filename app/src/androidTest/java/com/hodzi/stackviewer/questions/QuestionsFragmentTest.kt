@@ -38,7 +38,8 @@ internal class QuestionsFragmentTest {
         Intents.init()
 
         RESTMockServer.reset()
-        RESTMockServer.whenGET(pathContains("/questions\$"))
+
+        RESTMockServer.whenGET(pathContains("/questions"))
             .thenReturnFile(200, "questions.json")
     }
 
