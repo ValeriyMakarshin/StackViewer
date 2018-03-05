@@ -15,7 +15,7 @@ import com.hodzi.stackviewer.login.LoginActivity
 import com.hodzi.stackviewer.questions.QuestionsFragment
 import com.hodzi.stackviewer.tags.TagsFragment
 import com.hodzi.stackviewer.users.UsersFragment
-import com.hodzi.stackviewer.utils.base.BaseActivity
+import com.hodzi.stackviewer.core.BaseActivity
 import com.hodzi.stackviewer.utils.ui.ActivityInfo
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.view_toolbar.*

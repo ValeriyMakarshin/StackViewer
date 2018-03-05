@@ -1,5 +1,5 @@
 package com.hodzi.stackviewer.tags
 
-import com.hodzi.stackviewer.utils.base.BaseView
+import com.hodzi.stackviewer.core.BaseView
 
 interface TagsView : BaseView

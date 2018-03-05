@@ -1,4 +1,4 @@
-package com.hodzi.stackviewer.utils.base
+package com.hodzi.stackviewer.core
 
 import android.os.Bundle
 import android.support.annotation.CallSuper

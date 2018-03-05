@@ -1,6 +1,6 @@
 package com.hodzi.stackviewer.questions
 
-import com.hodzi.stackviewer.utils.base.BasePresenter
+import com.hodzi.stackviewer.core.BasePresenter
 
 class QuestionsPresenter(val questionsInteractor: QuestionsInteractor)
     : BasePresenter<QuestionsView>() {

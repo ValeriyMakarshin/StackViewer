@@ -8,9 +8,9 @@ import com.hodzi.stackviewer.R
 import com.hodzi.stackviewer.adapters.TagsRAdapter
 import com.hodzi.stackviewer.di.Injector
 import com.hodzi.stackviewer.model.Tag
-import com.hodzi.stackviewer.utils.base.BaseFragment
-import com.hodzi.stackviewer.utils.base.BaseHolder
-import com.hodzi.stackviewer.utils.base.BaseRAdapter
+import com.hodzi.stackviewer.core.BaseFragment
+import com.hodzi.stackviewer.core.BaseHolder
+import com.hodzi.stackviewer.core.BaseRAdapter
 import com.hodzi.stackviewer.utils.ui.ActivityInfo
 import com.hodzi.stackviewer.utils.ui.ActivityListInfo
 import kotlinx.android.synthetic.main.fragment_tags.*

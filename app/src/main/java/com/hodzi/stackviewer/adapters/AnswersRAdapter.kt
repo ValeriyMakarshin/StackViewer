@@ -3,7 +3,7 @@ package com.hodzi.stackviewer.adapters
 import com.hodzi.stackviewer.adapters.holders.AnswersHolder
 import com.hodzi.stackviewer.model.Answer
 import com.hodzi.stackviewer.questions.detail.AnswerClickListener
-import com.hodzi.stackviewer.utils.base.BaseRAdapter
+import com.hodzi.stackviewer.core.BaseRAdapter
 
 
 class AnswersRAdapter(array: Array<Answer>, answerClickListener: AnswerClickListener) :

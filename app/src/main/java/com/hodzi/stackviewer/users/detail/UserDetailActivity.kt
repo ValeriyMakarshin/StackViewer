@@ -6,7 +6,7 @@ import android.os.Bundle
 import com.hodzi.stackviewer.R
 import com.hodzi.stackviewer.di.Injector
 import com.hodzi.stackviewer.model.User
-import com.hodzi.stackviewer.utils.base.BaseActivity
+import com.hodzi.stackviewer.core.BaseActivity
 import com.hodzi.stackviewer.utils.ui.ActivityInfo
 
 

@@ -1,4 +1,4 @@
-package com.hodzi.stackviewer.utils.base
+package com.hodzi.stackviewer.core
 
 import com.hodzi.stackviewer.model.Data
 

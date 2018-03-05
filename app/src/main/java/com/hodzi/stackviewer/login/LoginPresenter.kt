@@ -4,7 +4,7 @@ import com.hodzi.stackviewer.R
 import com.hodzi.stackviewer.users.UsersInteractor
 import com.hodzi.stackviewer.utils.Shared
 import com.hodzi.stackviewer.utils.Strings
-import com.hodzi.stackviewer.utils.base.BasePresenter
+import com.hodzi.stackviewer.core.BasePresenter
 
 class LoginPresenter(val usersInteractor: UsersInteractor, val shared: Shared) :
     BasePresenter<LoginView>() {

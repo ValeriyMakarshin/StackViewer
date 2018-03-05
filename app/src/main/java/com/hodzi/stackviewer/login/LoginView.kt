@@ -1,5 +1,5 @@
 package com.hodzi.stackviewer.login
 
-import com.hodzi.stackviewer.utils.base.BaseView
+import com.hodzi.stackviewer.core.BaseView
 
 interface LoginView : BaseView

@@ -9,7 +9,7 @@ import com.hodzi.stackviewer.questions.detail.QuestionDetailActivity.Companion.E
 import com.hodzi.stackviewer.utils.Shared
 import com.hodzi.stackviewer.utils.Strings
 import com.hodzi.stackviewer.utils.Vote
-import com.hodzi.stackviewer.utils.base.BasePresenter
+import com.hodzi.stackviewer.core.BasePresenter
 import io.reactivex.Observable
 
 class QuestionDetailPresenter(private val questionsInteractor: QuestionsInteractor,

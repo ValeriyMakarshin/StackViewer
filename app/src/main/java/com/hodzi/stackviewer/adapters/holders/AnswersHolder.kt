@@ -9,7 +9,7 @@ import com.hodzi.stackviewer.model.Answer
 import com.hodzi.stackviewer.questions.detail.AnswerClickListener
 import com.hodzi.stackviewer.utils.OnClickListener
 import com.hodzi.stackviewer.utils.Vote
-import com.hodzi.stackviewer.utils.base.BaseHolder
+import com.hodzi.stackviewer.core.BaseHolder
 import kotlinx.android.synthetic.main.item_answer_preview.view.*
 import kotlinx.android.synthetic.main.view_web_content.view.*
 

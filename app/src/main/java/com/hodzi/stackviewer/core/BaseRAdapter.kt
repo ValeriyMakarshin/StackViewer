@@ -1,12 +1,12 @@
-package com.hodzi.stackviewer.utils.base
+package com.hodzi.stackviewer.core
 
 import android.support.v7.widget.RecyclerView
 import android.view.ViewGroup
 import com.hodzi.stackviewer.utils.OnClickListener
 
 abstract class BaseRAdapter<T : Any, VH : BaseHolder<T>>(array: Array<T>,
-                                                         val creator: (ViewGroup?) -> VH,
-                                                         val onClickListener: OnClickListener<T>? =
+                                                                                    val creator: (ViewGroup?) -> VH,
+                                                                                    val onClickListener: OnClickListener<T>? =
                                                          null) :
     RecyclerView.Adapter<VH>() {
     var items: Array<T> = array

@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import com.bumptech.glide.Glide
 import com.hodzi.stackviewer.R
 import com.hodzi.stackviewer.model.User
-import com.hodzi.stackviewer.utils.base.BaseHolder
+import com.hodzi.stackviewer.core.BaseHolder
 import kotlinx.android.synthetic.main.item_user_preview.view.*
 
 class UsersHolder(itemView: View) : BaseHolder<User>(itemView) {

@@ -2,7 +2,7 @@ package com.hodzi.stackviewer.adapters
 
 import com.hodzi.stackviewer.adapters.holders.UsersHolder
 import com.hodzi.stackviewer.model.User
-import com.hodzi.stackviewer.utils.base.BaseRAdapter
+import com.hodzi.stackviewer.core.BaseRAdapter
 
 class UsersRAdapter(array: Array<User>) :
     BaseRAdapter<User, UsersHolder>(array, UsersHolder.creator())

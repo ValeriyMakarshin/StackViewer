@@ -1,4 +1,4 @@
-package com.hodzi.stackviewer.utils.base
+package com.hodzi.stackviewer.core
 
 import android.support.v7.widget.RecyclerView
 import android.view.View
