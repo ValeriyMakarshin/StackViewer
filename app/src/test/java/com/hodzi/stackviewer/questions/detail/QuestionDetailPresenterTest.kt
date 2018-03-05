@@ -5,6 +5,7 @@ import com.hodzi.stackviewer.RxHook
 import com.hodzi.stackviewer.model.Answer
 import com.hodzi.stackviewer.model.Block
 import com.hodzi.stackviewer.model.Question
+import com.hodzi.stackviewer.questions.QuestionContract
 import com.hodzi.stackviewer.questions.QuestionsInteractor
 import com.hodzi.stackviewer.utils.Generator
 import com.hodzi.stackviewer.utils.Shared
@@ -24,7 +25,7 @@ internal class QuestionDetailPresenterTest {
 
     lateinit var presenterEmpty: QuestionDetailPresenter
     lateinit var presenterAuth: QuestionDetailPresenter
-    lateinit var view: QuestionDetailView
+    lateinit var view: QuestionContract.View
 
     lateinit var mockBundle: Bundle
     lateinit var questionsInteractor: QuestionsInteractor

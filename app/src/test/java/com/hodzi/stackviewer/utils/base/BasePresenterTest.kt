@@ -2,6 +2,7 @@ package com.hodzi.stackviewer.utils.base
 
 import android.os.Bundle
 import com.hodzi.stackviewer.RxHook
+import com.hodzi.stackviewer.core.BaseContract
 import com.hodzi.stackviewer.core.BasePresenter
 import com.hodzi.stackviewer.model.Block
 import com.hodzi.stackviewer.model.Data
@@ -25,8 +26,8 @@ class BasePresenterTest {
     @Rule @JvmField
     val schedulers = RxHook()
 
-    @Spy private lateinit var spyBasePresenter: BasePresenter<BaseView>
-    @Mock private lateinit var mockBaseView: BaseView
+    @Spy private lateinit var spyBasePresenter: BasePresenter<BaseContract.View>
+    @Mock private lateinit var mockBaseView: BaseContract.View
 
     @Test fun attachTest() {
         spyBasePresenter.attach(mockBaseView)

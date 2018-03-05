@@ -6,22 +6,23 @@ import android.os.Bundle
 import android.widget.Toast
 import com.hodzi.stackviewer.R
 import com.hodzi.stackviewer.adapters.AnswersRAdapter
+import com.hodzi.stackviewer.core.BaseActivity
+import com.hodzi.stackviewer.core.BaseHolder
+import com.hodzi.stackviewer.core.BaseRAdapter
 import com.hodzi.stackviewer.di.Injector
 import com.hodzi.stackviewer.model.Answer
 import com.hodzi.stackviewer.model.Question
 import com.hodzi.stackviewer.utils.Navigator
 import com.hodzi.stackviewer.utils.Vote
-import com.hodzi.stackviewer.core.BaseActivity
-import com.hodzi.stackviewer.core.BaseHolder
-import com.hodzi.stackviewer.core.BaseRAdapter
 import com.hodzi.stackviewer.utils.ui.ActivityInfo
 import com.hodzi.stackviewer.utils.ui.ActivityListInfo
 import kotlinx.android.synthetic.main.activity_question_detail.*
 import kotlinx.android.synthetic.main.view_progress_bar.*
 import kotlinx.android.synthetic.main.view_toolbar.*
 
-class QuestionDetailActivity : BaseActivity<QuestionDetailView, QuestionDetailPresenter>(),
-    QuestionDetailView, AnswerClickListener {
+class QuestionDetailActivity :
+    BaseActivity<QuestionDetailContract.View, QuestionDetailContract.Presenter>(),
+    QuestionDetailContract.View, AnswerClickListener {
     override fun onClick(item: Answer) {
     }
 

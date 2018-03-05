@@ -6,21 +6,21 @@ import android.view.View
 import android.view.ViewGroup
 import com.hodzi.stackviewer.R
 import com.hodzi.stackviewer.adapters.QuestionsRAdapter
+import com.hodzi.stackviewer.core.BaseFragment
+import com.hodzi.stackviewer.core.BaseHolder
+import com.hodzi.stackviewer.core.BaseRAdapter
 import com.hodzi.stackviewer.di.Injector
 import com.hodzi.stackviewer.model.Question
 import com.hodzi.stackviewer.utils.Navigator
 import com.hodzi.stackviewer.utils.OnClickListener
-import com.hodzi.stackviewer.core.BaseFragment
-import com.hodzi.stackviewer.core.BaseHolder
-import com.hodzi.stackviewer.core.BaseRAdapter
 import com.hodzi.stackviewer.utils.ui.ActivityInfo
 import com.hodzi.stackviewer.utils.ui.ActivityListInfo
 import kotlinx.android.synthetic.main.fragment_questions.*
 import kotlinx.android.synthetic.main.view_progress_bar.*
 import kotlinx.android.synthetic.main.view_refresh_button.*
 
-class QuestionsFragment : BaseFragment<QuestionsView, QuestionsPresenter>(), QuestionsView,
-    OnClickListener<Question>{
+class QuestionsFragment : BaseFragment<QuestionContract.View, QuestionsPresenter>(),
+    QuestionContract.View, OnClickListener<Question> {
     override fun onClick(item: Question) {
         Navigator.questionDetail(context, item)
     }

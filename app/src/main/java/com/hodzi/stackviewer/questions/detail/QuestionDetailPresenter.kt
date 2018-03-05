@@ -2,6 +2,7 @@ package com.hodzi.stackviewer.questions.detail
 
 import android.os.Bundle
 import com.hodzi.stackviewer.R
+import com.hodzi.stackviewer.core.BasePresenter
 import com.hodzi.stackviewer.model.Data
 import com.hodzi.stackviewer.model.Question
 import com.hodzi.stackviewer.questions.QuestionsInteractor
@@ -9,12 +10,11 @@ import com.hodzi.stackviewer.questions.detail.QuestionDetailActivity.Companion.E
 import com.hodzi.stackviewer.utils.Shared
 import com.hodzi.stackviewer.utils.Strings
 import com.hodzi.stackviewer.utils.Vote
-import com.hodzi.stackviewer.core.BasePresenter
 import io.reactivex.Observable
 
 class QuestionDetailPresenter(private val questionsInteractor: QuestionsInteractor,
                               val shared: Shared) :
-    BasePresenter<QuestionDetailView>() {
+    BasePresenter<QuestionDetailContract.View>(), QuestionDetailContract.Presenter {
 
     lateinit var question: Question
 
@@ -23,7 +23,7 @@ class QuestionDetailPresenter(private val questionsInteractor: QuestionsInteract
         question = bundle?.getSerializable(EXTRA_QUESTION) as Question
     }
 
-    override fun attach(view: QuestionDetailView, bundle: Bundle?) {
+    override fun attach(view: QuestionDetailContract.View, bundle: Bundle?) {
         super.attach(view, bundle)
         this.view?.showQuestion(question)
     }
@@ -35,7 +35,7 @@ class QuestionDetailPresenter(private val questionsInteractor: QuestionsInteract
             })
     }
 
-    fun vote(id: Int, vote: Vote) {
+    override fun vote(id: Int, vote: Vote) {
         if (Strings.isEmptyString(shared.getToken())) {
             view?.goToAuth()
             return
