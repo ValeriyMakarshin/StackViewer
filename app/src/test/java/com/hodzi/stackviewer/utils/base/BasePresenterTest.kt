@@ -3,7 +3,6 @@ package com.hodzi.stackviewer.utils.base
 import android.os.Bundle
 import com.hodzi.stackviewer.RxHook
 import com.hodzi.stackviewer.core.BasePresenter
-import com.hodzi.stackviewer.core.BaseView
 import com.hodzi.stackviewer.model.Block
 import com.hodzi.stackviewer.model.Data
 import com.hodzi.stackviewer.utils.Generator

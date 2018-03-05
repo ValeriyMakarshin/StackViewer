@@ -18,8 +18,8 @@ import com.hodzi.stackviewer.utils.ui.ActivityListInfo
 import javax.inject.Inject
 
 
-abstract class BaseFragment<V : BaseView, P : BasePresenter<V>> : Fragment(), BaseView,
-    SwipeRefreshLayout.OnRefreshListener {
+abstract class BaseFragment<in V : BaseContract.View, P : BaseContract.Presenter<V>> : Fragment(),
+    BaseContract.View, SwipeRefreshLayout.OnRefreshListener {
     @Inject protected lateinit var presenter: P
     protected var activityListInfo: ActivityListInfo? = null
 

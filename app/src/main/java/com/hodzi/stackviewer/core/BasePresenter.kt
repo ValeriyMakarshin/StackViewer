@@ -10,15 +10,14 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 
 
-abstract class BasePresenter<V : BaseView> {
+abstract class BasePresenter<V : BaseContract.View> : BaseContract.Presenter<V> {
     var view: V? = null
     protected var bundle: Bundle? = null
 
     var disposableList: Disposable? = null
     var disposableData: Disposable? = null
 
-    @CallSuper
-    open fun attach(view: V, bundle: Bundle? = null) {
+    @CallSuper override fun attach(view: V, bundle: Bundle?) {
         this.view = view
         if (bundle != null) {
             parseArguments(bundle)
@@ -26,12 +25,11 @@ abstract class BasePresenter<V : BaseView> {
         loadData()
     }
 
-    @CallSuper
-    open fun parseArguments(extras: Bundle) {
+    @CallSuper open fun parseArguments(extras: Bundle) {
         this.bundle = extras
     }
 
-    open fun loadData() {
+    override fun loadData() {
 
     }
 
@@ -87,7 +85,7 @@ abstract class BasePresenter<V : BaseView> {
                 })
     }
 
-    fun detach() {
+    override fun detach() {
         unsubscribeSubscription()
     }
 
