@@ -5,7 +5,7 @@ import com.hodzi.stackviewer.main.MainActivity
 import dagger.Subcomponent
 
 @StackScope
-@Subcomponent(modules = arrayOf(MainModule::class))
+@Subcomponent(modules = [(MainModule::class)])
 interface MainComponent {
     fun inject(mainActivity: MainActivity)
 }

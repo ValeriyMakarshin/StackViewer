@@ -5,7 +5,7 @@ import com.hodzi.stackviewer.tags.TagsFragment
 import dagger.Subcomponent
 
 @StackScope
-@Subcomponent(modules = arrayOf(TagsModule::class))
+@Subcomponent(modules = [(TagsModule::class)])
 interface TagsComponent {
     fun inject(tagsFragment: TagsFragment)
 }

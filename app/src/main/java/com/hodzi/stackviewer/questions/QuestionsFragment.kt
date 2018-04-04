@@ -22,7 +22,7 @@ import kotlinx.android.synthetic.main.view_refresh_button.*
 class QuestionsFragment : BaseFragment<QuestionContract.View, QuestionsPresenter>(),
     QuestionContract.View, OnClickListener<Question> {
     override fun onClick(item: Question) {
-        Navigator.questionDetail(context, item)
+        context?.let { Navigator.questionDetail(it, item) }
     }
 
     override fun getAdapter(array: Array<*>): BaseRAdapter<*, out BaseHolder<*>>? {
@@ -33,7 +33,7 @@ class QuestionsFragment : BaseFragment<QuestionContract.View, QuestionsPresenter
         activityListInfo = ActivityListInfo(uiProgressBar, uiQuestionsRv,
             uiQuestionsSrl, uiRefreshBt))
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         Injector.inject(this)
         return super.onCreateView(inflater, container, savedInstanceState)

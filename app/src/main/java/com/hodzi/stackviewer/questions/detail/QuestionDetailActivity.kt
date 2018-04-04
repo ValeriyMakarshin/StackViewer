@@ -43,7 +43,7 @@ class QuestionDetailActivity :
     override fun showQuestion(question: Question) {
         uiTitleTv.text = question.title
         uiPointsTv.text = "${question.score}"
-        uiTagsTv.text = question.tags.joinToString { s: String -> s + ", " }
+        uiTagsTv.text = question.tags.joinToString { s: String -> "$s, " }
         uiBodyWv.loadDataWithBaseURL(null, question.body, "text/html",
             "utf-8", null)
 

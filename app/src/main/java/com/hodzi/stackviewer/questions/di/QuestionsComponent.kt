@@ -6,7 +6,7 @@ import com.hodzi.stackviewer.questions.detail.QuestionDetailActivity
 import dagger.Subcomponent
 
 @StackScope
-@Subcomponent(modules = arrayOf(QuestionsModule::class))
+@Subcomponent(modules = [(QuestionsModule::class)])
 interface QuestionsComponent {
     fun inject(questionsFragment: QuestionsFragment)
 

@@ -5,7 +5,7 @@ import com.hodzi.stackviewer.login.LoginActivity
 import dagger.Subcomponent
 
 @StackScope
-@Subcomponent(modules = arrayOf(AuthModule::class))
+@Subcomponent(modules = [(AuthModule::class)])
 interface AuthComponent{
     fun inject(loginActivity: LoginActivity)
 }

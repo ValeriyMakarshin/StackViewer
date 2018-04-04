@@ -17,7 +17,6 @@ import com.hodzi.stackviewer.utils.ui.ActivityInfo
 import com.hodzi.stackviewer.utils.ui.ActivityListInfo
 import javax.inject.Inject
 
-
 abstract class BaseFragment<in V : BaseContract.View, P : BaseContract.Presenter<V>> : Fragment(),
     BaseContract.View, SwipeRefreshLayout.OnRefreshListener {
     @Inject protected lateinit var presenter: P
@@ -25,13 +24,14 @@ abstract class BaseFragment<in V : BaseContract.View, P : BaseContract.Presenter
 
     protected abstract fun getActivityInfo(): ActivityInfo
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? =
-        inflater?.inflate(getActivityInfo().layoutId, container, false)
+        inflater.inflate(getActivityInfo().layoutId, container, false)
 
     @CallSuper
     @Suppress("UNCHECKED_CAST")
-    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         activityListInfo = getActivityInfo().activityListInfo
@@ -99,11 +99,11 @@ abstract class BaseFragment<in V : BaseContract.View, P : BaseContract.Presenter
     }
 
     override fun hideKeyboard() {
-        KeyboardUtil.hide(activity)
+        activity?.let { KeyboardUtil.hide(it) }
     }
 
     override fun finish() {
-        activity.onBackPressed()
+        activity?.onBackPressed()
     }
 
     override fun showError(throwable: Throwable) {

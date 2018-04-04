@@ -9,7 +9,7 @@ interface QuestionDetailContract {
         fun goToAuth()
     }
 
-    interface View : BaseContract.View {
+    interface View : BaseContract.View, Navigator {
         fun showQuestion(question: Question)
 
         fun voiceAccepted()

@@ -14,8 +14,9 @@ import com.hodzi.stackviewer.users.di.UsersModule
 import dagger.Component
 import javax.inject.Singleton
 
+
 @Singleton
-@Component(modules = arrayOf(AppModule::class, NetModule::class))
+@Component(modules = [(AppModule::class), (NetModule::class)])
 interface AppComponent {
 
     fun inject(app: App)

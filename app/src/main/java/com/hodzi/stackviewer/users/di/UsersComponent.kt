@@ -6,7 +6,7 @@ import com.hodzi.stackviewer.users.detail.UserDetailActivity
 import dagger.Subcomponent
 
 @StackScope
-@Subcomponent(modules = arrayOf(UsersModule::class))
+@Subcomponent(modules = [(UsersModule::class)])
 interface UsersComponent {
     fun inject(usersFragment: UsersFragment)
     fun inject(userDetailActivity: UserDetailActivity)
