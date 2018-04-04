@@ -10,12 +10,12 @@ def versionBuild = 6
 def versionSuffix = versionBuild > 0 ? "-beta" : ""
 
 android {
-    compileSdkVersion 26
-    buildToolsVersion '26.0.2'
+    compileSdkVersion 27
+    buildToolsVersion '27.0.3'
     defaultConfig {
         applicationId "com.hodzi.stackviewer"
         minSdkVersion 18
-        targetSdkVersion 26
+        targetSdkVersion 27
         versionCode versionMajor * 10000 + versionMinor * 1000 + versionPatch * 100 + versionBuild
         versionName "${versionMajor}.${versionMinor}.${versionPatch}.${versionBuild}${versionSuffix}"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -74,10 +74,6 @@ androidExtensions {
     experimental = true
 }
 
-kapt {
-//    generateStubs = true
-}
-
 apply from: 'deps.gradle'
 
 dependencies {
@@ -90,19 +86,16 @@ dependencies {
     implementation daggerLibs
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     implementation 'com.github.bumptech.glide:glide:4.2.0'
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
     kapt kaptLibs
     kapt 'com.github.bumptech.glide:compiler:4.2.0'
     kapt 'com.google.dagger:dagger-compiler:2.11'
-
     testImplementation testsLibs
     testImplementation kotlinTestLibs
     testImplementation 'junit:junit:4.12'
-
     androidTestImplementation androidTestsLibs
     androidTestImplementation 'com.android.support.test.uiautomator:uiautomator-v18:2.1.3'
 }
+
 repositories {
     mavenCentral()
     maven {
