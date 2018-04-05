@@ -4,13 +4,15 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import com.hodzi.stackviewer.R
+import com.hodzi.stackviewer.core.BaseActivity
 import com.hodzi.stackviewer.di.Injector
 import com.hodzi.stackviewer.model.User
-import com.hodzi.stackviewer.core.BaseActivity
 import com.hodzi.stackviewer.utils.ui.ActivityInfo
 
 
-class UserDetailActivity : BaseActivity<UserDetailView, UserDetailPresenter>(), UserDetailView {
+class UserDetailActivity : BaseActivity<UserDetailContract.View, UserDetailContract.Presenter>(),
+    UserDetailContract.View {
+
     companion object {
         const val EXTRA_USER_ID = "extraUser"
 

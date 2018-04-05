@@ -8,6 +8,8 @@ import dagger.Subcomponent
 @StackScope
 @Subcomponent(modules = [(UsersModule::class)])
 interface UsersComponent {
+
     fun inject(usersFragment: UsersFragment)
+
     fun inject(userDetailActivity: UserDetailActivity)
 }

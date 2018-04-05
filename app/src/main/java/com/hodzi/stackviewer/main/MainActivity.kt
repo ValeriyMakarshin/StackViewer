@@ -10,24 +10,23 @@ import android.support.v7.app.ActionBarDrawerToggle
 import android.view.Menu
 import android.view.MenuItem
 import com.hodzi.stackviewer.R
+import com.hodzi.stackviewer.core.BaseActivity
 import com.hodzi.stackviewer.di.Injector
 import com.hodzi.stackviewer.login.LoginActivity
 import com.hodzi.stackviewer.questions.QuestionsFragment
 import com.hodzi.stackviewer.tags.TagsFragment
 import com.hodzi.stackviewer.users.UsersFragment
-import com.hodzi.stackviewer.core.BaseActivity
 import com.hodzi.stackviewer.utils.ui.ActivityInfo
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.view_toolbar.*
 
-class MainActivity : BaseActivity<MainView, MainPresenter>(),
-    MainView, NavigationView.OnNavigationItemSelectedListener {
+class MainActivity : BaseActivity<MainContract.View, MainContract.Presenter>(),
+    MainContract.View, NavigationView.OnNavigationItemSelectedListener {
     companion object {
         private const val SCREEN_KEY = "screenKey"
     }
 
     private var lastScreen: Int = 0
-
 
     override fun getActivityInfo(): ActivityInfo =
         ActivityInfo(R.layout.activity_main, uiToolbar, R.string.app_name)
