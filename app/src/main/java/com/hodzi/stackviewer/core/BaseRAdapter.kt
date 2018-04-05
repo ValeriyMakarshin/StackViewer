@@ -5,9 +5,9 @@ import android.view.ViewGroup
 import com.hodzi.stackviewer.utils.OnClickListener
 
 abstract class BaseRAdapter<T : Any, VH : BaseHolder<T>>(array: Array<T>,
-                                                                                    val creator: (ViewGroup?) -> VH,
-                                                                                    val onClickListener: OnClickListener<T>? =
-                                                         null) :
+                                                         val creator: (ViewGroup?) -> VH,
+                                                         val onClickListener: OnClickListener<T>? =
+                                                             null) :
     RecyclerView.Adapter<VH>() {
     var items: Array<T> = array
         set(value) {
@@ -22,7 +22,7 @@ abstract class BaseRAdapter<T : Any, VH : BaseHolder<T>>(array: Array<T>,
         holder.setClickListener(onClickListener)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): VH = creator(parent)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): VH = creator(parent)
 
     fun updateList(array: Array<*>) {
         items = array as Array<T>

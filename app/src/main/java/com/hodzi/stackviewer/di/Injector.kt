@@ -31,7 +31,7 @@ class Injector {
         }
 
         fun inject(questionsFragment: QuestionsFragment) {
-            getQuestionsComponent(questionsFragment.context).inject(questionsFragment)
+            questionsFragment.context?.let { getQuestionsComponent(it).inject(questionsFragment) }
         }
 
         fun inject(questionDetailActivity: QuestionDetailActivity) {
@@ -39,11 +39,11 @@ class Injector {
         }
 
         fun inject(tagsFragment: TagsFragment) {
-            getTagsComponent(tagsFragment.context).inject(tagsFragment)
+            tagsFragment.context?.let { getTagsComponent(it).inject(tagsFragment) }
         }
 
         fun inject(usersFragment: UsersFragment) {
-            getUsersComponent(usersFragment.context).inject(usersFragment)
+            usersFragment.context?.let { getUsersComponent(it).inject(usersFragment) }
         }
 
         fun inject(userDetailActivity: UserDetailActivity) {

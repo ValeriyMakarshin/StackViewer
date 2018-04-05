@@ -19,7 +19,7 @@ import kotlinx.android.synthetic.main.fragment_questions.*
 import kotlinx.android.synthetic.main.view_progress_bar.*
 import kotlinx.android.synthetic.main.view_refresh_button.*
 
-class QuestionsFragment : BaseFragment<QuestionContract.View, QuestionsPresenter>(),
+class QuestionsFragment : BaseFragment<QuestionContract.View, QuestionContract.Presenter>(),
     QuestionContract.View, OnClickListener<Question> {
     override fun onClick(item: Question) {
         context?.let { Navigator.questionDetail(it, item) }
